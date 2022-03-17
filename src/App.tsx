@@ -1,45 +1,29 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import { useForm } from "react-hook-form";
+import DateSelect from "./DateSelect";
+
+type FormData = {
+  date: string;
+};
 
 function App() {
-  const [count, setCount] = useState(0)
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<FormData>();
+  const onSubmit = (data: FormData) => console.log(data);
+
+  console.log(watch("date")); // watch input value by passing the name of it
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
-    </div>
-  )
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <DateSelect {...register("date", { required: true })} />
+      {errors.date && <span>This field is required</span>}
+
+      <input type="submit" />
+    </form>
+  );
 }
 
-export default App
+export default App;
