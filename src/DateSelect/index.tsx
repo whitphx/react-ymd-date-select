@@ -21,7 +21,7 @@ const DateSelect = React.forwardRef<HTMLInputElement, DateSelectProps>(
 
     return (
       <input
-        type="text"
+        type="date"
         ref={ref}
         {...restProps}
         value={value}
