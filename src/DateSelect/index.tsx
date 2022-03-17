@@ -1,10 +1,33 @@
-import React from "react";
+import React, { useState, useCallback } from "react";
 
-interface DateSelectProps extends React.HTMLProps<HTMLInputElement> {}
+type HTMLInputProps = React.InputHTMLAttributes<HTMLInputElement>;
+interface DateSelectProps extends HTMLInputProps {}
 
 const DateSelect = React.forwardRef<HTMLInputElement, DateSelectProps>(
   (props, ref) => {
-    return <input type="text" ref={ref} {...props} />;
+    const { onChange, ...restProps } = props;
+
+    const [value, setValue] = useState("");
+    const handleChange = useCallback<NonNullable<HTMLInputProps["onChange"]>>(
+      (e) => {
+        setValue(e.target.value);
+
+        if (onChange) {
+          onChange(e);
+        }
+      },
+      [onChange]
+    );
+
+    return (
+      <input
+        type="text"
+        ref={ref}
+        {...restProps}
+        value={value}
+        onChange={handleChange}
+      />
+    );
   }
 );
 
