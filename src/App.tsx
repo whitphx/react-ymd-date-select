@@ -1,4 +1,4 @@
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import DateSelect from "./DateSelect";
 
 type FormData = {
@@ -7,7 +7,7 @@ type FormData = {
 
 function App() {
   const {
-    register,
+    control,
     handleSubmit,
     watch,
     formState: { errors },
@@ -18,7 +18,12 @@ function App() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <DateSelect {...register("date", { required: true })} />
+      <Controller
+        name="date"
+        control={control}
+        rules={{ required: true }}
+        render={({ field }) => <DateSelect {...field} />}
+      />
       {errors.date && <span>This field is required</span>}
 
       <input type="submit" />

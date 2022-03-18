@@ -1,9 +1,13 @@
-import React, { useState, useCallback, useReducer, useEffect } from "react";
+import React, { useCallback, useReducer, useEffect } from "react";
 import { range } from "./range";
 import { compileDateString } from "./date-string";
 
-type HTMLInputProps = React.InputHTMLAttributes<HTMLInputElement>;
-interface DateSelectProps extends HTMLInputProps {}
+interface DateSelectProps {
+  value: string;
+  onChange: (value: string) => void;
+  name?: string;
+  onBlur?: () => void;
+}
 
 const yearLabels = range(1960, 2000).map((i) => i.toString()); // TODO: Be configurable
 const monthLabels = range(1, 12).map((i) => i.toString());
@@ -91,19 +95,10 @@ const useDateSelect = () => {
 
 const DateSelect = React.forwardRef<HTMLInputElement, DateSelectProps>(
   (props, ref) => {
-    const { onChange, ...restProps } = props;
+    // Ref is forwarded, but it is intended to be used with react-hook-form's <Controller /> to focus the input when error occurs.
+    // This component is still controlled even if ref is here.
 
-    const [value, setValue] = useState("");
-    const handleChange = useCallback<NonNullable<HTMLInputProps["onChange"]>>(
-      (e) => {
-        setValue(e.target.value);
-
-        if (onChange) {
-          onChange(e);
-        }
-      },
-      [onChange]
-    );
+    const { onChange, value } = props;
 
     const {
       state: dateState,
@@ -115,6 +110,7 @@ const DateSelect = React.forwardRef<HTMLInputElement, DateSelectProps>(
     useEffect(() => {
       if (dateState.dateString !== value) {
         console.log("Set", dateState.dateString);
+        onChange(dateState.dateString || "");
       }
     }, [dateState.dateString, value]);
 
@@ -122,10 +118,14 @@ const DateSelect = React.forwardRef<HTMLInputElement, DateSelectProps>(
       <>
         <input
           type="date"
+          value={value || ""}
+          onChange={useCallback<React.ChangeEventHandler<HTMLInputElement>>(
+            (e) => {
+              onChange(e.target.value);
+            },
+            []
+          )}
           ref={ref}
-          {...restProps}
-          value={value}
-          onChange={handleChange}
         />
 
         <select value={dateState.yearValue} onChange={handleYearChange}>
