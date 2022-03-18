@@ -27,6 +27,7 @@ const DateSelect = React.forwardRef<HTMLInputElement, DateSelectProps>(
       onYearChange,
       onMonthChange,
       onDayChange,
+      onDateChange,
     } = useDateSelect();
 
     useEffect(() => {
@@ -42,6 +43,7 @@ const DateSelect = React.forwardRef<HTMLInputElement, DateSelectProps>(
           value={value || ""}
           onChange={useCallback<React.ChangeEventHandler<HTMLInputElement>>(
             (e) => {
+              onDateChange(e);
               onChange(e.target.value);
             },
             []

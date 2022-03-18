@@ -24,3 +24,16 @@ export function compileDateString(year: number, month: number, day: number): str
 
   return dateString
 }
+
+export function parseDateString(dateString: string): { year: string, month: string, day: string } {
+  const date = new Date(dateString);
+  const year = date.getFullYear()
+  const month = date.getMonth() + 1
+  const day = date.getDate()
+
+  if (isNaN(year) || isNaN(month) || isNaN(day)) {
+    return { year: "", month: "", day: "" }
+  }
+
+  return { year: year.toString(), month: month.toString(), day: day.toString() }
+}
