@@ -12,53 +12,23 @@ interface DateSelectState {
 interface DateSelectActionBase {
   type: string;
 }
-interface SetYearAction extends DateSelectActionBase {
-  type: "SET_YEAR";
-  year: string;
-}
-interface SetMonthAction extends DateSelectActionBase {
-  type: "SET_MONTH";
-  month: string;
-}
-interface SetDayAction extends DateSelectActionBase {
-  type: "SET_DAY";
-  day: string;
-}
 interface SetDateAction extends DateSelectActionBase {
   type: "SET_DATE";
-  year: string;
-  month: string;
-  day: string;
+  year?: string;
+  month?: string;
+  day?: string;
 }
-type DateSelectAction = SetYearAction | SetMonthAction | SetDayAction | SetDateAction;
+type DateSelectAction = SetDateAction;
 const dateSelectReducer: React.Reducer<DateSelectState, DateSelectAction> = (
   state,
   action
 ) => {
   let yearValue: string, monthValue: string, dayValue: string;
   switch (action.type) {
-    case "SET_YEAR": {
-      yearValue = action.year;
-      monthValue = state.monthValue;
-      dayValue = state.dayValue;
-      break;
-    }
-    case "SET_MONTH": {
-      yearValue = state.yearValue;
-      monthValue = action.month;
-      dayValue = state.dayValue;
-      break;
-    }
-    case "SET_DAY": {
-      yearValue = state.yearValue;
-      monthValue = state.monthValue;
-      dayValue = action.day;
-      break;
-    }
-    case "SET_DATE": {
-      yearValue = action.year;
-      monthValue = action.month;
-      dayValue = action.day;
+    case "SET_DATE": {  // TODO: `useState` is sufficient?
+      yearValue = action.year || state.yearValue;
+      monthValue = action.month || state.monthValue;
+      dayValue = action.day || state.dayValue;
     }
   }
 
@@ -86,11 +56,11 @@ export const useDateSelect = () => {
   return {
     state,
     onYearChange: useCallback((e: React.ChangeEvent<HTMLSelectElement>) =>
-      dispatch({ type: "SET_YEAR", year: e.target.value }), []),
+      dispatch({ type: "SET_DATE", year: e.target.value }), []),
     onMonthChange: useCallback((e: React.ChangeEvent<HTMLSelectElement>) =>
-      dispatch({ type: "SET_MONTH", month: e.target.value }), []),
+      dispatch({ type: "SET_DATE", month: e.target.value }), []),
     onDayChange: useCallback((e: React.ChangeEvent<HTMLSelectElement>) =>
-      dispatch({ type: "SET_DAY", day: e.target.value }), []),
+      dispatch({ type: "SET_DATE", day: e.target.value }), []),
     onDateChange: useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
       const { year, month, day } = parseDateString(e.target.value)
       dispatch({ type: "SET_DATE", year, month, day })
