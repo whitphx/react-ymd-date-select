@@ -74,11 +74,11 @@ export const useDateSelect = () => {
 
   return {
     state,
-    handleYearChange: useCallback((e: React.ChangeEvent<HTMLSelectElement>) =>
+    onYearChange: useCallback((e: React.ChangeEvent<HTMLSelectElement>) =>
       dispatch({ type: "SET_YEAR", year: e.target.value }), []),
-    handleMonthChange: useCallback((e: React.ChangeEvent<HTMLSelectElement>) =>
+    onMonthChange: useCallback((e: React.ChangeEvent<HTMLSelectElement>) =>
       dispatch({ type: "SET_MONTH", month: e.target.value }), []),
-    handleDayChange: useCallback((e: React.ChangeEvent<HTMLSelectElement>) =>
+    onDayChange: useCallback((e: React.ChangeEvent<HTMLSelectElement>) =>
       dispatch({ type: "SET_DAY", day: e.target.value }), []),
   };
 };

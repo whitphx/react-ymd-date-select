@@ -22,9 +22,9 @@ const DateSelect = React.forwardRef<HTMLInputElement, DateSelectProps>(
 
     const {
       state: dateState,
-      handleYearChange,
-      handleMonthChange,
-      handleDayChange,
+      onYearChange,
+      onMonthChange,
+      onDayChange,
     } = useDateSelect();
 
     useEffect(() => {
@@ -47,7 +47,7 @@ const DateSelect = React.forwardRef<HTMLInputElement, DateSelectProps>(
           ref={ref}
         />
 
-        <select value={dateState.yearValue} onChange={handleYearChange}>
+        <select value={dateState.yearValue} onChange={onYearChange}>
           <option value="" disabled></option>
           {yearLabels.map((yearLabel) => (
             <option key={yearLabel} value={yearLabel}>
@@ -55,7 +55,7 @@ const DateSelect = React.forwardRef<HTMLInputElement, DateSelectProps>(
             </option>
           ))}
         </select>
-        <select value={dateState.monthValue} onChange={handleMonthChange}>
+        <select value={dateState.monthValue} onChange={onMonthChange}>
           <option value="" disabled></option>
           {monthLabels.map((monthLabel) => (
             <option key={monthLabel} value={monthLabel}>
@@ -63,7 +63,7 @@ const DateSelect = React.forwardRef<HTMLInputElement, DateSelectProps>(
             </option>
           ))}
         </select>
-        <select value={dateState.dayValue} onChange={handleDayChange}>
+        <select value={dateState.dayValue} onChange={onDayChange}>
           <option value="" disabled></option>
           {dayLabels.map((dayLabel) => (
             <option key={dayLabel} value={dayLabel}>
