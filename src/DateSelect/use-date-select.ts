@@ -1,6 +1,10 @@
-import { useCallback, useReducer } from "react";
+import { useCallback, useReducer, useMemo } from "react";
+import { range } from "./range";
 import { compileDateString, parseDateString } from "./date-string";
 
+// TODO: Be compatible with React-Select (https://github.com/JedWatson/react-select)
+const monthOptions = range(1, 12).map((i) => i.toString());
+const dayOptions = range(1, 31).map((i) => i.toString());
 
 interface DateSelectState {
   yearValue: string; // It's of type string because it's <select />'s value.
@@ -45,7 +49,11 @@ const dateSelectReducer: React.Reducer<DateSelectState, DateSelectAction> = (
 };
 
 
-export const useDateSelect = () => {
+interface UseDateSelectOptions {
+  minYear: number;
+  maxYear: number;
+}
+export const useDateSelect = (opts: UseDateSelectOptions) => {
   const [state, dispatch] = useReducer(dateSelectReducer, {
     yearValue: "",
     monthValue: "",
@@ -53,8 +61,14 @@ export const useDateSelect = () => {
     dateString: null,
   });
 
+  // TODO: Be compatible with React-Select (https://github.com/JedWatson/react-select)
+  const yearOptions = useMemo(() => range(opts.minYear, opts.maxYear).map((i) => i.toString()), [opts.minYear, opts.maxYear]);
+
   return {
     state,
+    yearOptions,
+    monthOptions,
+    dayOptions,
     onYearChange: useCallback((e: React.ChangeEvent<HTMLSelectElement>) =>
       dispatch({ type: "SET_DATE", year: e.target.value }), []),
     onMonthChange: useCallback((e: React.ChangeEvent<HTMLSelectElement>) =>

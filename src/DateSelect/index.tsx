@@ -1,5 +1,4 @@
-import React, { useCallback, useReducer, useEffect } from "react";
-import { range } from "./range";
+import React, { useCallback, useEffect } from "react";
 import { useDateSelect } from "./use-date-select";
 
 interface DateSelectProps {
@@ -8,12 +7,6 @@ interface DateSelectProps {
   name?: string;
   onBlur?: () => void;
 }
-
-// TODO: Be configurable
-// TODO: Be compatible with React-Select (https://github.com/JedWatson/react-select)
-const yearLabels = range(1960, 2000).map((i) => i.toString());
-const monthLabels = range(1, 12).map((i) => i.toString());
-const dayLabels = range(1, 31).map((i) => i.toString());
 
 const DateSelect = React.forwardRef<HTMLInputElement, DateSelectProps>(
   (props, ref) => {
@@ -24,11 +17,14 @@ const DateSelect = React.forwardRef<HTMLInputElement, DateSelectProps>(
 
     const {
       state: dateState,
+      yearOptions,
+      monthOptions,
+      dayOptions,
       onYearChange,
       onMonthChange,
       onDayChange,
       onDateChange,
-    } = useDateSelect();
+    } = useDateSelect({ minYear: 1960, maxYear: 2000 }); // TODO: Be configurable
 
     useEffect(() => {
       if (dateState.dateString !== value) {
@@ -53,7 +49,7 @@ const DateSelect = React.forwardRef<HTMLInputElement, DateSelectProps>(
 
         <select value={dateState.yearValue} onChange={onYearChange}>
           <option value="" disabled></option>
-          {yearLabels.map((yearLabel) => (
+          {yearOptions.map((yearLabel) => (
             <option key={yearLabel} value={yearLabel}>
               {yearLabel}
             </option>
@@ -61,7 +57,7 @@ const DateSelect = React.forwardRef<HTMLInputElement, DateSelectProps>(
         </select>
         <select value={dateState.monthValue} onChange={onMonthChange}>
           <option value="" disabled></option>
-          {monthLabels.map((monthLabel) => (
+          {monthOptions.map((monthLabel) => (
             <option key={monthLabel} value={monthLabel}>
               {monthLabel}
             </option>
@@ -69,7 +65,7 @@ const DateSelect = React.forwardRef<HTMLInputElement, DateSelectProps>(
         </select>
         <select value={dateState.dayValue} onChange={onDayChange}>
           <option value="" disabled></option>
-          {dayLabels.map((dayLabel) => (
+          {dayOptions.map((dayLabel) => (
             <option key={dayLabel} value={dayLabel}>
               {dayLabel}
             </option>
