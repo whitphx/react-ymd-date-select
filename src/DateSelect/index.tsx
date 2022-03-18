@@ -9,7 +9,9 @@ interface DateSelectProps {
   onBlur?: () => void;
 }
 
-const yearLabels = range(1960, 2000).map((i) => i.toString()); // TODO: Be configurable
+// TODO: Be configurable
+// TODO: Be compatible with React-Select (https://github.com/JedWatson/react-select)
+const yearLabels = range(1960, 2000).map((i) => i.toString());
 const monthLabels = range(1, 12).map((i) => i.toString());
 const dayLabels = range(1, 31).map((i) => i.toString());
 
