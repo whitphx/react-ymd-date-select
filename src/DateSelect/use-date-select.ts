@@ -80,12 +80,18 @@ export const useDateSelect = (opts: UseDateSelectOptions) => {
     yearOptions,
     monthOptions,
     dayOptions,
-    onYearChange: useCallback((e: React.ChangeEvent<HTMLSelectElement>) =>
-      dispatch({ type: "SET_DATE", year: e.target.value }), []),
-    onMonthChange: useCallback((e: React.ChangeEvent<HTMLSelectElement>) =>
-      dispatch({ type: "SET_DATE", month: e.target.value }), []),
-    onDayChange: useCallback((e: React.ChangeEvent<HTMLSelectElement>) =>
-      dispatch({ type: "SET_DATE", day: e.target.value }), []),
+    onYearChange: useCallback((e: React.ChangeEvent<HTMLSelectElement> | string) => {
+      const value = typeof e === "string" ? e : e.target.value;
+      dispatch({ type: "SET_DATE", year: value })
+    }, []),
+    onMonthChange: useCallback((e: React.ChangeEvent<HTMLSelectElement> | string) => {
+      const value = typeof e === "string" ? e : e.target.value;
+      dispatch({ type: "SET_DATE", month: value })
+    }, []),
+    onDayChange: useCallback((e: React.ChangeEvent<HTMLSelectElement> | string) => {
+      const value = typeof e === "string" ? e : e.target.value;
+      dispatch({ type: "SET_DATE", day: value })
+    }, []),
     dateValue: state.dateString,
     onDateChange: useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
       const { year, month, day } = parseDateString(e.target.value)
