@@ -62,7 +62,13 @@ export const useDateSelect = (opts: UseDateSelectOptions) => {
   });
 
   // TODO: Be compatible with React-Select (https://github.com/JedWatson/react-select)
-  const yearOptions = useMemo(() => range(opts.minYear, opts.maxYear).map((i) => i.toString()), [opts.minYear, opts.maxYear]);
+  const yearOptions = useMemo(() => {
+    const raw = range(opts.minYear, opts.maxYear).map((i) => i.toString());
+    if (!raw.includes(state.yearValue)) {
+      return raw.concat(state.yearValue)
+    }
+    return raw
+  }, [opts.minYear, opts.maxYear, state.yearValue]);
 
   return {
     state,
