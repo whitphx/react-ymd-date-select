@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect } from "react";
 import { useDateSelect } from "./use-date-select";
-import DateDropdown from "./DateDropdown";
+import DateDropdown from "./presets/vanilla/DateDropdown";
 
 interface DateSelectProps {
   value: string;
