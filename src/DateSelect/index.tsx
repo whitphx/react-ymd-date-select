@@ -16,21 +16,24 @@ const DateSelect = React.forwardRef<HTMLInputElement, DateSelectProps>(
     const { onChange, value } = props;
 
     const {
-      state: dateState,
+      yearValue,
+      monthValue,
+      dayValue,
       yearOptions,
       monthOptions,
       dayOptions,
       onYearChange,
       onMonthChange,
       onDayChange,
+      dateValue,
       onDateChange,
     } = useDateSelect({ minYear: 1960, maxYear: 2000 }); // TODO: Be configurable
 
     useEffect(() => {
-      if (dateState.dateString !== value) {
-        onChange(dateState.dateString || "");
+      if (dateValue !== value) {
+        onChange(dateValue || "");
       }
-    }, [dateState.dateString, value]);
+    }, [dateValue, value]);
 
     return (
       <>
@@ -47,7 +50,7 @@ const DateSelect = React.forwardRef<HTMLInputElement, DateSelectProps>(
           ref={ref}
         />
 
-        <select value={dateState.yearValue} onChange={onYearChange}>
+        <select value={yearValue} onChange={onYearChange}>
           <option value="" disabled></option>
           {yearOptions.map((yearLabel) => (
             <option key={yearLabel} value={yearLabel}>
@@ -55,7 +58,7 @@ const DateSelect = React.forwardRef<HTMLInputElement, DateSelectProps>(
             </option>
           ))}
         </select>
-        <select value={dateState.monthValue} onChange={onMonthChange}>
+        <select value={monthValue} onChange={onMonthChange}>
           <option value="" disabled></option>
           {monthOptions.map((monthLabel) => (
             <option key={monthLabel} value={monthLabel}>
@@ -63,7 +66,7 @@ const DateSelect = React.forwardRef<HTMLInputElement, DateSelectProps>(
             </option>
           ))}
         </select>
-        <select value={dateState.dayValue} onChange={onDayChange}>
+        <select value={dayValue} onChange={onDayChange}>
           <option value="" disabled></option>
           {dayOptions.map((dayLabel) => (
             <option key={dayLabel} value={dayLabel}>

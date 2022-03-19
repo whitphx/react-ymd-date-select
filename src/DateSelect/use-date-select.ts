@@ -71,7 +71,9 @@ export const useDateSelect = (opts: UseDateSelectOptions) => {
   }, [opts.minYear, opts.maxYear, state.yearValue]);
 
   return {
-    state,
+    yearValue: state.yearValue,
+    monthValue: state.monthValue,
+    dayValue: state.dayValue,
     yearOptions,
     monthOptions,
     dayOptions,
@@ -81,6 +83,7 @@ export const useDateSelect = (opts: UseDateSelectOptions) => {
       dispatch({ type: "SET_DATE", month: e.target.value }), []),
     onDayChange: useCallback((e: React.ChangeEvent<HTMLSelectElement>) =>
       dispatch({ type: "SET_DATE", day: e.target.value }), []),
+    dateValue: state.dateString,
     onDateChange: useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
       const { year, month, day } = parseDateString(e.target.value)
       dispatch({ type: "SET_DATE", year, month, day })
