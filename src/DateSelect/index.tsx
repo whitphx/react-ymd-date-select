@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect } from "react";
 import { useDateSelect } from "./use-date-select";
+import DateDropdown from "./DateDropdown";
 
 interface DateSelectProps {
   value: string;
@@ -49,31 +50,17 @@ const DateSelect = React.forwardRef<HTMLInputElement, DateSelectProps>(
           )}
           ref={ref}
         />
-
-        <select value={yearValue} onChange={onYearChange}>
-          <option value="" disabled></option>
-          {yearOptions.map((yearLabel) => (
-            <option key={yearLabel} value={yearLabel}>
-              {yearLabel}
-            </option>
-          ))}
-        </select>
-        <select value={monthValue} onChange={onMonthChange}>
-          <option value="" disabled></option>
-          {monthOptions.map((monthLabel) => (
-            <option key={monthLabel} value={monthLabel}>
-              {monthLabel}
-            </option>
-          ))}
-        </select>
-        <select value={dayValue} onChange={onDayChange}>
-          <option value="" disabled></option>
-          {dayOptions.map((dayLabel) => (
-            <option key={dayLabel} value={dayLabel}>
-              {dayLabel}
-            </option>
-          ))}
-        </select>
+        <DateDropdown
+          yearValue={yearValue}
+          monthValue={monthValue}
+          dayValue={dayValue}
+          yearOptions={yearOptions}
+          monthOptions={monthOptions}
+          dayOptions={dayOptions}
+          onYearChange={onYearChange}
+          onMonthChange={onMonthChange}
+          onDayChange={onDayChange}
+        />
       </>
     );
   }
