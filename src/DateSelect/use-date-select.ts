@@ -1,10 +1,14 @@
 import { useCallback, useReducer, useMemo } from "react";
 import { range } from "./range";
 import { compileDateString, parseDateString } from "./date-string";
+import { Option, Options } from "./types"
 
-// TODO: Be compatible with React-Select (https://github.com/JedWatson/react-select)
-const monthOptions = range(1, 12).map((i) => i.toString());
-const dayOptions = range(1, 31).map((i) => i.toString());
+function compileOption(value: string): Option {
+  return { value, label: value }  // TODO: Be customizable for localization
+}
+
+const monthOptions: Options = range(1, 12).map((i) => compileOption(i.toString()));
+const dayOptions: Options = range(1, 31).map((i) => compileOption(i.toString()));
 
 interface DateSelectState {
   yearValue: string; // It's of type string because it's <select />'s value.
@@ -61,11 +65,10 @@ export const useDateSelect = (opts: UseDateSelectOptions) => {
     dateString: null,
   });
 
-  // TODO: Be compatible with React-Select (https://github.com/JedWatson/react-select)
   const yearOptions = useMemo(() => {
-    const raw = range(opts.minYear, opts.maxYear).map((i) => i.toString());
-    if (!raw.includes(state.yearValue)) {
-      return raw.concat(state.yearValue)
+    const raw = range(opts.minYear, opts.maxYear).map((i) => { const s = i.toString(); return { value: s, label: s } });
+    if (!raw.some(o => o.value === state.yearValue)) {
+      return raw.concat(compileOption(state.yearValue))
     }
     return raw
   }, [opts.minYear, opts.maxYear, state.yearValue]);
