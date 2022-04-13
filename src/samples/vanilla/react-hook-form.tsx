@@ -1,5 +1,6 @@
 import { useForm, Controller } from "react-hook-form";
-import DateSelect from "../../DateSelect";
+import DateSelect from "../../DateSelect/DateSelect";
+import DateDropdown from "../../DateSelect/presets/vanilla/DateDropdown";
 
 type FormData = {
   date: string;
@@ -22,7 +23,7 @@ function VanillaReactHookFormSample() {
         name="date"
         control={control}
         rules={{ required: true }}
-        render={({ field }) => <DateSelect {...field} />}
+        render={({ field }) => <DateSelect {...field} render={DateDropdown} />}
       />
       {errors.date && <span>This field is required</span>}
 
