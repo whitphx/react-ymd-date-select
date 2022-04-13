@@ -1,8 +1,13 @@
-import { assert, describe, expect, it } from 'vitest'
-import { compileDateString, parseDateString } from "./date-string"
+import { assert, describe, expect, it } from "vitest";
+import { compileDateString, parseDateString } from "./date-string";
 
 describe("compileDateString()", () => {
-  const validCases: [number, number, number, ReturnType<typeof compileDateString>][] = [
+  const validCases: [
+    number,
+    number,
+    number,
+    ReturnType<typeof compileDateString>
+  ][] = [
     [1, 1, 1, "0001-01-01"],
     [1900, 10, 10, "1900-10-10"],
     [2022, 10, 10, "2022-10-10"],
@@ -20,13 +25,13 @@ describe("compileDateString()", () => {
     [NaN, 1, 1, null],
     [2000, NaN, 1, null],
     [NaN, 1, 1, null],
-  ]
+  ];
   validCases.forEach(([year, month, day, expected]) => {
     it(`returns "${expected}" from (year=${year}, month=${month}, day=${day})`, () => {
-      expect(compileDateString(year, month, day)).toEqual(expected)
-    })
-  })
-})
+      expect(compileDateString(year, month, day)).toEqual(expected);
+    });
+  });
+});
 
 describe("parseDateString()", () => {
   const testCases: [string, string, string, string][] = [
@@ -39,10 +44,10 @@ describe("parseDateString()", () => {
     ["2022-01-00", "", "", ""],
     ["2022-13-01", "", "", ""],
     ["2022-01-32", "", "", ""],
-  ]
+  ];
   testCases.forEach(([input, year, month, day]) => {
     it(`returns ({ year: "${year}", month: "${month}", day: "${day}"}) for the input "${input}"`, () => {
-      expect(parseDateString(input)).toEqual({ year, month, day })
-    })
-  })
-})
+      expect(parseDateString(input)).toEqual({ year, month, day });
+    });
+  });
+});
