@@ -1,4 +1,4 @@
-import { useCallback, useReducer, useMemo } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { range } from "./range";
 import { compileDateString, parseDateString } from "./date-string";
 import { Option, Options } from "./types"
@@ -17,53 +17,36 @@ interface DateSelectState {
   dateString: string | null;
 }
 
-interface DateSelectActionBase {
-  type: string;
-}
-interface SetDateAction extends DateSelectActionBase {
-  type: "SET_DATE";
-  year?: string;
-  month?: string;
-  day?: string;
-}
-type DateSelectAction = SetDateAction;
-const dateSelectReducer: React.Reducer<DateSelectState, DateSelectAction> = (
-  state,
-  action
-) => {
-  let yearValue: string, monthValue: string, dayValue: string;
-  switch (action.type) {
-    case "SET_DATE": {  // TODO: `useState` is sufficient?
-      yearValue = action.year || state.yearValue;
-      monthValue = action.month || state.monthValue;
-      dayValue = action.day || state.dayValue;
-    }
-  }
-
-  return {
-    yearValue,
-    monthValue,
-    dayValue,
-    dateString: compileDateString(
-      parseInt(yearValue),
-      parseInt(monthValue),
-      parseInt(dayValue)
-    ),
-  };
-};
-
-
 interface UseDateSelectOptions {
   minYear: number;
   maxYear: number;
 }
 export const useDateSelect = (opts: UseDateSelectOptions) => {
-  const [state, dispatch] = useReducer(dateSelectReducer, {
+  const [state, setState] = useState<DateSelectState>({
     yearValue: "",
     monthValue: "",
     dayValue: "",
     dateString: null,
   });
+
+  const setDate = useCallback(({ year, month, day }: { year?: string, month?: string, day?: string }) =>
+    setState((curState) => {
+      const yearValue = year || curState.yearValue;
+      const monthValue = month || curState.monthValue;
+      const dayValue = day || curState.dayValue;
+
+      return {
+        yearValue,
+        monthValue,
+        dayValue,
+        dateString: compileDateString(
+          parseInt(yearValue),
+          parseInt(monthValue),
+          parseInt(dayValue)
+        ),
+      }
+    })
+    , [])
 
   const yearOptions = useMemo(() => {
     const raw = range(opts.minYear, opts.maxYear).map((i) => { const s = i.toString(); return { value: s, label: s } });
@@ -82,20 +65,20 @@ export const useDateSelect = (opts: UseDateSelectOptions) => {
     dayOptions,
     onYearChange: useCallback((e: React.ChangeEvent<HTMLSelectElement> | string) => {
       const value = typeof e === "string" ? e : e.target.value;
-      dispatch({ type: "SET_DATE", year: value })
+      setDate({ year: value })
     }, []),
     onMonthChange: useCallback((e: React.ChangeEvent<HTMLSelectElement> | string) => {
       const value = typeof e === "string" ? e : e.target.value;
-      dispatch({ type: "SET_DATE", month: value })
+      setDate({ month: value })
     }, []),
     onDayChange: useCallback((e: React.ChangeEvent<HTMLSelectElement> | string) => {
       const value = typeof e === "string" ? e : e.target.value;
-      dispatch({ type: "SET_DATE", day: value })
+      setDate({ day: value })
     }, []),
     dateValue: state.dateString,
     onDateChange: useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
       const { year, month, day } = parseDateString(e.target.value)
-      dispatch({ type: "SET_DATE", year, month, day })
+      setDate({ year, month, day })
     }, [])
   };
 };
