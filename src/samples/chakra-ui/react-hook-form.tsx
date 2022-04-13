@@ -1,7 +1,7 @@
 import { useForm, Controller } from "react-hook-form";
 import { ChakraProvider } from "@chakra-ui/react";
-import DateSelect from "../../DateSelect/DateSelect";
-import DateDropdown from "../../DateSelect/presets/chakra-ui/DateDropdown";
+import DateSelect from "../../react-date-select/DateSelect";
+import DateDropdown from "../../react-date-select/presets/chakra-ui/DateDropdown";
 
 type FormData = {
   date: string;
