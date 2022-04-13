@@ -1,6 +1,6 @@
 export function range(first: number, last: number): number[] {
   if (first > last) {
-    return range(last, first).reverse()
+    return range(last, first).reverse();
   }
 
   const arr: number[] = [];

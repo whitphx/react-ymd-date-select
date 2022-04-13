@@ -45,5 +45,6 @@ const DateSelect = React.forwardRef<HTMLInputElement, DateSelectProps>(
     return props.render({ ...dateSelectProps, ref });
   }
 );
+DateSelect.displayName = "DateSelect";
 
 export default DateSelect;

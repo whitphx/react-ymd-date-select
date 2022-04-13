@@ -2,10 +2,14 @@ function padZero(value: number, digits: number): string {
   // This implementation is only to be used from `compileDateString()`,
   // assuming the `value` is a positive integer.
   // Negative or floating numbers as inputs can lead to unexpected results.
-  return ('0'.repeat(digits - 1) + value.toString()).slice(-digits)
+  return ("0".repeat(digits - 1) + value.toString()).slice(-digits);
 }
 
-export function compileDateString(year: number, month: number, day: number): string | null {
+export function compileDateString(
+  year: number,
+  month: number,
+  day: number
+): string | null {
   // Create a date string in the format of `yyyy-MM-dd`.
   // For the detailed specs of the format, see https://developer.mozilla.org/en-US/docs/Web/HTML/Date_and_time_formats#date_strings
   if (month < 1 || 12 < month) {
@@ -15,25 +19,38 @@ export function compileDateString(year: number, month: number, day: number): str
     return null;
   }
 
-  const dateString = padZero(year, 4) + "-" + padZero(month, 2) + "-" + padZero(day, 2);
+  const dateString =
+    padZero(year, 4) + "-" + padZero(month, 2) + "-" + padZero(day, 2);
 
   const dateObj = new Date(dateString);
-  if (dateObj.getFullYear() !== year || dateObj.getMonth() !== month - 1 || dateObj.getDate() !== day) {
+  if (
+    dateObj.getFullYear() !== year ||
+    dateObj.getMonth() !== month - 1 ||
+    dateObj.getDate() !== day
+  ) {
     return null;
   }
 
-  return dateString
+  return dateString;
 }
 
-export function parseDateString(dateString: string): { year: string, month: string, day: string } {
+export function parseDateString(dateString: string): {
+  year: string;
+  month: string;
+  day: string;
+} {
   const date = new Date(dateString);
-  const year = date.getFullYear()
-  const month = date.getMonth() + 1
-  const day = date.getDate()
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
 
   if (isNaN(year) || isNaN(month) || isNaN(day)) {
-    return { year: "", month: "", day: "" }
+    return { year: "", month: "", day: "" };
   }
 
-  return { year: year.toString(), month: month.toString(), day: day.toString() }
+  return {
+    year: year.toString(),
+    month: month.toString(),
+    day: day.toString(),
+  };
 }
