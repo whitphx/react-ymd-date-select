@@ -19,13 +19,23 @@ const DateSelect = React.forwardRef<HTMLInputElement, DateSelectProps>(
 
     const { onChange, value } = props;
 
-    const dateSelectProps = useDateSelect({ minYear: 1960, maxYear: 2000 }); // TODO: Be configurable
+    const dateSelectProps = useDateSelect({
+      minYear: 1960,
+      maxYear: 2000,
+      onChange,
+    }); // TODO: Be configurable
 
+    const { setDate, dateValue } = dateSelectProps;
     useEffect(() => {
-      if (dateSelectProps.dateValue !== value) {
-        onChange(dateSelectProps.dateValue || "");
+      if (typeof value !== "string") {
+        return;
       }
-    }, [dateSelectProps.dateValue, value]);
+
+      const dateValueAsString = dateValue || "";
+      if (dateValueAsString !== value) {
+        setDate(value);
+      }
+    }, [setDate, dateValue, value]);
 
     return props.render({ ...dateSelectProps, ref });
   }
