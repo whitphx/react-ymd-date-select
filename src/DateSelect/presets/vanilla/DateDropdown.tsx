@@ -1,5 +1,5 @@
 import React from "react";
-import { Options } from "./types";
+import { Options } from "../../types";
 
 interface DateDropdownProps {
   yearValue: string;
