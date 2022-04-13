@@ -20,6 +20,7 @@ interface DateSelectState {
 interface UseDateSelectOptions {
   minYear: number;
   maxYear: number;
+  onChange: (dateString: string) => void;
 }
 export const useDateSelect = (opts: UseDateSelectOptions) => {
   const [state, setState] = useState<DateSelectState>({
@@ -29,24 +30,26 @@ export const useDateSelect = (opts: UseDateSelectOptions) => {
     dateString: null,
   });
 
-  const setDate = useCallback(({ year, month, day }: { year?: string, month?: string, day?: string }) =>
-    setState((curState) => {
-      const yearValue = year || curState.yearValue;
-      const monthValue = month || curState.monthValue;
-      const dayValue = day || curState.dayValue;
+  const setDate = useCallback(({ year, month, day }: { year?: string, month?: string, day?: string }) => {
+    const yearValue = year || state.yearValue;
+    const monthValue = month || state.monthValue;
+    const dayValue = day || state.dayValue;
 
-      return {
+    const dateString = compileDateString(
+      parseInt(yearValue),
+      parseInt(monthValue),
+      parseInt(dayValue)
+    )
+    opts.onChange(dateString || "")
+    setState(
+      {
         yearValue,
         monthValue,
         dayValue,
-        dateString: compileDateString(
-          parseInt(yearValue),
-          parseInt(monthValue),
-          parseInt(dayValue)
-        ),
+        dateString,
       }
-    })
-    , [])
+    )
+  }, [state, opts.onChange]) // TODO: This is updated every time the state changes. Make it more efficient.
 
   const yearOptions = useMemo(() => {
     const raw = range(opts.minYear, opts.maxYear).map((i) => { const s = i.toString(); return { value: s, label: s } });
@@ -66,19 +69,20 @@ export const useDateSelect = (opts: UseDateSelectOptions) => {
     onYearChange: useCallback((e: React.ChangeEvent<HTMLSelectElement> | string) => {
       const value = typeof e === "string" ? e : e.target.value;
       setDate({ year: value })
-    }, []),
+    }, [setDate]),
     onMonthChange: useCallback((e: React.ChangeEvent<HTMLSelectElement> | string) => {
       const value = typeof e === "string" ? e : e.target.value;
       setDate({ month: value })
-    }, []),
+    }, [setDate]),
     onDayChange: useCallback((e: React.ChangeEvent<HTMLSelectElement> | string) => {
       const value = typeof e === "string" ? e : e.target.value;
       setDate({ day: value })
-    }, []),
+    }, [setDate]),
     dateValue: state.dateString,
-    onDateChange: useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-      const { year, month, day } = parseDateString(e.target.value)
+    onDateChange: useCallback((e: React.ChangeEvent<HTMLInputElement> | string) => {
+      const value = typeof e === "string" ? e : e.target.value;
+      const { year, month, day } = parseDateString(value)
       setDate({ year, month, day })
-    }, [])
+    }, [setDate])
   };
 };

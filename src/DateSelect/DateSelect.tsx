@@ -19,7 +19,11 @@ const DateSelect = React.forwardRef<HTMLInputElement, DateSelectProps>(
 
     const { onChange, value } = props;
 
-    const dateSelectProps = useDateSelect({ minYear: 1960, maxYear: 2000 }); // TODO: Be configurable
+    const dateSelectProps = useDateSelect({
+      minYear: 1960,
+      maxYear: 2000,
+      onChange,
+    }); // TODO: Be configurable
 
     useEffect(() => {
       if (dateSelectProps.dateValue !== value) {
