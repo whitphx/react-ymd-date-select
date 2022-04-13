@@ -3,6 +3,9 @@ import { range } from "./range";
 import { compileDateString, parseDateString } from "./date-string";
 import { Option, Options } from "./types"
 
+const DEFAULT_MIN_YEAR = 1960;
+const DEFAULT_MAX_YEAR = (new Date()).getFullYear();
+
 function compileOption(value: string): Option {
   return { value, label: value }  // TODO: Be customizable for localization
 }
@@ -18,8 +21,8 @@ interface DateSelectState {
 }
 
 interface UseDateSelectOptions {
-  minYear: number;
-  maxYear: number;
+  minYear?: number;
+  maxYear?: number;
   onChange: (dateString: string) => void;
 }
 export const useDateSelect = (opts: UseDateSelectOptions) => {
@@ -58,7 +61,9 @@ export const useDateSelect = (opts: UseDateSelectOptions) => {
   }, [state.changeCount, opts.onChange])
 
   const yearOptions = useMemo(() => {
-    const raw = range(opts.minYear, opts.maxYear).map((i) => { const s = i.toString(); return { value: s, label: s } });
+    const minYear = opts.minYear != null ? opts.minYear : DEFAULT_MIN_YEAR;
+    const maxYear = opts.maxYear != null ? opts.maxYear : DEFAULT_MAX_YEAR;
+    const raw = range(minYear, maxYear).map((i) => { const s = i.toString(); return { value: s, label: s } });
     if (!raw.some(o => o.value === state.yearValue)) {
       return raw.concat(compileOption(state.yearValue))
     }

@@ -2,11 +2,16 @@ import React, { useCallback, useEffect } from "react";
 import { useDateSelect } from "./use-date-select";
 import DateDropdown from "./presets/vanilla/DateDropdown";
 
-interface DateSelectProps {
+interface ReactHookFormCompatibleProps {
   value: string;
   onChange: (value: string) => void;
   name?: string;
   onBlur?: () => void;
+}
+
+interface DateSelectProps extends ReactHookFormCompatibleProps {
+  maxYear?: number;
+  minYear?: number;
 }
 
 const DateSelect = React.forwardRef<HTMLInputElement, DateSelectProps>(
@@ -14,7 +19,7 @@ const DateSelect = React.forwardRef<HTMLInputElement, DateSelectProps>(
     // Ref is forwarded, but it is intended to be used with react-hook-form's <Controller /> to focus the input when error occurs.
     // This component is still controlled even if ref is here.
 
-    const { onChange, value } = props;
+    const { onChange, value, minYear, maxYear } = props;
 
     const {
       yearValue,
@@ -29,7 +34,11 @@ const DateSelect = React.forwardRef<HTMLInputElement, DateSelectProps>(
       dateValue,
       onDateChange,
       setDate,
-    } = useDateSelect({ minYear: 1960, maxYear: 2000, onChange }); // TODO: Be configurable
+    } = useDateSelect({
+      minYear,
+      maxYear,
+      onChange,
+    });
 
     useEffect(() => {
       if (typeof value !== "string") {
