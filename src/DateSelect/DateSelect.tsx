@@ -8,10 +8,10 @@ interface ReactHookFormCompatibleProps {
   onBlur?: () => void;
 }
 
-interface RenderProps extends ReturnType<typeof useDateSelect> {
-  ref: React.Ref<HTMLElement>;
+export interface RenderProps extends ReturnType<typeof useDateSelect> {
+  ref: React.Ref<any>;
 }
-interface DateSelectProps extends ReactHookFormCompatibleProps {
+export interface DateSelectProps extends ReactHookFormCompatibleProps {
   render: (renderProps: RenderProps) => React.ReactElement;
   maxYear?: number;
   minYear?: number;
