@@ -6,7 +6,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectProps } from "@mui/material/Select";
 
-interface DateDropdownProps {
+interface DateDropdownGroupProps {
   yearValue: string;
   monthValue: string;
   dayValue: string;
@@ -20,7 +20,7 @@ interface DateDropdownProps {
 
 let globalIdCount = 0;
 
-function DateDropdown(props: DateDropdownProps) {
+function DateDropdownGroup(props: DateDropdownGroupProps) {
   useEffect(() => {
     globalIdCount++;
   }, []);
@@ -98,4 +98,4 @@ function DateDropdown(props: DateDropdownProps) {
   );
 }
 
-export default DateDropdown;
+export default DateDropdownGroup;

@@ -1,6 +1,6 @@
 import { useForm, Controller } from "react-hook-form";
 import DateSelect from "../../lib/DateSelect";
-import DateDropdown from "../../lib/presets/material/DateDropdown";
+import DateDropdownGroup from "../../lib/presets/material/DateDropdownGroup";
 
 type FormData = {
   date: string;
@@ -23,7 +23,9 @@ function MaterialUIReactHookFormSample() {
         name="date"
         control={control}
         rules={{ required: true }}
-        render={({ field }) => <DateSelect {...field} render={DateDropdown} />}
+        render={({ field }) => (
+          <DateSelect {...field} render={DateDropdownGroup} />
+        )}
       />
       {errors.date && <span>This field is required</span>}
 

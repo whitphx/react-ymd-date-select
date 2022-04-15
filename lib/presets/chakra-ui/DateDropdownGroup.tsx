@@ -1,7 +1,8 @@
 import React from "react";
 import { Options } from "../../types";
+import { Select, HStack } from "@chakra-ui/react";
 
-interface DateDropdownProps {
+interface DateDropdownGroupProps {
   yearValue: string;
   monthValue: string;
   dayValue: string;
@@ -13,35 +14,35 @@ interface DateDropdownProps {
   onDayChange: React.ChangeEventHandler<HTMLSelectElement>;
 }
 
-function DateDropdown(props: DateDropdownProps) {
+function DateDropdownGroup(props: DateDropdownGroupProps) {
   return (
-    <>
-      <select value={props.yearValue} onChange={props.onYearChange}>
+    <HStack>
+      <Select value={props.yearValue} onChange={props.onYearChange}>
         <option value="" disabled></option>
         {props.yearOptions.map(({ value, label }) => (
           <option key={value} value={value}>
             {label}
           </option>
         ))}
-      </select>
-      <select value={props.monthValue} onChange={props.onMonthChange}>
+      </Select>
+      <Select value={props.monthValue} onChange={props.onMonthChange}>
         <option value="" disabled></option>
         {props.monthOptions.map(({ value, label }) => (
           <option key={value} value={value}>
             {label}
           </option>
         ))}
-      </select>
-      <select value={props.dayValue} onChange={props.onDayChange}>
+      </Select>
+      <Select value={props.dayValue} onChange={props.onDayChange}>
         <option value="" disabled></option>
         {props.dayOptions.map(({ value, label }) => (
           <option key={value} value={value}>
             {label}
           </option>
         ))}
-      </select>
-    </>
+      </Select>
+    </HStack>
   );
 }
 
-export default DateDropdown;
+export default DateDropdownGroup;
