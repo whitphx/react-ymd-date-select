@@ -5,8 +5,8 @@ import {
   FormErrorMessage,
   FormHelperText,
 } from "@chakra-ui/react";
-import DateSelect from "../../react-date-select/DateSelect";
-import DateDropdown from "../../react-date-select/presets/chakra-ui/DateDropdown";
+import DateSelect from "../../../lib/DateSelect";
+import DateDropdown from "../../../lib/presets/chakra-ui/DateDropdown";
 
 type FormData = {
   date: string;
