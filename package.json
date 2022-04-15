@@ -2,12 +2,20 @@
   "name": "react-date-select",
   "private": true,
   "version": "0.0.0",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "files": [
+    "dist/"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "test": "vitest",
     "coverage": "vitest run --coverage",
+    "build:lib": "yarn run build:lib:esm && yarn run build:lib:cjs",
+    "build:lib:esm": "tsc -p ./lib/tsconfig.json",
+    "build:lib:cjs": "tsc -p ./lib/tsconfig.cjs.json",
     "fix:eslint": "eslint --fix 'src/**/*.{ts,tsx}'",
     "fix:prettier": "prettier --write .",
     "check:eslint": "eslint 'src/**/*.{ts,tsx}'",
@@ -23,7 +31,6 @@
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@types/node": "^17.0.23",
     "@types/react": "^17.0.33",
     "@types/react-dom": "^17.0.10",
     "@typescript-eslint/eslint-plugin": "^5.19.0",
