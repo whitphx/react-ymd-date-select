@@ -1,6 +1,6 @@
 import { useForm, Controller } from "react-hook-form";
-import DateSelect from "../../lib/DateSelect";
-import DateDropdownGroup from "../../lib/presets/vanilla/DateDropdownGroup";
+import { DateSelect } from "../../lib";
+import { DateDropdownGroup } from "../../lib/presets/vanilla";
 
 type FormData = {
   date: string;

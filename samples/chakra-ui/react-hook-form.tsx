@@ -4,8 +4,7 @@ import {
   FormErrorMessage,
   FormHelperText,
 } from "@chakra-ui/react";
-import DateSelect from "../../lib/DateSelect";
-import DateDropdownGroup from "../../lib/presets/chakra-ui/DateDropdownGroup";
+import { DateSelect } from "../../lib/presets/chakra-ui";
 
 type FormData = {
   date: string;
@@ -31,9 +30,7 @@ function ChakraUIReactHookFormSample() {
           name="date"
           control={control}
           rules={{ required: true }}
-          render={({ field }) => (
-            <DateSelect {...field} render={DateDropdownGroup} />
-          )}
+          render={({ field }) => <DateSelect {...field} />}
         />
         {!isError ? (
           <FormHelperText>Enter the date.</FormHelperText>
