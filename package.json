@@ -44,6 +44,10 @@
     "vite": "^2.8.0",
     "vitest": "^0.7.0"
   },
+  "peerDependencies": {
+    "react": "^16.9.0 || ^17",
+    "react-dom": "^16.9.0 || ^17"
+  },
   "resolutions": {
     "csstype": "3.0.10"
   }
