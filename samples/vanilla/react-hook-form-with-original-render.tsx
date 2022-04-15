@@ -1,6 +1,6 @@
 import { useForm, Controller } from "react-hook-form";
 import DateSelect from "../../lib/DateSelect";
-import DateDropdown from "../../lib/presets/vanilla/DateDropdown";
+import DateDropdownGroup from "../../lib/presets/vanilla/DateDropdownGroup";
 
 type FormData = {
   date: string;
@@ -34,7 +34,7 @@ function VanillaReactHookFormWithOriginalRenderSample() {
                   onChange={props.onDateChange}
                   ref={props.ref}
                 />
-                <DateDropdown {...props} />
+                <DateDropdownGroup {...props} />
               </>
             )}
           />
