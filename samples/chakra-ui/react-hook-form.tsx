@@ -1,18 +1,17 @@
 import { useForm, Controller } from "react-hook-form";
 import {
-  ChakraProvider,
   FormControl,
   FormErrorMessage,
   FormHelperText,
 } from "@chakra-ui/react";
-import DateSelect from "../../../lib/DateSelect";
-import DateDropdown from "../../../lib/presets/chakra-ui/DateDropdown";
+import DateSelect from "../../lib/DateSelect";
+import DateDropdown from "../../lib/presets/chakra-ui/DateDropdown";
 
 type FormData = {
   date: string;
 };
 
-function App() {
+function ChakraUIReactHookFormSample() {
   const {
     control,
     handleSubmit,
@@ -45,14 +44,6 @@ function App() {
 
       <input type="submit" />
     </form>
-  );
-}
-
-function ChakraUIReactHookFormSample() {
-  return (
-    <ChakraProvider>
-      <App />
-    </ChakraProvider>
   );
 }
 

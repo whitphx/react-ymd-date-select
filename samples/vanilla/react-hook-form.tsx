@@ -1,12 +1,12 @@
 import { useForm, Controller } from "react-hook-form";
-import DateSelect from "../../../lib/DateSelect";
-import DateDropdown from "../../../lib/presets/material/DateDropdown";
+import DateSelect from "../../lib/DateSelect";
+import DateDropdown from "../../lib/presets/vanilla/DateDropdown";
 
 type FormData = {
   date: string;
 };
 
-function MaterialUIReactHookFormSample() {
+function VanillaReactHookFormSample() {
   const {
     control,
     handleSubmit,
@@ -32,4 +32,4 @@ function MaterialUIReactHookFormSample() {
   );
 }
 
-export default MaterialUIReactHookFormSample;
+export default VanillaReactHookFormSample;
