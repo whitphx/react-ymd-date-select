@@ -6,7 +6,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectProps } from "@mui/material/Select";
 
-interface DateDropdownGroupProps {
+export interface DateDropdownGroupProps {
   yearValue: string;
   monthValue: string;
   dayValue: string;

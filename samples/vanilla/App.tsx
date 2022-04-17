@@ -1,6 +1,6 @@
 import VanillaReactHookFormSample from "./react-hook-form";
 import VanillaReactHookFormWithDefaultValueSample from "./react-hook-form-default-value";
-import VanillaReactHookFormWithOriginalRenderSample from "./react-hook-form-with-original-render";
+import VanillaReactHookFormWithCustomComponentSample from "./react-hook-form-with-custom-component";
 import VanillaReactHookFormWithPartialDefaultValueSample from "./react-hook-form-with-partial-default-value";
 import VanillaReactHookFormHideDaySample from "./react-hook-form-hide-day";
 
@@ -9,7 +9,7 @@ function App() {
     <div>
       <VanillaReactHookFormSample />
       <VanillaReactHookFormWithDefaultValueSample />
-      <VanillaReactHookFormWithOriginalRenderSample />
+      <VanillaReactHookFormWithCustomComponentSample />
       <VanillaReactHookFormWithPartialDefaultValueSample />
       <VanillaReactHookFormHideDaySample />
     </div>

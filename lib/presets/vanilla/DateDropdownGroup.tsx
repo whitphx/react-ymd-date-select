@@ -1,6 +1,6 @@
 import { Options } from "../../types";
 
-interface DateDropdownGroupProps {
+export interface DateDropdownGroupProps {
   yearValue: string;
   monthValue: string;
   dayValue: string;

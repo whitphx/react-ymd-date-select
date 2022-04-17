@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useDateSelect } from "./use-date-select";
+import { useDateSelect, UseDateSelectInterface } from "./use-date-select";
 
 interface ReactHookFormCompatibleProps {
   value: string;
@@ -8,11 +8,15 @@ interface ReactHookFormCompatibleProps {
   onBlur?: () => void;
 }
 
-export interface RenderProps extends ReturnType<typeof useDateSelect> {
-  ref: React.Ref<any>;
+export interface ChildComponentProps extends UseDateSelectInterface {
+  ref?: React.Ref<unknown>;
+}
+export interface RenderArgs extends UseDateSelectInterface {
+  ref?: React.Ref<unknown>;
 }
 export interface DateSelectProps extends ReactHookFormCompatibleProps {
-  render: (renderProps: RenderProps) => React.ReactElement;
+  component?: React.ComponentType<ChildComponentProps>;
+  render?: (renderArgs: RenderArgs) => React.ReactElement;
   maxYear?: number;
   minYear?: number;
   defaultYear?: number;
@@ -20,45 +24,49 @@ export interface DateSelectProps extends ReactHookFormCompatibleProps {
   defaultDay?: number;
 }
 
-const DateSelect = React.forwardRef<HTMLInputElement, DateSelectProps>(
-  (props, ref) => {
-    // Ref is forwarded, but it is intended to be used with react-hook-form's <Controller /> to focus the input when error occurs.
-    // This component is still controlled even if ref is here.
+const DateSelect = React.forwardRef<unknown, DateSelectProps>((props, ref) => {
+  // Ref is forwarded, but it is intended to be used with react-hook-form's <Controller /> to focus the input when error occurs.
+  // This component is still controlled even if ref is here.
 
-    const {
-      onChange,
-      value,
-      maxYear,
-      minYear,
-      defaultYear,
-      defaultMonth,
-      defaultDay,
-    } = props;
+  const {
+    onChange,
+    value,
+    maxYear,
+    minYear,
+    defaultYear,
+    defaultMonth,
+    defaultDay,
+  } = props;
 
-    const dateSelectProps = useDateSelect({
-      minYear,
-      maxYear,
-      onChange,
-      defaultYear,
-      defaultMonth,
-      defaultDay,
-    });
+  const dateSelectProps = useDateSelect({
+    minYear,
+    maxYear,
+    onChange,
+    defaultYear,
+    defaultMonth,
+    defaultDay,
+  });
 
-    const { setDate, dateValue } = dateSelectProps;
-    useEffect(() => {
-      if (typeof value !== "string") {
-        return;
-      }
+  const { setDate, dateValue } = dateSelectProps;
+  useEffect(() => {
+    if (typeof value !== "string") {
+      return;
+    }
 
-      const dateValueAsString = dateValue || "";
-      if (dateValueAsString !== value) {
-        setDate(value);
-      }
-    }, [setDate, dateValue, value]);
+    const dateValueAsString = dateValue || "";
+    if (dateValueAsString !== value) {
+      setDate(value);
+    }
+  }, [setDate, dateValue, value]);
 
+  if (props.component) {
+    return React.createElement(props.component, { ref, ...dateSelectProps });
+  } else if (props.render) {
     return props.render({ ...dateSelectProps, ref });
+  } else {
+    throw new Error(`Either render or component must be provided.`);
   }
-);
+});
 DateSelect.displayName = "DateSelect";
 
 export default DateSelect;
