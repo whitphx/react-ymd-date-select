@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { Options } from "../../types";
 import { OnDateValueChange } from "../../use-date-select";
 
@@ -16,11 +15,6 @@ interface DateDropdownGroupProps {
 }
 
 function DateDropdownGroup(props: DateDropdownGroupProps) {
-  useEffect(() => {
-    if (props.hideDay) {
-      props.onDayChange(1);
-    }
-  }, [props.hideDay]);
   return (
     <>
       <select value={props.yearValue} onChange={props.onYearChange}>

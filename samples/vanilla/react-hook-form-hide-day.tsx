@@ -1,6 +1,5 @@
 import { useForm, Controller } from "react-hook-form";
-import DateSelect from "../../lib/DateSelect";
-import DateDropdownGroup from "../../lib/presets/vanilla/DateDropdownGroup";
+import { DateSelect } from "../../lib/presets/vanilla";
 
 type FormData = {
   date: string;
@@ -23,12 +22,7 @@ function VanillaReactHookFormHideDaySample() {
         name="date"
         control={control}
         rules={{ required: true }}
-        render={({ field }) => (
-          <DateSelect
-            {...field}
-            render={(props) => <DateDropdownGroup {...props} hideDay />}
-          />
-        )}
+        render={({ field }) => <DateSelect {...field} hideDay />}
       />
       {errors.date && <span>This field is required</span>}
 
