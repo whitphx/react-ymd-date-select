@@ -11,7 +11,9 @@ interface ReactHookFormCompatibleProps {
 export interface ChildComponentProps extends UseDateSelectInterface {
   ref?: React.Ref<any>;
 }
-export type RenderArgs = UseDateSelectInterface;
+export interface RenderArgs extends UseDateSelectInterface {
+  ref?: React.Ref<any>;
+}
 export interface DateSelectProps extends ReactHookFormCompatibleProps {
   component?: React.ComponentType<ChildComponentProps>;
   render?: (renderArgs: RenderArgs) => React.ReactElement;
@@ -61,7 +63,7 @@ const DateSelect = React.forwardRef<HTMLInputElement, DateSelectProps>(
     if (props.component) {
       return React.createElement(props.component, { ref, ...dateSelectProps });
     } else if (props.render) {
-      return props.render({ ...dateSelectProps });
+      return props.render({ ...dateSelectProps, ref });
     } else {
       throw new Error(`Either render or component must be provided.`);
     }
