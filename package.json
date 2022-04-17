@@ -13,6 +13,7 @@
     "preview": "vite preview",
     "test": "vitest",
     "coverage": "vitest run --coverage",
+    "tsc:lib": "tsc -p ./lib/tsconfig.json --noEmit",
     "build:lib": "yarn run build:lib:esm && yarn run build:lib:cjs",
     "build:lib:esm": "tsc -p ./lib/tsconfig.json",
     "build:lib:cjs": "tsc -p ./lib/tsconfig.cjs.json",
