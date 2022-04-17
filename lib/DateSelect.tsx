@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useDateSelect } from "./use-date-select";
+import { useDateSelect, UseDateSelectInterface } from "./use-date-select";
 
 interface ReactHookFormCompatibleProps {
   value: string;
@@ -8,10 +8,10 @@ interface ReactHookFormCompatibleProps {
   onBlur?: () => void;
 }
 
-export interface ChildComponentProps extends ReturnType<typeof useDateSelect> {
+export interface ChildComponentProps extends UseDateSelectInterface {
   ref?: React.Ref<any>;
 }
-export type RenderArgs = ReturnType<typeof useDateSelect>;
+export type RenderArgs = UseDateSelectInterface;
 export interface DateSelectProps extends ReactHookFormCompatibleProps {
   component?: React.ComponentType<ChildComponentProps>;
   render?: (renderArgs: RenderArgs) => React.ReactElement;

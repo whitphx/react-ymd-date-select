@@ -39,7 +39,23 @@ export interface UseDateSelectOptions {
   defaultDay?: number;
   onChange: (dateString: string) => void;
 }
-export const useDateSelect = (opts: UseDateSelectOptions) => {
+export interface UseDateSelectInterface {
+  yearValue: string;
+  monthValue: string;
+  dayValue: string;
+  yearOptions: Options;
+  monthOptions: Options;
+  dayOptions: Options;
+  onYearChange: (e: React.ChangeEvent<HTMLSelectElement> | string) => void;
+  onMonthChange: (e: React.ChangeEvent<HTMLSelectElement> | string) => void;
+  onDayChange: (e: React.ChangeEvent<HTMLSelectElement> | string) => void;
+  dateValue: string | null;
+  onDateChange: (e: React.ChangeEvent<HTMLInputElement> | string) => void;
+  setDate: (dateString: string) => void;
+}
+export const useDateSelect = (
+  opts: UseDateSelectOptions
+): UseDateSelectInterface => {
   const [state, setState] = useState<DateSelectState & { changeCount: number }>(
     {
       yearValue: opts.defaultYear ? convertToSelectValue(opts.defaultYear) : "",
