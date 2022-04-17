@@ -2,7 +2,7 @@ import React from "react";
 import { Options } from "../../types";
 import { Select, HStack } from "@chakra-ui/react";
 
-interface DateDropdownGroupProps {
+export interface DateDropdownGroupProps {
   yearValue: string;
   monthValue: string;
   dayValue: string;
