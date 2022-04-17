@@ -31,7 +31,7 @@ interface DateSelectState {
   dateString: string | null;
 }
 
-interface UseDateSelectOptions {
+export interface UseDateSelectOptions {
   minYear?: number;
   maxYear?: number;
   defaultYear?: number;
