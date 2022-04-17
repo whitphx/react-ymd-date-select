@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     strategy:
@@ -27,12 +27,26 @@ jobs:
         run: |
           yarn run check:eslint
           yarn run check:prettier
-      - run: yarn run build:lib
       - run: yarn test
+      - run: yarn run build
+      - run: yarn run build:lib
 
+  pack:
+    needs: test
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: "yarn"
+      - run: yarn
+      - run: yarn run build:lib
       - run: yarn pack
       - name: Upload the package as an artifact
-        if: matrix.node-version == '16.x'
         uses: actions/upload-artifact@v2
         with:
           name: react-date-select
