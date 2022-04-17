@@ -29,8 +29,11 @@ jobs:
           yarn run check:prettier
       - run: yarn run build:lib
       - run: yarn test
+
+      - run: yarn pack
       - name: Upload the package as an artifact
+        if: matrix.node-version == '16.x'
         uses: actions/upload-artifact@v2
         with:
           name: react-date-select
-          path: dist
+          path: react-date-select*.tgz
