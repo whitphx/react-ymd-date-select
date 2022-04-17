@@ -6,15 +6,22 @@ import { Option, Options } from "./types";
 const DEFAULT_MIN_YEAR = 1960;
 const DEFAULT_MAX_YEAR = new Date().getFullYear();
 
+function parseSelectValue(value: string): number {
+  return parseInt(value);
+}
+function convertToSelectValue(value: number): string {
+  return value.toString();
+}
+
 function compileOption(value: string): Option {
   return { value, label: value }; // TODO: Be customizable for localization
 }
 
 const monthOptions: Options = range(1, 12).map((i) =>
-  compileOption(i.toString())
+  compileOption(convertToSelectValue(i))
 );
 const dayOptions: Options = range(1, 31).map((i) =>
-  compileOption(i.toString())
+  compileOption(convertToSelectValue(i))
 );
 
 interface DateSelectState {
@@ -27,14 +34,19 @@ interface DateSelectState {
 interface UseDateSelectOptions {
   minYear?: number;
   maxYear?: number;
+  defaultYear?: number;
+  defaultMonth?: number;
+  defaultDay?: number;
   onChange: (dateString: string) => void;
 }
 export const useDateSelect = (opts: UseDateSelectOptions) => {
   const [state, setState] = useState<DateSelectState & { changeCount: number }>(
     {
-      yearValue: "",
-      monthValue: "",
-      dayValue: "",
+      yearValue: opts.defaultYear ? convertToSelectValue(opts.defaultYear) : "",
+      monthValue: opts.defaultMonth
+        ? convertToSelectValue(opts.defaultMonth)
+        : "",
+      dayValue: opts.defaultDay ? convertToSelectValue(opts.defaultDay) : "",
       dateString: null,
       changeCount: 0, // HACK: Use this state as a dependency of the `useEffect` below so that `opts.onChange` is called only when it should be.
     }
@@ -48,9 +60,9 @@ export const useDateSelect = (opts: UseDateSelectOptions) => {
         const dayValue = day || curState.dayValue;
 
         const dateString = compileDateString(
-          parseInt(yearValue),
-          parseInt(monthValue),
-          parseInt(dayValue)
+          parseSelectValue(yearValue),
+          parseSelectValue(monthValue),
+          parseSelectValue(dayValue)
         );
 
         return {
@@ -73,7 +85,7 @@ export const useDateSelect = (opts: UseDateSelectOptions) => {
     const minYear = opts.minYear != null ? opts.minYear : DEFAULT_MIN_YEAR;
     const maxYear = opts.maxYear != null ? opts.maxYear : DEFAULT_MAX_YEAR;
     const raw = range(minYear, maxYear).map((i) => {
-      const s = i.toString();
+      const s = convertToSelectValue(i);
       return { value: s, label: s };
     });
     if (!raw.some((o) => o.value === state.yearValue)) {
