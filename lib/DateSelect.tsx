@@ -9,10 +9,10 @@ interface ReactHookFormCompatibleProps {
 }
 
 export interface ChildComponentProps extends UseDateSelectInterface {
-  ref?: React.Ref<any>;
+  ref?: React.Ref<unknown>;
 }
 export interface RenderArgs extends UseDateSelectInterface {
-  ref?: React.Ref<any>;
+  ref?: React.Ref<unknown>;
 }
 export interface DateSelectProps extends ReactHookFormCompatibleProps {
   component?: React.ComponentType<ChildComponentProps>;
