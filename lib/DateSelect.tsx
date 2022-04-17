@@ -8,11 +8,13 @@ interface ReactHookFormCompatibleProps {
   onBlur?: () => void;
 }
 
-export interface RenderProps extends ReturnType<typeof useDateSelect> {
-  ref: React.Ref<any>;
+export interface ChildComponentProps extends ReturnType<typeof useDateSelect> {
+  ref?: React.Ref<any>;
 }
+export type RenderArgs = ReturnType<typeof useDateSelect>;
 export interface DateSelectProps extends ReactHookFormCompatibleProps {
-  render: (renderProps: RenderProps) => React.ReactElement;
+  component?: React.ComponentType<ChildComponentProps>;
+  render?: (renderArgs: RenderArgs) => React.ReactElement;
   maxYear?: number;
   minYear?: number;
   defaultYear?: number;
@@ -56,7 +58,13 @@ const DateSelect = React.forwardRef<HTMLInputElement, DateSelectProps>(
       }
     }, [setDate, dateValue, value]);
 
-    return props.render({ ...dateSelectProps, ref });
+    if (props.component) {
+      return React.createElement(props.component, { ref, ...dateSelectProps });
+    } else if (props.render) {
+      return props.render({ ...dateSelectProps });
+    } else {
+      throw new Error(`Either render or component must be provided.`);
+    }
   }
 );
 DateSelect.displayName = "DateSelect";
