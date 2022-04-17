@@ -1,2 +1,3 @@
-export { default as DateSelect } from "./DateSelect";
+export { default as DateSelect, DateSelectProps } from "./DateSelect";
 export * from "./use-date-select";
+export * from "./types";
