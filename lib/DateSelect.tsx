@@ -15,6 +15,9 @@ export interface DateSelectProps extends ReactHookFormCompatibleProps {
   render: (renderProps: RenderProps) => React.ReactElement;
   maxYear?: number;
   minYear?: number;
+  defaultYear?: number;
+  defaultMonth?: number;
+  defaultDay?: number;
 }
 
 const DateSelect = React.forwardRef<HTMLInputElement, DateSelectProps>(
@@ -22,12 +25,23 @@ const DateSelect = React.forwardRef<HTMLInputElement, DateSelectProps>(
     // Ref is forwarded, but it is intended to be used with react-hook-form's <Controller /> to focus the input when error occurs.
     // This component is still controlled even if ref is here.
 
-    const { onChange, value, maxYear, minYear } = props;
+    const {
+      onChange,
+      value,
+      maxYear,
+      minYear,
+      defaultYear,
+      defaultMonth,
+      defaultDay,
+    } = props;
 
     const dateSelectProps = useDateSelect({
       minYear,
       maxYear,
       onChange,
+      defaultYear,
+      defaultMonth,
+      defaultDay,
     });
 
     const { setDate, dateValue } = dateSelectProps;
