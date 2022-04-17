@@ -25,7 +25,7 @@ type FormData = {
   date: string;
 };
 
-function VanillaReactHookFormWithOriginalRenderSample() {
+function VanillaReactHookFormWithCustomComponentSample() {
   const {
     control,
     handleSubmit,
@@ -53,4 +53,4 @@ function VanillaReactHookFormWithOriginalRenderSample() {
   );
 }
 
-export default VanillaReactHookFormWithOriginalRenderSample;
+export default VanillaReactHookFormWithCustomComponentSample;
