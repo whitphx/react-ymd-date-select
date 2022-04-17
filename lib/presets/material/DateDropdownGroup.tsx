@@ -16,6 +16,7 @@ interface DateDropdownGroupProps {
   onYearChange: (value: string) => void;
   onMonthChange: (value: string) => void;
   onDayChange: (value: string) => void;
+  hideDay?: boolean;
 }
 
 let globalIdCount = 0;
@@ -73,27 +74,29 @@ function DateDropdownGroup(props: DateDropdownGroupProps) {
         </Select>
       </FormControl>
 
-      <FormControl>
-        <InputLabel id={`${idPrefix}-day`}>Day</InputLabel>
-        <Select
-          labelId={`${idPrefix}-day`}
-          value={props.dayValue}
-          onChange={useCallback<NonNullable<SelectProps["onChange"]>>(
-            (e) => {
-              props.onDayChange(e.target.value as string);
-            },
-            [props.onDayChange]
-          )}
-          label="Day"
-        >
-          <MenuItem value="" disabled></MenuItem>
-          {props.dayOptions.map(({ value, label }) => (
-            <MenuItem key={value} value={value}>
-              {label}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+      {!props.hideDay && (
+        <FormControl>
+          <InputLabel id={`${idPrefix}-day`}>Day</InputLabel>
+          <Select
+            labelId={`${idPrefix}-day`}
+            value={props.dayValue}
+            onChange={useCallback<NonNullable<SelectProps["onChange"]>>(
+              (e) => {
+                props.onDayChange(e.target.value as string);
+              },
+              [props.onDayChange]
+            )}
+            label="Day"
+          >
+            <MenuItem value="" disabled></MenuItem>
+            {props.dayOptions.map(({ value, label }) => (
+              <MenuItem key={value} value={value}>
+                {label}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      )}
     </Box>
   );
 }

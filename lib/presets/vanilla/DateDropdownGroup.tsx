@@ -1,4 +1,3 @@
-import React from "react";
 import { Options } from "../../types";
 
 interface DateDropdownGroupProps {
@@ -11,6 +10,7 @@ interface DateDropdownGroupProps {
   onYearChange: React.ChangeEventHandler<HTMLSelectElement>;
   onMonthChange: React.ChangeEventHandler<HTMLSelectElement>;
   onDayChange: React.ChangeEventHandler<HTMLSelectElement>;
+  hideDay?: boolean;
 }
 
 function DateDropdownGroup(props: DateDropdownGroupProps) {
@@ -32,14 +32,16 @@ function DateDropdownGroup(props: DateDropdownGroupProps) {
           </option>
         ))}
       </select>
-      <select value={props.dayValue} onChange={props.onDayChange}>
-        <option value="" disabled></option>
-        {props.dayOptions.map(({ value, label }) => (
-          <option key={value} value={value}>
-            {label}
-          </option>
-        ))}
-      </select>
+      {!props.hideDay && (
+        <select value={props.dayValue} onChange={props.onDayChange}>
+          <option value="" disabled></option>
+          {props.dayOptions.map(({ value, label }) => (
+            <option key={value} value={value}>
+              {label}
+            </option>
+          ))}
+        </select>
+      )}
     </>
   );
 }

@@ -12,6 +12,7 @@ interface DateDropdownGroupProps {
   onYearChange: React.ChangeEventHandler<HTMLSelectElement>;
   onMonthChange: React.ChangeEventHandler<HTMLSelectElement>;
   onDayChange: React.ChangeEventHandler<HTMLSelectElement>;
+  hideDay?: boolean;
 }
 
 function DateDropdownGroup(props: DateDropdownGroupProps) {
@@ -33,14 +34,16 @@ function DateDropdownGroup(props: DateDropdownGroupProps) {
           </option>
         ))}
       </Select>
-      <Select value={props.dayValue} onChange={props.onDayChange}>
-        <option value="" disabled></option>
-        {props.dayOptions.map(({ value, label }) => (
-          <option key={value} value={value}>
-            {label}
-          </option>
-        ))}
-      </Select>
+      {!props.hideDay && (
+        <Select value={props.dayValue} onChange={props.onDayChange}>
+          <option value="" disabled></option>
+          {props.dayOptions.map(({ value, label }) => (
+            <option key={value} value={value}>
+              {label}
+            </option>
+          ))}
+        </Select>
+      )}
     </HStack>
   );
 }
