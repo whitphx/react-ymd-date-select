@@ -24,18 +24,14 @@ const dayOptions: Options = range(1, 31).map((i) =>
   compileOption(convertToSelectValue(i))
 );
 
-export type OnDateValueChange = (
-  e: React.ChangeEvent<HTMLSelectElement> | string | number
-) => void;
-
-export interface DateSelectState {
+interface DateSelectState {
   yearValue: string; // It's of type string because it's <select />'s value.
   monthValue: string; // It's of type string because it's <select />'s value.
   dayValue: string; // It's of type string because it's <select />'s value.
   dateString: string | null;
 }
 
-export interface UseDateSelectOptions {
+interface UseDateSelectOptions {
   minYear?: number;
   maxYear?: number;
   defaultYear?: number;
@@ -105,38 +101,23 @@ export const useDateSelect = (opts: UseDateSelectOptions) => {
     yearOptions,
     monthOptions,
     dayOptions,
-    onYearChange: useCallback<OnDateValueChange>(
-      (e) => {
-        const value =
-          typeof e === "string"
-            ? e
-            : typeof e === "number"
-            ? e.toString()
-            : e.target.value;
+    onYearChange: useCallback(
+      (e: React.ChangeEvent<HTMLSelectElement> | string) => {
+        const value = typeof e === "string" ? e : e.target.value;
         updateDate({ year: value });
       },
       [updateDate]
     ),
-    onMonthChange: useCallback<OnDateValueChange>(
-      (e) => {
-        const value =
-          typeof e === "string"
-            ? e
-            : typeof e === "number"
-            ? e.toString()
-            : e.target.value;
+    onMonthChange: useCallback(
+      (e: React.ChangeEvent<HTMLSelectElement> | string) => {
+        const value = typeof e === "string" ? e : e.target.value;
         updateDate({ month: value });
       },
       [updateDate]
     ),
-    onDayChange: useCallback<OnDateValueChange>(
-      (e) => {
-        const value =
-          typeof e === "string"
-            ? e
-            : typeof e === "number"
-            ? e.toString()
-            : e.target.value;
+    onDayChange: useCallback(
+      (e: React.ChangeEvent<HTMLSelectElement> | string) => {
+        const value = typeof e === "string" ? e : e.target.value;
         updateDate({ day: value });
       },
       [updateDate]

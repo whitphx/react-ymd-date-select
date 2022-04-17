@@ -1,5 +1,4 @@
 import { Options } from "../../types";
-import { OnDateValueChange } from "../../use-date-select";
 
 interface DateDropdownGroupProps {
   yearValue: string;
@@ -8,9 +7,9 @@ interface DateDropdownGroupProps {
   yearOptions: Options;
   monthOptions: Options;
   dayOptions: Options;
-  onYearChange: OnDateValueChange;
-  onMonthChange: OnDateValueChange;
-  onDayChange: OnDateValueChange;
+  onYearChange: React.ChangeEventHandler<HTMLSelectElement>;
+  onMonthChange: React.ChangeEventHandler<HTMLSelectElement>;
+  onDayChange: React.ChangeEventHandler<HTMLSelectElement>;
   hideDay?: boolean;
 }
 
