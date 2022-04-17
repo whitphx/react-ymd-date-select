@@ -1,6 +1,25 @@
+import React from "react";
 import { useForm, Controller } from "react-hook-form";
-import { DateSelect } from "../../lib";
+import { DateSelect, ChildComponentProps } from "../../lib";
 import { DateDropdownGroup } from "../../lib/presets/vanilla";
+
+// Creating a new component wrapped with `React.forwardRef` is necessary to use `ref` inside it.
+const CustomComponent = React.forwardRef<HTMLInputElement, ChildComponentProps>(
+  (props, ref) => {
+    return (
+      <>
+        <input
+          type="date"
+          value={props.dateValue || ""}
+          onChange={props.onDateChange}
+          ref={ref}
+        />
+        <DateDropdownGroup {...props} />
+      </>
+    );
+  }
+);
+CustomComponent.displayName = "CustomComponent";
 
 type FormData = {
   date: string;
@@ -24,20 +43,7 @@ function VanillaReactHookFormWithOriginalRenderSample() {
         control={control}
         rules={{ required: true }}
         render={({ field }) => (
-          <DateSelect
-            {...field}
-            render={(props) => (
-              <>
-                <input
-                  type="date"
-                  value={props.dateValue || ""}
-                  onChange={props.onDateChange}
-                  ref={props.ref}
-                />
-                <DateDropdownGroup {...props} />
-              </>
-            )}
-          />
+          <DateSelect {...field} component={CustomComponent} />
         )}
       />
       {errors.date && <span>This field is required</span>}
