@@ -6,7 +6,8 @@ export interface DateSelectProps extends Omit<BaseProps, "render"> {
   hideDay?: boolean;
 }
 
-const DateSelect = React.forwardRef<unknown, DateSelectProps>((props, ref) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const DateSelect = React.forwardRef<any, DateSelectProps>((props, ref) => {
   return (
     <Base
       {...props}
