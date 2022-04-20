@@ -8,15 +8,18 @@ interface ReactHookFormCompatibleProps {
   onBlur?: () => void;
 }
 
-export interface ChildComponentProps extends UseDateSelectInterface {
-  ref?: React.Ref<unknown>;
+export interface ChildComponentProps<TRef = any> // eslint-disable-line @typescript-eslint/no-explicit-any
+  extends UseDateSelectInterface {
+  ref?: React.Ref<TRef>;
 }
-export interface RenderArgs extends UseDateSelectInterface {
-  ref?: React.Ref<unknown>;
+export interface RenderArgs<TRef = any> // eslint-disable-line @typescript-eslint/no-explicit-any
+  extends UseDateSelectInterface {
+  ref?: React.Ref<TRef>;
 }
-export interface DateSelectProps extends ReactHookFormCompatibleProps {
-  component?: React.ComponentType<ChildComponentProps>;
-  render?: (renderArgs: RenderArgs) => React.ReactElement;
+export interface DateSelectProps<TRef = any> // eslint-disable-line @typescript-eslint/no-explicit-any
+  extends ReactHookFormCompatibleProps {
+  component?: React.ComponentType<ChildComponentProps<TRef>>;
+  render?: (renderArgs: RenderArgs<TRef>) => React.ReactElement;
   maxYear?: number;
   minYear?: number;
   defaultYear?: number;
@@ -24,7 +27,8 @@ export interface DateSelectProps extends ReactHookFormCompatibleProps {
   defaultDay?: number;
 }
 
-const DateSelect = React.forwardRef<unknown, DateSelectProps>((props, ref) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const DateSelect = React.forwardRef<any, DateSelectProps<any>>((props, ref) => {
   // Ref is forwarded, but it is intended to be used with react-hook-form's <Controller /> to focus the input when error occurs.
   // This component is still controlled even if ref is here.
 

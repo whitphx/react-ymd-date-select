@@ -21,5 +21,9 @@ module.exports = {
   rules: {
     "react/react-in-jsx-scope": "off", // This is no longer necessary since React@17
     "react/prop-types": "warn",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      { ignoreRestSiblings: true },
+    ],
   },
 };
