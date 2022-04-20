@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDateSelect, UseDateSelectInterface } from "./use-date-select";
 
 interface ReactHookFormCompatibleProps {
@@ -42,25 +42,13 @@ const DateSelect = React.forwardRef<any, DateSelectProps<any>>((props, ref) => {
     defaultDay,
   } = props;
 
-  const dateSelectProps = useDateSelect(onChange, {
+  const dateSelectProps = useDateSelect(value, onChange, {
     minYear,
     maxYear,
     defaultYear,
     defaultMonth,
     defaultDay,
   });
-
-  const { setDate, dateValue } = dateSelectProps;
-  useEffect(() => {
-    if (typeof value !== "string") {
-      return;
-    }
-
-    const dateValueAsString = dateValue || "";
-    if (dateValueAsString !== value) {
-      setDate(value);
-    }
-  }, [setDate, dateValue, value]);
 
   if (props.component) {
     return React.createElement(props.component, { ref, ...dateSelectProps });
