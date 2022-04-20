@@ -42,10 +42,9 @@ const DateSelect = React.forwardRef<any, DateSelectProps<any>>((props, ref) => {
     defaultDay,
   } = props;
 
-  const dateSelectProps = useDateSelect({
+  const dateSelectProps = useDateSelect(onChange, {
     minYear,
     maxYear,
-    onChange,
     defaultYear,
     defaultMonth,
     defaultDay,

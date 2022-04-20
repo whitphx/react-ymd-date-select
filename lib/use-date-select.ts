@@ -37,7 +37,6 @@ export interface UseDateSelectOptions {
   defaultYear?: number;
   defaultMonth?: number;
   defaultDay?: number;
-  onChange: (dateString: string) => void;
 }
 export interface UseDateSelectInterface {
   yearValue: string;
@@ -54,6 +53,7 @@ export interface UseDateSelectInterface {
   setDate: (dateString: string) => void;
 }
 export const useDateSelect = (
+  onChange: (dateString: string) => void,
   opts: UseDateSelectOptions
 ): UseDateSelectInterface => {
   const [state, setState] = useState<DateSelectState & { changeCount: number }>(
@@ -64,7 +64,7 @@ export const useDateSelect = (
         : "",
       dayValue: opts.defaultDay ? convertToSelectValue(opts.defaultDay) : "",
       dateString: null,
-      changeCount: 0, // HACK: Use this state as a dependency of the `useEffect` below so that `opts.onChange` is called only when it should be.
+      changeCount: 0, // HACK: Use this state as a dependency of the `useEffect` below so that `onChange` is called only when it should be.
     }
   );
 
@@ -86,7 +86,7 @@ export const useDateSelect = (
           monthValue,
           dayValue,
           dateString,
-          changeCount: curState.changeCount + 1, // `updateDate` changes `state.changeCount` so that `opts.onChange` is triggered.
+          changeCount: curState.changeCount + 1, // `updateDate` changes `state.changeCount` so that `onChange` is triggered.
         };
       });
     },
@@ -94,8 +94,8 @@ export const useDateSelect = (
   );
 
   useEffect(() => {
-    opts.onChange(state.dateString || "");
-  }, [state.changeCount, opts.onChange]);
+    onChange(state.dateString || "");
+  }, [state.changeCount, onChange]);
 
   const yearOptions = useMemo(() => {
     const minYear = opts.minYear != null ? opts.minYear : DEFAULT_MIN_YEAR;
@@ -154,7 +154,7 @@ export const useDateSelect = (
         monthValue: month,
         dayValue: day,
         dateString,
-        changeCount: curState.changeCount, // This method does not update `state.changeCount` so that `opts.onChange` is not triggered.
+        changeCount: curState.changeCount, // This method does not update `state.changeCount` so that `onChange` is not triggered.
       }));
     }, []),
   };
