@@ -90,7 +90,7 @@ export const useDateSelect = (
         };
       });
     },
-    [opts.onChange]
+    []
   );
 
   useEffect(() => {
