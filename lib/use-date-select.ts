@@ -37,7 +37,6 @@ export interface UseDateSelectOptions {
   defaultYear?: number;
   defaultMonth?: number;
   defaultDay?: number;
-  onChange: (dateString: string) => void;
 }
 export interface UseDateSelectInterface {
   yearValue: string;
@@ -54,6 +53,8 @@ export interface UseDateSelectInterface {
   setDate: (dateString: string) => void;
 }
 export const useDateSelect = (
+  value: string,
+  onChange: (dateString: string) => void,
   opts: UseDateSelectOptions
 ): UseDateSelectInterface => {
   const [state, setState] = useState<DateSelectState & { changeCount: number }>(
@@ -64,7 +65,7 @@ export const useDateSelect = (
         : "",
       dayValue: opts.defaultDay ? convertToSelectValue(opts.defaultDay) : "",
       dateString: null,
-      changeCount: 0, // HACK: Use this state as a dependency of the `useEffect` below so that `opts.onChange` is called only when it should be.
+      changeCount: 0, // HACK: Use this state as a dependency of the `useEffect` below so that `onChange` is called only when it should be.
     }
   );
 
@@ -86,7 +87,7 @@ export const useDateSelect = (
           monthValue,
           dayValue,
           dateString,
-          changeCount: curState.changeCount + 1, // `updateDate` changes `state.changeCount` so that `opts.onChange` is triggered.
+          changeCount: curState.changeCount + 1, // `updateDate` changes `state.changeCount` so that `onChange` is triggered.
         };
       });
     },
@@ -94,8 +95,8 @@ export const useDateSelect = (
   );
 
   useEffect(() => {
-    opts.onChange(state.dateString || "");
-  }, [state.changeCount, opts.onChange]);
+    onChange(state.dateString || "");
+  }, [state.changeCount, onChange]);
 
   const yearOptions = useMemo(() => {
     const minYear = opts.minYear != null ? opts.minYear : DEFAULT_MIN_YEAR;
@@ -109,6 +110,28 @@ export const useDateSelect = (
     }
     return raw;
   }, [opts.minYear, opts.maxYear, state.yearValue]);
+
+  const setDate = useCallback((dateString: string) => {
+    const { year, month, day } = parseDateString(dateString);
+    setState((curState) => ({
+      yearValue: year,
+      monthValue: month,
+      dayValue: day,
+      dateString,
+      changeCount: curState.changeCount, // This method does not update `state.changeCount` so that `onChange` is not triggered.
+    }));
+  }, []);
+
+  useEffect(() => {
+    if (typeof value !== "string") {
+      return;
+    }
+
+    const dateValueAsString = state.dateString || "";
+    if (dateValueAsString !== value) {
+      setDate(value);
+    }
+  }, [setDate, state.dateString, value]);
 
   return {
     yearValue: state.yearValue,
@@ -147,15 +170,6 @@ export const useDateSelect = (
       },
       [updateDate]
     ),
-    setDate: useCallback((dateString: string) => {
-      const { year, month, day } = parseDateString(dateString);
-      setState((curState) => ({
-        yearValue: year,
-        monthValue: month,
-        dayValue: day,
-        dateString,
-        changeCount: curState.changeCount, // This method does not update `state.changeCount` so that `opts.onChange` is not triggered.
-      }));
-    }, []),
+    setDate,
   };
 };

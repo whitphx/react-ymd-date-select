@@ -1,12 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDateSelect, UseDateSelectInterface } from "./use-date-select";
-
-interface ReactHookFormCompatibleProps {
-  value: string;
-  onChange: (value: string) => void;
-  name?: string;
-  onBlur?: () => void;
-}
 
 export interface ChildComponentProps<TRef = any> // eslint-disable-line @typescript-eslint/no-explicit-any
   extends UseDateSelectInterface {
@@ -16,8 +9,10 @@ export interface RenderArgs<TRef = any> // eslint-disable-line @typescript-eslin
   extends UseDateSelectInterface {
   ref?: React.Ref<TRef>;
 }
-export interface DateSelectProps<TRef = any> // eslint-disable-line @typescript-eslint/no-explicit-any
-  extends ReactHookFormCompatibleProps {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export interface DateSelectProps<TRef = any> {
+  value: string;
+  onChange: (value: string) => void;
   component?: React.ComponentType<ChildComponentProps<TRef>>;
   render?: (renderArgs: RenderArgs<TRef>) => React.ReactElement;
   maxYear?: number;
@@ -32,36 +27,9 @@ const DateSelect = React.forwardRef<any, DateSelectProps<any>>((props, ref) => {
   // Ref is forwarded, but it is intended to be used with react-hook-form's <Controller /> to focus the input when error occurs.
   // This component is still controlled even if ref is here.
 
-  const {
-    onChange,
-    value,
-    maxYear,
-    minYear,
-    defaultYear,
-    defaultMonth,
-    defaultDay,
-  } = props;
+  const { onChange, value, ...opts } = props;
 
-  const dateSelectProps = useDateSelect({
-    minYear,
-    maxYear,
-    onChange,
-    defaultYear,
-    defaultMonth,
-    defaultDay,
-  });
-
-  const { setDate, dateValue } = dateSelectProps;
-  useEffect(() => {
-    if (typeof value !== "string") {
-      return;
-    }
-
-    const dateValueAsString = dateValue || "";
-    if (dateValueAsString !== value) {
-      setDate(value);
-    }
-  }, [setDate, dateValue, value]);
+  const dateSelectProps = useDateSelect(value, onChange, opts);
 
   if (props.component) {
     return React.createElement(props.component, { ref, ...dateSelectProps });
