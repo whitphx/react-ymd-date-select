@@ -1,3 +1,4 @@
+import React from "react";
 import { Options } from "../../types";
 
 export interface DateDropdownGroupProps {
@@ -13,7 +14,10 @@ export interface DateDropdownGroupProps {
   hideDay?: boolean;
 }
 
-function DateDropdownGroup(props: DateDropdownGroupProps) {
+const DateDropdownGroup = React.forwardRef<
+  HTMLSelectElement,
+  DateDropdownGroupProps
+>((props, ref) => {
   return (
     <>
       <select value={props.yearValue} onChange={props.onYearChange}>
@@ -24,7 +28,11 @@ function DateDropdownGroup(props: DateDropdownGroupProps) {
           </option>
         ))}
       </select>
-      <select value={props.monthValue} onChange={props.onMonthChange}>
+      <select
+        value={props.monthValue}
+        onChange={props.onMonthChange}
+        ref={props.hideDay ? ref : undefined}
+      >
         <option value="" disabled></option>
         {props.monthOptions.map(({ value, label }) => (
           <option key={value} value={value}>
@@ -33,7 +41,7 @@ function DateDropdownGroup(props: DateDropdownGroupProps) {
         ))}
       </select>
       {!props.hideDay && (
-        <select value={props.dayValue} onChange={props.onDayChange}>
+        <select value={props.dayValue} onChange={props.onDayChange} ref={ref}>
           <option value="" disabled></option>
           {props.dayOptions.map(({ value, label }) => (
             <option key={value} value={value}>
@@ -44,6 +52,7 @@ function DateDropdownGroup(props: DateDropdownGroupProps) {
       )}
     </>
   );
-}
+});
+DateDropdownGroup.displayName = "DateDropdownGroup";
 
 export default DateDropdownGroup;
