@@ -20,7 +20,7 @@ jobs:
         with:
           repo: "whitphx/react-date-select"
           version: "tags/${{ github.event.release.tag_name }}"
-          file: "react-date-select${{ github.event.release.tag_name }}.tgz"
+          file: "react-date-select-${{ github.event.release.tag_name }}.tgz"
           token: ${{ secrets.GITHUB_TOKEN }}
       - run: yarn publish react-date-select*.tgz
         env:
