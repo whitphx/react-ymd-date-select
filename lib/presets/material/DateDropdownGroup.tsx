@@ -1,3 +1,4 @@
+import React from "react";
 import { useEffect, useCallback } from "react";
 import { Options } from "../../types";
 import Box from "@mui/material/Box";
@@ -21,7 +22,10 @@ export interface DateDropdownGroupProps {
 
 let globalIdCount = 0;
 
-function DateDropdownGroup(props: DateDropdownGroupProps) {
+const DateDropdownGroup = React.forwardRef<
+  HTMLSelectElement,
+  DateDropdownGroupProps
+>((props, ref) => {
   useEffect(() => {
     globalIdCount++;
   }, []);
@@ -64,6 +68,7 @@ function DateDropdownGroup(props: DateDropdownGroupProps) {
             [props.onMonthChange]
           )}
           label="Month"
+          ref={props.hideDay ? ref : undefined}
         >
           <MenuItem value="" disabled></MenuItem>
           {props.monthOptions.map(({ value, label }) => (
@@ -87,6 +92,7 @@ function DateDropdownGroup(props: DateDropdownGroupProps) {
               [props.onDayChange]
             )}
             label="Day"
+            ref={ref}
           >
             <MenuItem value="" disabled></MenuItem>
             {props.dayOptions.map(({ value, label }) => (
@@ -99,6 +105,7 @@ function DateDropdownGroup(props: DateDropdownGroupProps) {
       )}
     </Box>
   );
-}
+});
+DateDropdownGroup.displayName = "DateDropdownGroup";
 
 export default DateDropdownGroup;
