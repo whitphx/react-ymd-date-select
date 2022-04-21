@@ -55,7 +55,7 @@ export interface UseDateSelectInterface {
 export const useDateSelect = (
   value: string,
   onChange: (dateString: string) => void,
-  opts: UseDateSelectOptions
+  opts: UseDateSelectOptions = {}
 ): UseDateSelectInterface => {
   const [state, setState] = useState<DateSelectState & { changeCount: number }>(
     {
