@@ -71,9 +71,9 @@ export const useDateSelect = (
   const updateDate = useCallback(
     ({ year, month, day }: { year?: string; month?: string; day?: string }) => {
       setState((curState) => {
-        const yearValue = year || curState.yearValue;
-        const monthValue = month || curState.monthValue;
-        const dayValue = day || curState.dayValue;
+        const yearValue = year ?? curState.yearValue;
+        const monthValue = month ?? curState.monthValue;
+        const dayValue = day ?? curState.dayValue;
 
         const dateString = compileDateString(
           parseSelectValue(yearValue),
