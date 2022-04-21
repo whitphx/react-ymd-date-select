@@ -30,7 +30,7 @@ const DateDropdownGroup = React.forwardRef<
     globalIdCount++;
   }, []);
 
-  const idPrefix = `react-date-select-mui-${globalIdCount.toString()}`;
+  const idPrefix = `react-ymd-date-select-mui-${globalIdCount.toString()}`;
 
   return (
     <Box>

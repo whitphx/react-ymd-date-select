@@ -35,11 +35,11 @@ jobs:
       - name: Upload the package as an artifact
         uses: actions/upload-artifact@v2
         with:
-          name: react-date-select
-          path: react-date-select*.tgz
+          name: react-ymd-date-select
+          path: react-ymd-date-select*.tgz
       - name: Draft a new release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/v')
         with:
           draft: true
-          files: react-date-select*.tgz
+          files: react-ymd-date-select*.tgz
