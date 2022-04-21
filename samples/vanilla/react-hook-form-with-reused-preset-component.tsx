@@ -43,7 +43,10 @@ function VanillaReactHookFormWithReusedPresetComponentSample() {
         control={control}
         rules={{ required: true }}
         render={({ field }) => (
-          <DateSelect {...field} component={CustomComponent} />
+          <DateSelect
+            {...field}
+            render={(props) => <CustomComponent {...props} />}
+          />
         )}
       />
       {errors.date && <span>This field is required</span>}
