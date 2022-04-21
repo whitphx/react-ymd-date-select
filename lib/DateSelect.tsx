@@ -13,8 +13,7 @@ export interface RenderArgs<TRef = any> // eslint-disable-line @typescript-eslin
 export interface DateSelectProps<TRef = any> {
   value: string;
   onChange: (value: string) => void;
-  component?: React.ComponentType<ChildComponentProps<TRef>>;
-  render?: (renderArgs: RenderArgs<TRef>) => React.ReactElement;
+  render: (renderArgs: RenderArgs<TRef>) => React.ReactElement;
   maxYear?: number;
   minYear?: number;
   defaultYear?: number;
@@ -31,13 +30,7 @@ const DateSelect = React.forwardRef<any, DateSelectProps<any>>((props, ref) => {
 
   const dateSelectProps = useDateSelect(value, onChange, opts);
 
-  if (props.component) {
-    return React.createElement(props.component, { ref, ...dateSelectProps });
-  } else if (props.render) {
-    return props.render({ ...dateSelectProps, ref });
-  } else {
-    throw new Error(`Either render or component must be provided.`);
-  }
+  return props.render({ ...dateSelectProps, ref });
 });
 DateSelect.displayName = "DateSelect";
 

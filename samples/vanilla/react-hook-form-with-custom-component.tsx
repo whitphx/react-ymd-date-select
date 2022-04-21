@@ -1,24 +1,68 @@
 import React from "react";
 import { useForm, Controller } from "react-hook-form";
-import { DateSelect, ChildComponentProps } from "../../lib";
-import { DateDropdownGroup } from "../../lib/presets/vanilla";
+import { useDateSelect } from "../../lib";
 
-// Creating a new component wrapped with `React.forwardRef` is necessary to use `ref` inside it.
-const CustomComponent = React.forwardRef<HTMLInputElement, ChildComponentProps>(
-  (props, ref) => {
-    return (
-      <>
-        <input
-          type="date"
-          value={props.dateValue || ""}
-          onChange={props.onDateChange}
+interface CustomComponentProps {
+  onChange: (value: any) => void;
+  onBlur: () => void;
+  value: string;
+  name: string;
+}
+const CustomComponent = React.forwardRef<
+  HTMLSelectElement,
+  CustomComponentProps
+>((props, ref) => {
+  const dateSelect = useDateSelect(props.value, props.onChange);
+  return (
+    <>
+      <input
+        type="date"
+        value={dateSelect.dateValue || ""}
+        onChange={dateSelect.onDateChange}
+      />
+      <label>
+        Year
+        <select value={dateSelect.yearValue} onChange={dateSelect.onYearChange}>
+          <option value="" disabled></option>
+          {dateSelect.yearOptions.map((yearOption) => (
+            <option key={yearOption.value} value={yearOption.value}>
+              {yearOption.label}
+            </option>
+          ))}
+        </select>
+      </label>
+      <label>
+        Month
+        <select
+          value={dateSelect.monthValue}
+          onChange={dateSelect.onMonthChange}
+        >
+          <option value="" disabled></option>
+          {dateSelect.monthOptions.map((monthOption) => (
+            <option key={monthOption.value} value={monthOption.value}>
+              {monthOption.label}
+            </option>
+          ))}
+        </select>
+      </label>
+      <label>
+        Day
+        <select
+          value={dateSelect.dayValue}
+          onChange={dateSelect.onDayChange}
           ref={ref}
-        />
-        <DateDropdownGroup {...props} />
-      </>
-    );
-  }
-);
+        >
+          <option value="" disabled></option>
+          {dateSelect.dayOptions.map((dayOption) => (
+            <option key={dayOption.value} value={dayOption.value}>
+              {dayOption.label}
+            </option>
+          ))}
+        </select>
+      </label>
+    </>
+  );
+});
 CustomComponent.displayName = "CustomComponent";
 
 type FormData = {
@@ -42,9 +86,7 @@ function VanillaReactHookFormWithCustomComponentSample() {
         name="date"
         control={control}
         rules={{ required: true }}
-        render={({ field }) => (
-          <DateSelect {...field} component={CustomComponent} />
-        )}
+        render={({ field }) => <CustomComponent {...field} />}
       />
       {errors.date && <span>This field is required</span>}
 
