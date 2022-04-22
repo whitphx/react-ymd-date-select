@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { range } from "./range";
 import { compileDateString, parseDateString } from "./date-string";
 import { Option, Options } from "./types";
@@ -94,9 +94,19 @@ export const useDateSelect = (
     []
   );
 
+  const mountedRef = useRef(false);
   useEffect(() => {
+    if (!mountedRef.current) {
+      return;
+    }
     onChange(state.dateString || "");
-  }, [state.changeCount, onChange]);
+  }, [state.changeCount]);
+  useEffect(() => {
+    mountedRef.current = true;
+    return () => {
+      mountedRef.current = false;
+    };
+  }, []);
 
   const yearOptions = useMemo(() => {
     const minYear = opts.minYear != null ? opts.minYear : DEFAULT_MIN_YEAR;
