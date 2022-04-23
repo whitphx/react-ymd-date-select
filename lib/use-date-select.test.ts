@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { renderHook } from "@testing-library/react";
+import { renderHook, act } from "@testing-library/react";
 
 import { useDateSelect } from "./use-date-select";
 
@@ -27,5 +27,28 @@ describe("useDateSelect", () => {
       expect(result.current.monthValue).toEqual("");
       expect(result.current.dayValue).toEqual("");
     });
+  });
+
+  it("calls onChange when on(Year|Month|Day)Change called", () => {
+    const value = "";
+    const onChange = vi.fn();
+    const { result } = renderHook(() => useDateSelect(value, onChange));
+
+    expect(onChange).not.toBeCalled();
+
+    act(() => {
+      result.current.onYearChange("2022");
+    });
+    expect(onChange).toBeCalledWith("");
+
+    act(() => {
+      result.current.onMonthChange("10");
+    });
+    expect(onChange).toBeCalledWith("");
+
+    act(() => {
+      result.current.onDayChange("21");
+    });
+    expect(onChange).toBeCalledWith("2022-10-21");
   });
 });
