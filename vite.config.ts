@@ -17,5 +17,6 @@ export default defineConfig({
   },
   test: {
     environment: "happy-dom", // https://vitest.dev/guide/features.html#mocking
+    setupFiles: "./setupTest.ts",
   },
 });
