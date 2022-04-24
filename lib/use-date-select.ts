@@ -94,6 +94,7 @@ export const useDateSelect = (
     []
   );
 
+  // Sync from the state to the upper component through onChange when necessary.
   const mountedRef = useRef(false);
   useEffect(() => {
     if (!mountedRef.current) {
@@ -132,6 +133,7 @@ export const useDateSelect = (
     }));
   }, []);
 
+  // Sync from the passed value to the state when necessary.
   useEffect(() => {
     if (typeof value !== "string") {
       return;
@@ -141,7 +143,7 @@ export const useDateSelect = (
     if (dateValueAsString !== value) {
       setDate(value);
     }
-  }, [setDate, state.dateString, value]);
+  }, [setDate, value]);
 
   return {
     yearValue: state.yearValue,
