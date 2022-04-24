@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.0.4] - 2022-04-24
+
+### Fixed
+
+- Fix selection behavior with invalid y-m-d combinations, #39
+
 ## [0.0.3] - 2022-04-24
 
 ### Fixed
