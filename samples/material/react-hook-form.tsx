@@ -1,5 +1,5 @@
 import { useForm, Controller } from "react-hook-form";
-import { DateSelect } from "../../lib/presets/material";
+import { DateSelect } from "react-ymd-date-select/presets/material";
 
 type FormData = {
   date: string;
