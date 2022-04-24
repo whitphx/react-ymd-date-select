@@ -79,4 +79,29 @@ describe("useDateSelect", () => {
     expect(result.current.monthValue).toEqual("2");
     expect(result.current.dayValue).toEqual("31");
   });
+
+  it(`preserves the selected values after calling onChange("") even if the y-m-d combination is invalid`, () => {
+    const value = "1960-01-02";
+    const onChange = vi.fn();
+    const { result, rerender } = renderHook(
+      ({ value, onChange }) => useDateSelect(value, onChange),
+      {
+        initialProps: { value, onChange },
+      }
+    );
+
+    act(() => {
+      result.current.onYearChange("2022");
+      result.current.onMonthChange("2");
+      result.current.onDayChange("31");
+    });
+
+    expect(onChange).toBeCalledWith("");
+
+    rerender({ value: "", onChange });
+
+    expect(result.current.yearValue).toEqual("2022");
+    expect(result.current.monthValue).toEqual("2");
+    expect(result.current.dayValue).toEqual("31");
+  });
 });

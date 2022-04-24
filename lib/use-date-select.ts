@@ -94,6 +94,18 @@ export const useDateSelect = (
     []
   );
 
+  const setDate = useCallback((dateString: string) => {
+    const { year, month, day } = parseDateString(dateString);
+    setState((curState) => ({
+      yearValue: year,
+      monthValue: month,
+      dayValue: day,
+      dateString,
+      changeCount: curState.changeCount, // This method does not update `state.changeCount` so that `onChange` is not triggered.
+    }));
+  }, []);
+
+  // Sync from the state to the upper component through onChange when necessary.
   const mountedRef = useRef(false);
   useEffect(() => {
     if (!mountedRef.current) {
@@ -108,6 +120,18 @@ export const useDateSelect = (
     };
   }, []);
 
+  // Sync from the passed value to the state when necessary.
+  useEffect(() => {
+    if (typeof value !== "string") {
+      return;
+    }
+
+    const dateValueAsString = state.dateString || "";
+    if (dateValueAsString !== value) {
+      setDate(value);
+    }
+  }, [setDate, value]);
+
   const yearOptions = useMemo(() => {
     const minYear = opts.minYear != null ? opts.minYear : DEFAULT_MIN_YEAR;
     const maxYear = opts.maxYear != null ? opts.maxYear : DEFAULT_MAX_YEAR;
@@ -120,28 +144,6 @@ export const useDateSelect = (
     }
     return raw;
   }, [opts.minYear, opts.maxYear, state.yearValue]);
-
-  const setDate = useCallback((dateString: string) => {
-    const { year, month, day } = parseDateString(dateString);
-    setState((curState) => ({
-      yearValue: year,
-      monthValue: month,
-      dayValue: day,
-      dateString,
-      changeCount: curState.changeCount, // This method does not update `state.changeCount` so that `onChange` is not triggered.
-    }));
-  }, []);
-
-  useEffect(() => {
-    if (typeof value !== "string") {
-      return;
-    }
-
-    const dateValueAsString = state.dateString || "";
-    if (dateValueAsString !== value) {
-      setDate(value);
-    }
-  }, [setDate, state.dateString, value]);
 
   return {
     yearValue: state.yearValue,
