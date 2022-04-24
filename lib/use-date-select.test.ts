@@ -52,10 +52,15 @@ describe("useDateSelect", () => {
     expect(onChange).toBeCalledWith("2022-10-21");
   });
 
-  it("calls onChange with an empty string if the selected date is invalid", () => {
+  it(`calls onChange("") if the selected date is invalid, but still preserves the selected values after "" is passed as the value prop`, () => {
     const value = "";
     const onChange = vi.fn();
-    const { result } = renderHook(() => useDateSelect(value, onChange));
+    const { result, rerender } = renderHook(
+      ({ value, onChange }) => useDateSelect(value, onChange),
+      {
+        initialProps: { value, onChange },
+      }
+    );
 
     act(() => {
       result.current.onYearChange("2022");
@@ -63,6 +68,15 @@ describe("useDateSelect", () => {
       result.current.onDayChange("31");
     });
 
+    expect(result.current.yearValue).toEqual("2022");
+    expect(result.current.monthValue).toEqual("2");
+    expect(result.current.dayValue).toEqual("31");
     expect(onChange).toBeCalledWith("");
+
+    rerender({ value: "", onChange });
+
+    expect(result.current.yearValue).toEqual("2022");
+    expect(result.current.monthValue).toEqual("2");
+    expect(result.current.dayValue).toEqual("31");
   });
 });
