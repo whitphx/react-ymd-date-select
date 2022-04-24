@@ -51,4 +51,18 @@ describe("useDateSelect", () => {
     });
     expect(onChange).toBeCalledWith("2022-10-21");
   });
+
+  it("calls onChange with an empty string if the selected date is invalid", () => {
+    const value = "";
+    const onChange = vi.fn();
+    const { result } = renderHook(() => useDateSelect(value, onChange));
+
+    act(() => {
+      result.current.onYearChange("2022");
+      result.current.onMonthChange("2");
+      result.current.onDayChange("31");
+    });
+
+    expect(onChange).toBeCalledWith("");
+  });
 });
