@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm, Controller } from "react-hook-form";
-import { useDateSelect } from "../../lib";
+import { useDateSelect } from "react-ymd-date-select";
 
 interface CustomComponentProps {
   onChange: (value: any) => void;

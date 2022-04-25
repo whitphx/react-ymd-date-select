@@ -4,7 +4,7 @@ import {
   FormErrorMessage,
   FormHelperText,
 } from "@chakra-ui/react";
-import { DateSelect } from "../../lib/presets/chakra-ui";
+import { DateSelect } from "react-ymd-date-select/presets/chakra-ui";
 
 type FormData = {
   date: string;

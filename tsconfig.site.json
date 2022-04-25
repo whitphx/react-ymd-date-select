@@ -14,7 +14,11 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "paths": {
+      "react-ymd-date-select": ["./lib"],
+      "react-ymd-date-select/*": ["./lib/*"]
+    }
   },
   "include": ["site", "samples"],
   "references": [{ "path": "./tsconfig.node.json" }]
