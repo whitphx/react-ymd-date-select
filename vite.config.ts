@@ -1,18 +1,14 @@
 import * as path from "path";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import mdx from "vite-plugin-mdx";
+import mdx from "@mdx-js/rollup";
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     react(),
     mdx({
-      // See https://mdxjs.com/advanced/plugins
-      remarkPlugins: [
-        // E.g. `remark-frontmatter`
-      ],
-      rehypePlugins: [],
+      jsxImportSource: "@emotion/react", // For Emotion. See https://mdxjs.com/docs/getting-started/#emotion
     }),
   ],
   build: {
