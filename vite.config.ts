@@ -15,12 +15,24 @@ export default defineConfig({
   ],
   build: {
     rollupOptions: {
-      input: {
-        main: path.resolve(__dirname, "index.html"),
-        vanillaSample: path.resolve(__dirname, "/samples/vanilla/index.html"),
-        materialSample: path.resolve(__dirname, "/samples/material/index.html"),
-        chakraSample: path.resolve(__dirname, "/samples/chakra-ui/index.html"),
-      },
+      input: [
+        path.resolve(__dirname, "index.html"),
+        path.resolve(__dirname, "/samples/vanilla/index.html"),
+        path.resolve(__dirname, "/samples/material/index.html"),
+        path.resolve(__dirname, "/samples/chakra-ui/index.html"),
+        path.resolve(
+          __dirname,
+          "/site/components/PresetList/samples/vanilla/index.html"
+        ),
+        path.resolve(
+          __dirname,
+          "/site/components/PresetList/samples/chakra/index.html"
+        ),
+        path.resolve(
+          __dirname,
+          "/site/components/PresetList/samples/mui/index.html"
+        ),
+      ],
     },
   },
   test: {

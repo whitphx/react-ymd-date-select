@@ -1,14 +1,5 @@
-```jsx
-import { DateSelect } from "react-ymd-date-select/presets/vanilla";
+import PresetList from "./components/PresetList";
 
-export default function Sample() {
-  const [date, setDate] = React.useState("");
+It provides `<DateSelect />` component for each UI library, exported from `"react-ymd-date-select/presets/*`.
 
-  return (
-    <div>
-      <DateSelect value={date} onChange={setDate} />
-      <p>Selected date is: {date}</p>
-    </div>
-  );
-}
-```
+<PresetList />
