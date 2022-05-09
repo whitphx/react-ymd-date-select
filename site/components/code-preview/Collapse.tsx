@@ -6,22 +6,20 @@ import {
   UseLiveRunnerProps,
 } from "react-live-runner";
 import styled from "@emotion/styled";
+import { useBoolean } from "@chakra-ui/react";
+import { scope } from "./scope";
 
 export const Container = styled.div`
   display: flex;
+  flex-direction: column;
   box-shadow: 0 0 2px 0 lightsteelblue;
-  height: 300px;
+  width: 100%;
   overflow: hidden;
-
-  @media (max-width: 640px) {
-    flex-direction: column-reverse;
-    height: 480px;
-  }
 `;
 
 export const EditorContainer = styled.div`
-  flex: 0 1 720px;
   overflow: auto;
+  max-height: 300px;
 `;
 
 export const Editor = styled(CodeEditor)`
@@ -30,7 +28,7 @@ export const Editor = styled(CodeEditor)`
   white-space: pre;
   caret-color: #fff;
   min-width: 100%;
-  min-height: 100%;
+  max-height: 100%;
   float: left;
 
   & > textarea,
@@ -41,10 +39,10 @@ export const Editor = styled(CodeEditor)`
 `;
 
 export const PreviewContainer = styled.div`
-  flex: 1 1 720px;
   position: relative;
   display: flex;
   overflow: hidden;
+  min-height: 180px;
 `;
 
 export const Preview = styled.div`
@@ -67,23 +65,31 @@ export const PreviewError = styled.div`
   white-space: pre-wrap;
 `;
 
-interface LiveRunnerProps extends UseLiveRunnerProps {
+interface CollapseProps extends Omit<UseLiveRunnerProps, "scope"> {
   language: "jsx" | "tsx";
 }
-function LiveRunner({ language, ...liveRunnerProps }: LiveRunnerProps) {
-  const { code, element, error, onChange } = useLiveRunner(liveRunnerProps);
+function Collapse({ language, ...liveRunnerProps }: CollapseProps) {
+  const { code, element, error, onChange } = useLiveRunner({
+    ...liveRunnerProps,
+    scope,
+  });
+  const [isOpen, { on: open, off: close }] = useBoolean();
 
   return (
     <Container>
-      <EditorContainer>
-        <Editor value={code} language={language} onChange={onChange} />
-      </EditorContainer>
       <PreviewContainer>
         <Preview>{element}</Preview>
         {error && <PreviewError>{error}</PreviewError>}
       </PreviewContainer>
+      {!isOpen && <button onClick={open}>Show code</button>}
+      {isOpen && (
+        <EditorContainer>
+          <Editor value={code} language={language} onChange={onChange} />
+        </EditorContainer>
+      )}
+      {isOpen && <button onClick={close}>Hide code</button>}
     </Container>
   );
 }
 
-export default LiveRunner;
+export default Collapse;
