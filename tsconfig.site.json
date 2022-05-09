@@ -16,8 +16,8 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "paths": {
-      "react-ymd-date-select": ["./lib"],
-      "react-ymd-date-select/*": ["./lib/*"]
+      "react-ymd-date-select": ["./src"],
+      "react-ymd-date-select/*": ["./src/*"]
     }
   },
   "include": ["site", "samples"],
