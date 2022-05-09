@@ -1,6 +1,6 @@
 import LiveRunner from "./LiveRunner";
-import * as reactYmdDateSelect from "../../../lib";
-import * as presetVanilla from "../../../lib/presets/vanilla";
+import * as reactYmdDateSelect from "react-ymd-date-select";
+import * as presetVanilla from "react-ymd-date-select/presets/vanilla";
 
 const scope = {
   import: {

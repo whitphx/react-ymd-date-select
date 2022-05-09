@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm, Controller } from "react-hook-form";
-import { DateSelect, ChildComponentProps } from "../../lib";
-import { DateDropdownGroup } from "../../lib/presets/vanilla";
+import { DateSelect, ChildComponentProps } from "react-ymd-date-select";
+import { DateDropdownGroup } from "react-ymd-date-select/presets/vanilla";
 
 // Creating a new component wrapped with `React.forwardRef` is necessary to use `ref` inside it.
 const CustomComponent = React.forwardRef<HTMLInputElement, ChildComponentProps>(

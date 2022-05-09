@@ -14,8 +14,8 @@
     "coverage": "vitest run --coverage",
     "tsc:lib": "tsc -p ./lib/tsconfig.json --noEmit",
     "build:lib": "yarn run build:lib:esm && yarn run build:lib:cjs",
-    "build:lib:esm": "tsc -p ./lib/tsconfig.json",
-    "build:lib:cjs": "tsc -p ./lib/tsconfig.cjs.json",
+    "build:lib:esm": "tsc -p ./src/tsconfig.json",
+    "build:lib:cjs": "tsc -p ./src/tsconfig.cjs.json",
     "fix:eslint": "eslint --fix '{lib,site}/**/*.{ts,tsx}'",
     "fix:prettier": "prettier --write .",
     "check:eslint": "eslint '{lib,site}/**/*.{ts,tsx}'",
@@ -51,6 +51,7 @@
     "react-live-runner": "^1.0.4",
     "typescript": "^4.5.4",
     "vite": "^2.8.0",
+    "vite-tsconfig-paths": "^3.4.1",
     "vitest": "^0.7.0"
   },
   "peerDependencies": {
