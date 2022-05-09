@@ -1,19 +1,21 @@
+import React from "react";
 import LiveRunner from "./LiveRunner";
 import * as reactYmdDateSelect from "react-ymd-date-select";
 import * as presetVanilla from "react-ymd-date-select/presets/vanilla";
 
 const scope = {
   import: {
+    react: React,
     "react-ymd-date-select": reactYmdDateSelect,
     "react-ymd-date-select/presets/vanilla": presetVanilla,
   },
 };
 
-interface LiveCodeBlockProps {
+interface CodePreviewProps {
   code: string;
   language: "jsx" | "tsx";
 }
-function LiveCodeBlock(props: LiveCodeBlockProps) {
+function CodePreview(props: CodePreviewProps) {
   return (
     <LiveRunner
       initialCode={props.code}
@@ -23,4 +25,4 @@ function LiveCodeBlock(props: LiveCodeBlockProps) {
   );
 }
 
-export default LiveCodeBlock;
+export default CodePreview;
