@@ -17,9 +17,10 @@ export default defineConfig({
     rollupOptions: {
       input: [
         path.resolve(__dirname, "index.html"),
-        path.resolve(__dirname, "/samples/vanilla/index.html"),
-        path.resolve(__dirname, "/samples/mui/index.html"),
-        path.resolve(__dirname, "/samples/chakra-ui/index.html"),
+        path.resolve(__dirname, "/playground/index.html"),
+        path.resolve(__dirname, "/playground/vanilla/index.html"),
+        path.resolve(__dirname, "/playground/mui/index.html"),
+        path.resolve(__dirname, "/playground/chakra-ui/index.html"),
         path.resolve(
           __dirname,
           "/site/components/preset-samples/samples/vanilla/index.html"
