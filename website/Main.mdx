@@ -1,12 +1,11 @@
 import CodePreview from "./components/CodePreview";
 import { VanillaSample, VariantSamples } from "./components/preset-samples";
-import { CustomComponentSample } from "./components/hook-sample";
 
 ## Presets
 
-It provides `<DateSelect />` component for each UI library, exported from `react-ymd-date-select/presets/*`.
+It provides ready-to-use `<DateSelect />` component for each UI library, exported from `react-ymd-date-select/presets/*`.
 
-`react-ymd-date-select/presets/vanilla` is for a bare HTML without styling.
+`react-ymd-date-select/presets/vanilla` is a bare HTML version without styling.
 
 <VanillaSample />
 
@@ -14,11 +13,13 @@ It provides `<DateSelect />` component for each UI library, exported from `react
 
 <VariantSamples />
 
-## Hook
+## Hook for custom components
 
 This library also provides `useDateSelect` hook so that you can create original customized components.
 
-<CustomComponentSample />
+import HookSampleCode from "./components/hook-sample/hook?raw";
+
+<CodePreview initialCode={HookSampleCode} language="tsx" />
 
 ## With form libraries
 

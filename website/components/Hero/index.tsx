@@ -8,8 +8,8 @@ const HeroContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: #46c9e5; /* fallback color */
-  background: linear-gradient(150deg, #46c9e5 0%, #d26ac2 100%);
+  background: #a733d8; /* fallback color */
+  background: linear-gradient(150deg, #f9b600 0%, #a432d5 100%);
   height: 300px;
   width: 100%;
 
