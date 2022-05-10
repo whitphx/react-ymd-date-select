@@ -22,11 +22,15 @@ This library also provides `useDateSelect` hook so that you can create original 
 
 ## With form libraries
 
-### [React Hook Form](https://react-hook-form.com/)
+### React Hook Form
 
 import ReactHookFormSampleCode from "./samples/react-hook-form?raw";
 
 <CodePreview initialCode={ReactHookFormSampleCode} language="tsx" />
+
+For the details about the usage with React Hook Form,
+see [the "Controlled mixed with Uncontrolled Components" section](https://react-hook-form.com/advanced-usage#ControlledmixedwithUncontrolledComponents) in the official document.
+Since the date selector is a controlled component, we need to use the `<Controller />` provided from React Hook Form as the example above.
 
 ### Formik
 
