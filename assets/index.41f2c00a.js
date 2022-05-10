@@ -15,8 +15,8 @@ var H=Object.defineProperty;var b=Object.getOwnPropertySymbols;var O=Object.prot
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: #46c9e5; /* fallback color */
-  background: linear-gradient(150deg, #46c9e5 0%, #d26ac2 100%);
+  background: #a733d8; /* fallback color */
+  background: linear-gradient(150deg, #f9b600 0%, #a432d5 100%);
   height: 300px;
   width: 100%;
 
@@ -262,7 +262,7 @@ function Sample() {
 }
 
 export default Sample;
-`;function fe(){return n(f,{initialCode:ue,language:"tsx"})}var ge=`import { useForm, Controller } from "react-hook-form";
+`,fe=`import { useForm, Controller } from "react-hook-form";
 import { DateSelect } from "react-ymd-date-select/presets/vanilla";
 
 type FormData = {
@@ -298,7 +298,7 @@ function Sample() {
 }
 
 export default Sample;
-`,xe=`import { Formik, Form, Field, FieldProps } from "formik";
+`,ge=`import { Formik, Form, Field, FieldProps } from "formik";
 import { DateSelect } from "react-ymd-date-select/presets/vanilla";
 
 interface Values {
@@ -326,31 +326,32 @@ function Sample() {
             );
           }}
         </Field>
-        <button type="submit">Submit</button>
+        <input type="submit" />
       </Form>
     </Formik>
   );
 }
 
 export default Sample;
-`;function be(t={}){const{wrapper:o}=t.components||{};return o?a(o,Object.assign({},t,{children:a(i,{})})):i();function i(){const e=Object.assign({h2:"h2",p:"p",code:"code",a:"a",h3:"h3"},t.components);return m(z,{children:[a(e.h2,{children:"Presets"}),`
-`,m(e.p,{children:["It provides ",a(e.code,{children:"<DateSelect />"})," component for each UI library, exported from ",a(e.code,{children:"react-ymd-date-select/presets/*"}),"."]}),`
-`,m(e.p,{children:[a(e.code,{children:"react-ymd-date-select/presets/vanilla"})," is for a bare HTML without styling."]}),`
+`;function xe(t={}){const{wrapper:o}=t.components||{};return o?a(o,Object.assign({},t,{children:a(i,{})})):i();function i(){const e=Object.assign({h2:"h2",p:"p",code:"code",a:"a",h3:"h3"},t.components);return m(z,{children:[a(e.h2,{children:"Presets"}),`
+`,m(e.p,{children:["It provides ready-to-use ",a(e.code,{children:"<DateSelect />"})," component for each UI library, exported from ",a(e.code,{children:"react-ymd-date-select/presets/*"}),"."]}),`
+`,m(e.p,{children:[a(e.code,{children:"react-ymd-date-select/presets/vanilla"})," is a bare HTML version without styling."]}),`
 `,a(me,{}),`
 `,m(e.p,{children:[a(e.code,{children:"react-ymd-date-select/presets/(chakra-ui|mui)"})," is also available for ",a(e.a,{href:"https://chakra-ui.com/",children:"Chakra UI"})," and ",a(e.a,{href:"https://mui.com/",children:"Material UI"}),"."]}),`
 `,a(he,{}),`
-`,a(e.h2,{children:"Hook"}),`
+`,a(e.h2,{children:"Hook for custom components"}),`
 `,m(e.p,{children:["This library also provides ",a(e.code,{children:"useDateSelect"})," hook so that you can create original customized components."]}),`
-`,a(fe,{}),`
+`,`
+`,a(f,{initialCode:ue,language:"tsx"}),`
 `,a(e.h2,{children:"With form libraries"}),`
 `,a(e.h3,{children:"React Hook Form"}),`
 `,`
-`,a(f,{initialCode:ge,language:"tsx"}),`
+`,a(f,{initialCode:fe,language:"tsx"}),`
 `,m(e.p,{children:[`For the details about the usage with React Hook Form,
 see `,a(e.a,{href:"https://react-hook-form.com/advanced-usage#ControlledmixedwithUncontrolledComponents",children:'the "Controlled mixed with Uncontrolled Components" section'}),` in the official document.
 Since the date selector is a controlled component, we need to use the `,a(e.code,{children:"<Controller />"})," provided from React Hook Form as the example above."]}),`
 `,a(e.h3,{children:"Formik"}),`
 `,`
-`,a(f,{initialCode:xe,language:"tsx"}),`
+`,a(f,{initialCode:ge,language:"tsx"}),`
 `,m(e.p,{children:["Note that you have to use ",a(e.code,{children:"setFieldValue()"})," in the ",a(e.code,{children:"onChange"})," prop of ",a(e.code,{children:"<DateSelect />"})," instead of directly passing the ",a(e.code,{children:"field.onChange"}),` prop.
-It is because `,a(e.code,{children:"<DateSelect />"}),"'s ",a(e.code,{children:"onChange"})," is called with a ",a(e.code,{children:"string"})," value but not with an event and it does not match Formik's ",a(e.code,{children:"onChange"}),"."]})]})}}function Se(){return d(V,{children:[n(J,{}),n(X,{children:n(be,{components:oe})})]})}const ve=P({styles:{global:{"*, *::before, &::after":{borderColor:null,wordWrap:null},html:{lineHeight:1.5},body:{position:"relative",minHeight:"100%",fontFeatureSettings:"kern"},"*, *::before, *::after":{boxSizing:"border-box"},"body, blockquote, dl, dd, h1, h2, h3, h4, h5, h6, hr, figure, p, pre":{margin:0}}}}),Ce=document.getElementById("root"),ye=L(Ce);ye.render(n(D.StrictMode,{children:n(U,{resetCSS:!1,theme:ve,children:n(Se,{})})}));
+It is because `,a(e.code,{children:"<DateSelect />"}),"'s ",a(e.code,{children:"onChange"})," is called with a ",a(e.code,{children:"string"})," value but not with an event and it does not match Formik's ",a(e.code,{children:"onChange"}),"."]})]})}}function be(){return d(V,{children:[n(J,{}),n(X,{children:n(xe,{components:oe})})]})}const Se=P({styles:{global:{"*, *::before, &::after":{borderColor:null,wordWrap:null},html:{lineHeight:1.5},body:{position:"relative",minHeight:"100%",fontFeatureSettings:"kern"},"*, *::before, *::after":{boxSizing:"border-box"},"body, blockquote, dl, dd, h1, h2, h3, h4, h5, h6, hr, figure, p, pre":{margin:0}}}}),ve=document.getElementById("root"),Ce=L(ve);Ce.render(n(D.StrictMode,{children:n(U,{resetCSS:!1,theme:Se,children:n(be,{})})}));
