@@ -1,3 +1,4 @@
+import CodePreview from "./components/CodePreview";
 import { VanillaSample, VariantSamples } from "./components/preset-samples";
 import { CustomComponentSample } from "./components/hook-sample";
 
@@ -18,3 +19,20 @@ It provides `<DateSelect />` component for each UI library, exported from `react
 This library also provides `useDateSelect` hook so that you can create original customized components.
 
 <CustomComponentSample />
+
+## With form libraries
+
+### [React Hook Form](https://react-hook-form.com/)
+
+import ReactHookFormSampleCode from "./samples/react-hook-form?raw";
+
+<CodePreview initialCode={ReactHookFormSampleCode} language="tsx" />
+
+### Formik
+
+import FormikSampleCode from "./samples/formik?raw";
+
+<CodePreview initialCode={FormikSampleCode} language="tsx" />
+
+Note that you have to use `setFieldValue()` in the `onChange` prop of `<DateSelect />` instead of directly passing the `field.onChange` prop.
+It is because `<DateSelect />`'s `onChange` is called with a `string` value but not with an event and it does not match Formik's `onChange`.

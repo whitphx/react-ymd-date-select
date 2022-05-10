@@ -41,6 +41,7 @@
     "eslint": "^8.13.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-react": "^7.29.4",
+    "formik": "^2.2.9",
     "framer-motion": "^6",
     "happy-dom": "^2.55.0",
     "husky": ">=6",
