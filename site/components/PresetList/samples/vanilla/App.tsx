@@ -1,8 +1,8 @@
-import SideBySideCodePreview from "../../../code-preview/SideBySide";
+import CodePreview from "../../../CodePreview";
 import SampleCode from "./Sample?raw";
 
 function App() {
-  return <SideBySideCodePreview initialCode={SampleCode} language="tsx" />;
+  return <CodePreview initialCode={SampleCode} language="tsx" />;
 }
 
 export default App;

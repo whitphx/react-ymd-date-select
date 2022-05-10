@@ -1,5 +1,5 @@
 import React from "react";
-import CodePreview from "../../components/code-preview/SideBySide";
+import CodePreview from "../../components/CodePreview";
 
 // Ref: https://github.com/chakra-ui/chakra-ui-docs/blob/ab7f4cf6d5b664cddfc47db90ecbf9f0dc28738a/src/components/mdx-components/codeblock/codeblock.tsx
 
