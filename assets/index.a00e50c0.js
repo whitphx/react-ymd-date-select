@@ -2,7 +2,7 @@ import"./use-date-select.bed0db3f.js";import{j as e,d as t,R as n}from"./vendor.
 import { DateSelect } from "react-ymd-date-select/presets/vanilla";
 
 function Sample() {
-  const [date, setDate] = useState<string>("");
+  const [date, setDate] = useState("");
 
   return (
     <div>
