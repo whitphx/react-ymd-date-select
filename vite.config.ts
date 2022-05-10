@@ -23,15 +23,15 @@ export default defineConfig({
         path.resolve(__dirname, "/playground/chakra-ui/index.html"),
         path.resolve(
           __dirname,
-          "/site/components/preset-samples/samples/vanilla/index.html"
+          "/website/components/preset-samples/samples/vanilla/index.html"
         ),
         path.resolve(
           __dirname,
-          "/site/components/preset-samples/samples/chakra-ui/index.html"
+          "/website/components/preset-samples/samples/chakra-ui/index.html"
         ),
         path.resolve(
           __dirname,
-          "/site/components/preset-samples/samples/mui/index.html"
+          "/website/components/preset-samples/samples/mui/index.html"
         ),
       ],
     },

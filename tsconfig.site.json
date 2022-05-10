@@ -20,6 +20,6 @@
       "react-ymd-date-select/*": ["./src/*"]
     }
   },
-  "include": ["site", "playground"],
+  "include": ["website", "playground"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
