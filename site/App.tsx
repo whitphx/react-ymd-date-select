@@ -10,24 +10,6 @@ function App() {
       <Container>
         <Main components={mdxComponents} />
       </Container>
-      {/* TODO: Remove below */}
-      <div style={{ height: "100%" }}>
-        <iframe
-          style={{ height: "100%" }}
-          src="./samples/vanilla/index.html"
-          frameBorder="0"
-        />
-        <iframe
-          style={{ height: "100%" }}
-          src="./samples/mui/index.html"
-          frameBorder="0"
-        />
-        <iframe
-          style={{ height: "100%" }}
-          src="./samples/chakra-ui/index.html"
-          frameBorder="0"
-        />
-      </div>
     </>
   );
 }
