@@ -1,5 +1,7 @@
+import CodePreview from "./components/CodePreview";
 import { VanillaSample, VariantSamples } from "./components/preset-samples";
 import { CustomComponentSample } from "./components/hook-sample";
+import ReactHookFormSampleCode from "./samples/react-hook-form?raw";
 
 ## Presets
 
@@ -18,3 +20,9 @@ It provides `<DateSelect />` component for each UI library, exported from `react
 This library also provides `useDateSelect` hook so that you can create original customized components.
 
 <CustomComponentSample />
+
+## With form libraries
+
+### [React Hook Form](https://react-hook-form.com/)
+
+<CodePreview initialCode={ReactHookFormSampleCode} language="tsx" />
