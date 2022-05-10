@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file.
 
 - Package info, #53.
 - Rename `presets/material` to `presets/mui`.
+- Set dropdown width in `presets/mui`, #60.
 - Demo page.
 
 ## [0.0.4] - 2022-04-24
