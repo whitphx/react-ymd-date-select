@@ -1,6 +1,21 @@
 {
   "name": "react-ymd-date-select",
   "version": "0.0.4",
+  "description": "Helper hooks and components for Y-M-D dropdowns with React",
+  "keywords": [
+    "date",
+    "date-picker",
+    "select"
+  ],
+  "homepage": "https://whitphx.github.io/react-ymd-date-select/",
+  "bugs": {
+    "url": "https://github.com/whitphx/react-ymd-date-select/issues"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/whitphx/react-ymd-date-select"
+  },
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "files": [
