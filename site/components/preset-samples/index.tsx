@@ -26,7 +26,7 @@ const SampleContainer = styled.div`
 
 export function VanillaSample() {
   return (
-    <IFrame src="/site/components/preset-samples/samples/vanilla/index.html" />
+    <IFrame src="./site/components/preset-samples/samples/vanilla/index.html" />
   );
 }
 
@@ -36,13 +36,13 @@ export function VariantSamples() {
       <SampleContainer>
         <H3>Chakra UI</H3>
         <CollapseCodeBlock code={ChakraSampleCode} language="tsx">
-          <IFrame src="/site/components/preset-samples/samples/chakra-ui/index.html" />
+          <IFrame src="./site/components/preset-samples/samples/chakra-ui/index.html" />
         </CollapseCodeBlock>
       </SampleContainer>
       <SampleContainer>
         <H3>Material UI</H3>
         <CollapseCodeBlock code={MuiSampleCode} language="tsx">
-          <IFrame src="/site/components/preset-samples/samples/mui/index.html" />
+          <IFrame src="./site/components/preset-samples/samples/mui/index.html" />
         </CollapseCodeBlock>
       </SampleContainer>
     </SideBySideContainer>
