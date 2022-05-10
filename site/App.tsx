@@ -1,10 +1,10 @@
 import { mdxComponents } from "./mdx-components";
-import Home from "./Home.mdx";
+import AboutPresets from "./AboutPresets.mdx";
 
 function App() {
   return (
     <div style={{ height: "100%" }}>
-      <Home components={mdxComponents} />
+      <AboutPresets components={mdxComponents} />
       <iframe
         style={{ height: "100%" }}
         src="./samples/vanilla/index.html"
