@@ -13,6 +13,7 @@ export const Container = styled.div`
   box-shadow: 0 0 2px 0 lightsteelblue;
   height: 300px;
   overflow: hidden;
+  margin: 24px auto;
 
   @media (max-width: 640px) {
     flex-direction: column-reverse;
