@@ -58,6 +58,14 @@ export const PreviewError = styled.div`
   white-space: pre-wrap;
 `;
 
+export const Button = styled.button`
+  background: #ddd;
+  border: #aaa 1px solid;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.4rem;
+`;
+
 interface CollapseCodeBlockProps {
   code: string;
   language: "jsx" | "tsx";
@@ -73,13 +81,13 @@ function CollapseCodeBlock({
   return (
     <Container>
       <PreviewContainer>{children}</PreviewContainer>
-      {!isOpen && <button onClick={open}>Show code</button>}
+      {!isOpen && <Button onClick={open}>Show code</Button>}
       {isOpen && (
         <EditorContainer>
           <Editor value={code} language={language} readOnly />
         </EditorContainer>
       )}
-      {isOpen && <button onClick={close}>Hide code</button>}
+      {isOpen && <Button onClick={close}>Hide code</Button>}
     </Container>
   );
 }
