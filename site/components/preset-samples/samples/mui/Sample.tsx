@@ -2,7 +2,7 @@ import { useState } from "react";
 import { DateSelect } from "react-ymd-date-select/presets/mui";
 
 function Sample() {
-  const [date, setDate] = useState<string>("");
+  const [date, setDate] = useState("");
 
   return (
     <div>

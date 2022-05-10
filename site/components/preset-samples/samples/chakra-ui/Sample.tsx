@@ -3,7 +3,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { DateSelect } from "react-ymd-date-select/presets/chakra-ui";
 
 function Sample() {
-  const [date, setDate] = useState<string>("");
+  const [date, setDate] = useState("");
 
   return (
     <ChakraProvider>
