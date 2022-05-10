@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDateSelect } from "react-ymd-date-select";
 
 interface CustomDateSelectProps {
-  onChange: (value: any) => void;
+  onChange: (value: string) => void;
   value: string;
 }
 function CustomDateSelect(props: CustomDateSelectProps) {
