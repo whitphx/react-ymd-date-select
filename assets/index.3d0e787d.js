@@ -1,4 +1,4 @@
-import"./use-date-select.bed0db3f.js";import{j as e,d as t,R as n}from"./vendor.d3e3c2a5.js";import{C as a}from"./index.7293aaab.js";import"./DateSelect.50fcf4e4.js";import"./DateSelect.ac5aaf31.js";import"./DateSelect.1b3361da.js";var o=`import { useState } from "react";
+import"./use-date-select.bed0db3f.js";import{j as e,d as t,R as n}from"./vendor.d3e3c2a5.js";import{C as a}from"./index.306eacde.js";import"./DateSelect.50fcf4e4.js";import"./DateSelect.ac5aaf31.js";import"./DateSelect.2f9ab357.js";var o=`import { useState } from "react";
 import { DateSelect } from "react-ymd-date-select/presets/vanilla";
 
 function Sample() {
