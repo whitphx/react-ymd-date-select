@@ -40,6 +40,10 @@ const SnippetBlockContainer = styled.div`
   color: #eee;
   text-align: center;
   margin: 0 auto;
+
+  @media (max-width: 640px) {
+    display: none;
+  }
 `;
 
 const SnippetContainer = styled.p`
