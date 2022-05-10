@@ -1,5 +1,5 @@
 import Hero from "./components/Hero";
-import { Container } from "@chakra-ui/react";
+import Container from "./components/Container";
 import { mdxComponents } from "./mdx-components";
 import Main from "./Main.mdx";
 
@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <Hero />
-      <Container maxW="container.lg">
+      <Container>
         <Main components={mdxComponents} />
       </Container>
       {/* TODO: Remove below */}
