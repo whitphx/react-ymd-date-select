@@ -12,7 +12,7 @@ function App() {
       />
       <iframe
         style={{ height: "100%" }}
-        src="./samples/material/index.html"
+        src="./samples/mui/index.html"
         frameBorder="0"
       />
       <iframe
