@@ -138,7 +138,7 @@ export default Sample;
   @media (max-width: 640px) {
     width: 100%;
   }
-`;function ne(){return n(g,{src:"/site/components/preset-samples/samples/vanilla/index.html"})}function te(){return s(ee,{children:[s(C,{children:[n(f,{children:"Chakra UI"}),n(b,{code:_,language:"tsx",children:n(g,{src:"/site/components/preset-samples/samples/chakra-ui/index.html"})})]}),s(C,{children:[n(f,{children:"Material UI"}),n(b,{code:A,language:"tsx",children:n(g,{src:"/site/components/preset-samples/samples/mui/index.html"})})]})]})}var ae=`import { useState } from "react";
+`;function ne(){return n(g,{src:"./site/components/preset-samples/samples/vanilla/index.html"})}function te(){return s(ee,{children:[s(C,{children:[n(f,{children:"Chakra UI"}),n(b,{code:_,language:"tsx",children:n(g,{src:"./site/components/preset-samples/samples/chakra-ui/index.html"})})]}),s(C,{children:[n(f,{children:"Material UI"}),n(b,{code:A,language:"tsx",children:n(g,{src:"./site/components/preset-samples/samples/mui/index.html"})})]})]})}var ae=`import { useState } from "react";
 import { useDateSelect } from "react-ymd-date-select";
 
 interface CustomDateSelectProps {
