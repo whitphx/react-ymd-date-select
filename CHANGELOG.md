@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Add
+
+- Package info, #53.
+
 ## [0.0.4] - 2022-04-24
 
 ### Fixed
