@@ -26,7 +26,7 @@ export default defineConfig({
         ),
         path.resolve(
           __dirname,
-          "/site/components/preset-samples/samples/chakra/index.html"
+          "/site/components/preset-samples/samples/chakra-ui/index.html"
         ),
         path.resolve(
           __dirname,
