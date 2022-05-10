@@ -1,7 +1,6 @@
 import React from "react";
 import { useEffect, useCallback } from "react";
 import { Options } from "../../types";
-import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -33,8 +32,8 @@ const DateDropdownGroup = React.forwardRef<
   const idPrefix = `react-ymd-date-select-mui-${globalIdCount.toString()}`;
 
   return (
-    <Box>
-      <FormControl>
+    <>
+      <FormControl sx={{ minWidth: 100 }}>
         <InputLabel id={`${idPrefix}-month`}>Year</InputLabel>
         <Select
           labelId={`${idPrefix}-year`}
@@ -56,7 +55,7 @@ const DateDropdownGroup = React.forwardRef<
         </Select>
       </FormControl>
 
-      <FormControl>
+      <FormControl sx={{ minWidth: 100 }}>
         <InputLabel id={`${idPrefix}-month`}>Month</InputLabel>
         <Select
           labelId={`${idPrefix}-month`}
@@ -80,7 +79,7 @@ const DateDropdownGroup = React.forwardRef<
       </FormControl>
 
       {!props.hideDay && (
-        <FormControl>
+        <FormControl sx={{ minWidth: 100 }}>
           <InputLabel id={`${idPrefix}-day`}>Day</InputLabel>
           <Select
             labelId={`${idPrefix}-day`}
@@ -103,7 +102,7 @@ const DateDropdownGroup = React.forwardRef<
           </Select>
         </FormControl>
       )}
-    </Box>
+    </>
   );
 });
 DateDropdownGroup.displayName = "DateDropdownGroup";
