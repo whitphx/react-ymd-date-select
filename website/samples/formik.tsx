@@ -26,7 +26,7 @@ function Sample() {
             );
           }}
         </Field>
-        <button type="submit">Submit</button>
+        <input type="submit" />
       </Form>
     </Formik>
   );
