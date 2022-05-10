@@ -23,7 +23,7 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc -p ./tsconfig.site.json && vite build",
+    "build": "tsc -p ./tsconfig.website.json && vite build",
     "preview": "vite preview",
     "test": "vitest",
     "coverage": "vitest run --coverage",
