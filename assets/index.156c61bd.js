@@ -2,7 +2,7 @@ var H=Object.defineProperty;var b=Object.getOwnPropertySymbols;var O=Object.prot
   display: inline-block;
   padding: 8px 16px;
   border-radius: 5px;
-  border: #888 solid 1px;
+  border: #ddd solid 1px;
   background: rgba(20, 20, 20, 0.4);
   color: #eee;
 
