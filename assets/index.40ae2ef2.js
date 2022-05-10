@@ -211,7 +211,7 @@ export default Sample;
 `,p(a.p,{children:["It provides ",i(a.code,{children:"<DateSelect />"})," component for each UI library, exported from ",i(a.code,{children:"react-ymd-date-select/presets/*"}),"."]}),`
 `,p(a.p,{children:[i(a.code,{children:"react-ymd-date-select/presets/vanilla"})," is for a bare HTML without styling."]}),`
 `,i(ne,{}),`
-`,p(a.p,{children:[i(a.code,{children:"react-ymd-date-select/presets/(chakra|mui)"})," is also available for ",i(a.a,{href:"https://chakra-ui.com/",children:"Chakra UI"})," and ",i(a.a,{href:"https://mui.com/",children:"Material UI"}),"."]}),`
+`,p(a.p,{children:[i(a.code,{children:"react-ymd-date-select/presets/(chakra-ui|mui)"})," is also available for ",i(a.a,{href:"https://chakra-ui.com/",children:"Chakra UI"})," and ",i(a.a,{href:"https://mui.com/",children:"Material UI"}),"."]}),`
 `,i(te,{}),`
 `,i(a.h2,{children:"Hook"}),`
 `,p(a.p,{children:["This library also provides ",i(a.code,{children:"useDateSelect"})," hook so that you can create original customized components."]}),`
