@@ -12,7 +12,9 @@ function Sample() {
     watch,
     formState: { errors },
   } = useForm<FormData>();
-  const onSubmit = (data: FormData) => console.log(data);
+  const onSubmit = (data: FormData) => {
+    alert(JSON.stringify(data, null, 2));
+  };
 
   console.log(watch("date")); // watch input value by passing the name of it
 
