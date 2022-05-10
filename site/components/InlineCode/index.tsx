@@ -7,7 +7,7 @@ const InlineCode = styled.code`
   border: #bbb solid 1px;
   background: rgba(210, 210, 210, 0.2);
 
-  // Ref: https://github.com/chakra-ui/chakra-ui/blob/b77acf36688abb696fd1ec2a7898a7de43a91e37/packages/css-reset/src/css-reset.tsx#L43
+  /* Ref: https://github.com/chakra-ui/chakra-ui/blob/b77acf36688abb696fd1ec2a7898a7de43a91e37/packages/css-reset/src/css-reset.tsx#L43 */
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 1em;
 `;
