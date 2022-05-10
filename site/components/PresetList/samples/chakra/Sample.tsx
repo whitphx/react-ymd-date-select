@@ -6,7 +6,7 @@ function Sample() {
   const [date, setDate] = useState<string>("");
 
   return (
-    <ChakraProvider resetCSS={false}>
+    <ChakraProvider>
       <DateSelect value={date} onChange={setDate} />
       <p>Selected date is: {date}</p>
     </ChakraProvider>

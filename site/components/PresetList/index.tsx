@@ -1,5 +1,8 @@
 import styled from "@emotion/styled";
 import IFrame from "./IFrame";
+import ChakraSampleCode from "./samples/chakra/Sample?raw";
+import MuiSampleCode from "./samples/mui/Sample?raw";
+import CollapseCodeBlock from "./CollapseCodeBlock";
 
 const SideBySideContainer = styled.div`
   display: flex;
@@ -11,7 +14,13 @@ const SideBySideContainer = styled.div`
 `;
 
 const SampleContainer = styled.div`
-  width: 100%;
+  flex-grow: 1;
+  flex-basis: 80px;
+  width: 50%;
+
+  @media (max-width: 640px) {
+    width: 100%;
+  }
 `;
 
 function PresetList() {
@@ -21,11 +30,15 @@ function PresetList() {
       <SideBySideContainer>
         <SampleContainer>
           <h3>Chakra UI</h3>
-          <IFrame src="/site/components/PresetList/samples/chakra/index.html" />
+          <CollapseCodeBlock code={ChakraSampleCode} language="tsx">
+            <IFrame src="/site/components/PresetList/samples/chakra/index.html" />
+          </CollapseCodeBlock>
         </SampleContainer>
         <SampleContainer>
           <h3>Material UI</h3>
-          <IFrame src="/site/components/PresetList/samples/mui/index.html" />
+          <CollapseCodeBlock code={MuiSampleCode} language="tsx">
+            <IFrame src="/site/components/PresetList/samples/mui/index.html" />
+          </CollapseCodeBlock>
         </SampleContainer>
       </SideBySideContainer>
     </div>
