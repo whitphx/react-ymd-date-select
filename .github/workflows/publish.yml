@@ -22,6 +22,6 @@ jobs:
           version: "tags/${{ github.event.release.tag_name }}"
           file: "react-ymd-date-select-${{ github.event.release.tag_name }}.tgz"
           token: ${{ secrets.GITHUB_TOKEN }}
-      - run: yarn publish react-ymd-date-select*.tgz
+      - run: yarn publish --ignore-scripts react-ymd-date-select*.tgz # --ignore-scripts is needed as https://github.com/typicode/husky/issues/884#issuecomment-977184072
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
