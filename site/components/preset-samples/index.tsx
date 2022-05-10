@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import IFrame from "./IFrame";
-import ChakraSampleCode from "./samples/chakra/Sample?raw";
+import ChakraSampleCode from "./samples/chakra-ui/Sample?raw";
 import MuiSampleCode from "./samples/mui/Sample?raw";
 import CollapseCodeBlock from "./CollapseCodeBlock";
 
@@ -35,7 +35,7 @@ export function VariantSamples() {
       <SampleContainer>
         <h3>Chakra UI</h3>
         <CollapseCodeBlock code={ChakraSampleCode} language="tsx">
-          <IFrame src="/site/components/preset-samples/samples/chakra/index.html" />
+          <IFrame src="/site/components/preset-samples/samples/chakra-ui/index.html" />
         </CollapseCodeBlock>
       </SampleContainer>
       <SampleContainer>

@@ -2,7 +2,7 @@ import React from "react";
 import * as reactYmdDateSelect from "react-ymd-date-select";
 import * as vanillaPreset from "react-ymd-date-select/presets/vanilla";
 import * as chakraPreset from "react-ymd-date-select/presets/chakra-ui";
-import * as muiPreset from "react-ymd-date-select/presets/material";
+import * as muiPreset from "react-ymd-date-select/presets/mui";
 
 export const scope = {
   import: {
