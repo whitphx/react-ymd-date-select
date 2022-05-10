@@ -2,6 +2,7 @@ import { useState, RefCallback, useCallback, useEffect, useRef } from "react";
 import styled from "@emotion/styled";
 
 const StyledIFrame = styled.iframe`
+  display: block;
   width: 100%;
 `;
 
