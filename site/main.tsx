@@ -21,6 +21,22 @@ const theme = extendTheme({
         borderColor: null,
         wordWrap: null,
       },
+      // ResetCSS is disabled but some of them are still necessary or preferable,
+      // they are manually set here; https://github.com/chakra-ui/chakra-ui/blob/b77acf36688abb696fd1ec2a7898a7de43a91e37/packages/css-reset/src/css-reset.tsx
+      html: {
+        lineHeight: 1.5,
+      },
+      body: {
+        position: "relative",
+        minHeight: "100%",
+        fontFeatureSettings: "kern",
+      },
+      "*, *::before, *::after": {
+        boxSizing: "border-box",
+      },
+      "body, blockquote, dl, dd, h1, h2, h3, h4, h5, h6, hr, figure, p, pre": {
+        margin: 0,
+      },
     },
   },
 });
