@@ -31,9 +31,9 @@
     "build:lib": "yarn run build:lib:esm && yarn run build:lib:cjs",
     "build:lib:esm": "tsc -p ./src/tsconfig.json",
     "build:lib:cjs": "tsc -p ./src/tsconfig.cjs.json",
-    "fix:eslint": "eslint --fix '{lib,site}/**/*.{ts,tsx}'",
+    "fix:eslint": "eslint --fix '{src,website}/**/*.{ts,tsx}'",
     "fix:prettier": "prettier --write .",
-    "check:eslint": "eslint '{lib,site}/**/*.{ts,tsx}'",
+    "check:eslint": "eslint '{src,website}/**/*.{ts,tsx}'",
     "check:prettier": "prettier --check .",
     "prepare": "husky install"
   },
