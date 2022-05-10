@@ -7,6 +7,8 @@ All notable changes to this project will be documented in this file.
 ### Add
 
 - Package info, #53.
+- Rename `presets/material` to `presets/mui`.
+- Demo page.
 
 ## [0.0.4] - 2022-04-24
 
