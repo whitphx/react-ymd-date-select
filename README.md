@@ -16,7 +16,7 @@ Hooks and components for Y-M-D dropdowns with React. **[Demo](https://whitphx.gi
 
 ---
 
-The Y-M-D dropdowns UI is sometimes preferable to calendar widgets, e.g. birth date selection.
+The Y-M-D dropdown UI is sometimes preferable to calendar widgets, e.g. birth date selection.
 
 Building Y-M-D looks simple, but actually, there are some nuts;
 
