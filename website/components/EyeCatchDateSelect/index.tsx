@@ -9,10 +9,6 @@ const Container = styled.div`
   & > div {
     margin: 0 4px;
     border-color: rgba(80, 80, 80, 0.4);
-
-    & > select {
-      background-color: #eee;
-    }
   }
 `;
 
@@ -26,7 +22,12 @@ function EyeCatchDateSelect() {
 
   return (
     <Container>
-      <Select value={dateSelect.yearValue} onChange={dateSelect.onYearChange}>
+      <Select
+        value={dateSelect.yearValue}
+        onChange={dateSelect.onYearChange}
+        bg="whiteAlpha.900"
+        color="#be5f6f"
+      >
         <option value="" disabled></option>
         {dateSelect.yearOptions.map((yearOption) => (
           <option key={yearOption.value} value={yearOption.value}>
@@ -34,7 +35,12 @@ function EyeCatchDateSelect() {
           </option>
         ))}
       </Select>
-      <Select value={dateSelect.monthValue} onChange={dateSelect.onMonthChange}>
+      <Select
+        value={dateSelect.monthValue}
+        onChange={dateSelect.onMonthChange}
+        bg="whiteAlpha.900"
+        color="#be5f6f"
+      >
         <option value="" disabled></option>
         {dateSelect.monthOptions.map((monthOption) => (
           <option key={monthOption.value} value={monthOption.value}>
@@ -42,7 +48,12 @@ function EyeCatchDateSelect() {
           </option>
         ))}
       </Select>
-      <Select value={dateSelect.dayValue} onChange={dateSelect.onDayChange}>
+      <Select
+        value={dateSelect.dayValue}
+        onChange={dateSelect.onDayChange}
+        bg="whiteAlpha.900"
+        color="#be5f6f"
+      >
         <option value="" disabled></option>
         {dateSelect.dayOptions.map((dayOption) => (
           <option key={dayOption.value} value={dayOption.value}>
