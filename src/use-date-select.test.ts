@@ -165,4 +165,19 @@ describe("useDateSelect", () => {
     expect(result.current.monthValue).toEqual("");
     expect(result.current.dayValue).toEqual("");
   });
+
+  it("ignores the defaults when value is initially given", () => {
+    const value = "2022-01-02";
+    const onChange = vi.fn();
+    const { result } = renderHook(() =>
+      useDateSelect(value, onChange, {
+        defaultYear: 1892,
+        defaultMonth: 9,
+        defaultDay: 10,
+      })
+    );
+    expect(result.current.yearValue).toEqual("2022");
+    expect(result.current.monthValue).toEqual("1");
+    expect(result.current.dayValue).toEqual("2");
+  });
 });
