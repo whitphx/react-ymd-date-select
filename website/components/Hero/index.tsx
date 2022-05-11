@@ -91,9 +91,7 @@ function Hero() {
     <HeroContainer>
       <TitleContainer>
         <Title>react-ymd-date-select</Title>
-        <Subtitle>
-          Helper hooks and components for Y-M-D dropdowns with React
-        </Subtitle>
+        <Subtitle>Hooks and components for Y-M-D dropdowns with React</Subtitle>
       </TitleContainer>
 
       <BodyContainer>
