@@ -60,6 +60,7 @@ describe("getDateString", () => {
   const testcases: [Date, string][] = [
     [new Date(2022, 0, 2), "2022-01-02"],
     [new Date(100, 0, 1), "0100-01-01"],
+    [new Date("foo"), null], // Invalid date
   ];
   testcases.forEach(([date, expectedDateString]) => {
     it(`converts ${date} to "${expectedDateString}"`, () => {
