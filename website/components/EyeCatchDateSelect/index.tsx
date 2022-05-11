@@ -41,7 +41,6 @@ function EyeCatchDateSelect() {
           bg="whiteAlpha.900"
           color={dropdownIconColor}
         >
-          <option value="" disabled></option>
           {dateSelect.yearOptions.map((yearOption) => (
             <option key={yearOption.value} value={yearOption.value}>
               {yearOption.label}
@@ -54,7 +53,6 @@ function EyeCatchDateSelect() {
           bg="whiteAlpha.900"
           color={dropdownIconColor}
         >
-          <option value="" disabled></option>
           {dateSelect.monthOptions.map((monthOption) => (
             <option key={monthOption.value} value={monthOption.value}>
               {monthOption.label}
@@ -67,7 +65,6 @@ function EyeCatchDateSelect() {
           bg="whiteAlpha.900"
           color={dropdownIconColor}
         >
-          <option value="" disabled></option>
           {dateSelect.dayOptions.map((dayOption) => (
             <option key={dayOption.value} value={dayOption.value}>
               {dayOption.label}
