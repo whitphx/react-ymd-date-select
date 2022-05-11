@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FormControl, FormErrorMessage, Select } from "@chakra-ui/react";
 import styled from "@emotion/styled";
-import { useDateSelect } from "react-ymd-date-select";
+import { useDateSelect, getDateString } from "react-ymd-date-select";
 
 const dropdownIconColor = "#be5f6f";
 const errorColor = "#fcdfff";
@@ -23,14 +23,12 @@ const Container = styled.div`
   }
 `;
 
-function EyeCatchDateSelect() {
-  const [date, setDate] = useState("");
+const today = getDateString(new Date());
 
-  const dateSelect = useDateSelect(date, setDate, {
-    defaultYear: "now",
-    defaultMonth: "now",
-    defaultDay: "now",
-  });
+function EyeCatchDateSelect() {
+  const [date, setDate] = useState(today || "2022-01-01");
+
+  const dateSelect = useDateSelect(date, setDate);
 
   return (
     <FormControl isInvalid={date === ""}>
