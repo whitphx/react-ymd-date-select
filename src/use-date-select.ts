@@ -24,6 +24,41 @@ const dayOptions: Options = range(1, 31).map((i) =>
   compileOption(convertToSelectValue(i))
 );
 
+interface DefaultDateOptions {
+  defaultYear?: number | "now";
+  defaultMonth?: number | "now";
+  defaultDay?: number | "now";
+}
+function compileDefaultDate(opts: DefaultDateOptions) {
+  const now = new Date();
+  let defaultYear: number | null = null;
+  if (opts.defaultYear != null) {
+    if (opts.defaultYear === "now") {
+      defaultYear = now.getFullYear();
+    } else if (typeof opts.defaultYear === "number") {
+      defaultYear = opts.defaultYear;
+    }
+  }
+  let defaultMonth: number | null = null;
+  if (opts.defaultMonth != null) {
+    if (opts.defaultMonth === "now") {
+      defaultMonth = now.getMonth() + 1;
+    } else if (typeof opts.defaultMonth === "number") {
+      defaultMonth = opts.defaultMonth;
+    }
+  }
+  let defaultDay = null;
+  if (opts.defaultDay != null) {
+    if (opts.defaultDay === "now") {
+      defaultDay = now.getDate();
+    } else if (typeof opts.defaultDay === "number") {
+      defaultDay = opts.defaultDay;
+    }
+  }
+
+  return { defaultYear, defaultMonth, defaultDay };
+}
+
 interface DateSelectState {
   yearValue: string; // It's of type string because it's <select />'s value.
   monthValue: string; // It's of type string because it's <select />'s value.
@@ -34,9 +69,9 @@ interface DateSelectState {
 export interface UseDateSelectOptions {
   minYear?: number;
   maxYear?: number;
-  defaultYear?: number;
-  defaultMonth?: number;
-  defaultDay?: number;
+  defaultYear?: number | "now";
+  defaultMonth?: number | "now";
+  defaultDay?: number | "now";
 }
 export interface UseDateSelectInterface {
   yearValue: string;
@@ -58,14 +93,16 @@ export const useDateSelect = (
   opts: UseDateSelectOptions = {}
 ): UseDateSelectInterface => {
   const [state, setState] = useState<DateSelectState & { changeCount: number }>(
-    {
-      yearValue: opts.defaultYear ? convertToSelectValue(opts.defaultYear) : "",
-      monthValue: opts.defaultMonth
-        ? convertToSelectValue(opts.defaultMonth)
-        : "",
-      dayValue: opts.defaultDay ? convertToSelectValue(opts.defaultDay) : "",
-      dateString: null,
-      changeCount: 0, // HACK: Use this state as a dependency of the `useEffect` below so that `onChange` is called only when it should be.
+    () => {
+      const { defaultYear, defaultMonth, defaultDay } =
+        compileDefaultDate(opts);
+      return {
+        yearValue: defaultYear ? convertToSelectValue(defaultYear) : "",
+        monthValue: defaultMonth ? convertToSelectValue(defaultMonth) : "",
+        dayValue: defaultDay ? convertToSelectValue(defaultDay) : "",
+        dateString: null,
+        changeCount: 0, // HACK: Use this state as a dependency of the `useEffect` below so that `onChange` is called only when it should be.
+      };
     }
   );
 
