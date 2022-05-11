@@ -1,4 +1,4 @@
-import"./modulepreload-polyfill.b7f2da20.js";import{j as e,g as t,R as n}from"./vendor.9c094540.js";import{C as a}from"./index.43f4af3b.js";import"./DateSelect.dd918390.js";import"./use-date-select.d2e0ae07.js";import"./DateSelect.d34e8948.js";import"./DateSelect.70f8fab6.js";var o=`import { useState } from "react";
+import"./modulepreload-polyfill.b7f2da20.js";import{j as e,g as t,R as n}from"./vendor.9c094540.js";import{C as a}from"./index.1d3871c0.js";import"./DateSelect.6160f698.js";import"./use-date-select.f3a79916.js";import"./DateSelect.62828fdc.js";import"./DateSelect.5e2039ea.js";var o=`import { useState } from "react";
 import { DateSelect } from "react-ymd-date-select/presets/vanilla";
 
 function Sample() {
