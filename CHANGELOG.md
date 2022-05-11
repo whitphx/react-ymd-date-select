@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 ### Add
 
 - `defaultYear`, `-Month`, and `-Day` options can accept `"now"`, #62.
+- `getDateString()`, #65.
 
 ## [0.0.5] - 2022-05-11
 

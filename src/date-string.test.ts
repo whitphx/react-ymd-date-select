@@ -1,5 +1,9 @@
 import { describe, expect, it } from "vitest";
-import { compileDateString, parseDateString } from "./date-string";
+import {
+  compileDateString,
+  parseDateString,
+  getDateString,
+} from "./date-string";
 
 describe("compileDateString()", () => {
   const validCases: [
@@ -48,6 +52,19 @@ describe("parseDateString()", () => {
   testCases.forEach(([input, year, month, day]) => {
     it(`returns ({ year: "${year}", month: "${month}", day: "${day}"}) for the input "${input}"`, () => {
       expect(parseDateString(input)).toEqual({ year, month, day });
+    });
+  });
+});
+
+describe("getDateString", () => {
+  const testcases: [Date, string][] = [
+    [new Date(2022, 0, 2), "2022-01-02"],
+    [new Date(100, 0, 1), "0100-01-01"],
+    [new Date("foo"), null], // Invalid date
+  ];
+  testcases.forEach(([date, expectedDateString]) => {
+    it(`converts ${date} to "${expectedDateString}"`, () => {
+      expect(getDateString(date)).toEqual(expectedDateString);
     });
   });
 });

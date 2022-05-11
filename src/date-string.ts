@@ -54,3 +54,11 @@ export function parseDateString(dateString: string): {
     day: day.toString(),
   };
 }
+
+export function getDateString(date: Date): string | null {
+  return compileDateString(
+    date.getFullYear(),
+    date.getMonth() + 1,
+    date.getDate()
+  );
+}
