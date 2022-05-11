@@ -77,7 +77,7 @@ var M=Object.defineProperty;var v=Object.getOwnPropertySymbols;var O=Object.prot
   width: 100%;
   max-width: 360px;
   margin: 16px auto 0;
-`;function Z(){return l(Y,{children:[l(W,{children:[n(q,{children:"react-ymd-date-select"}),n(N,{children:"Helper hooks and components for Y-M-D dropdowns with React"})]}),l(G,{children:[l(J,{children:[n(y,{children:n(C,{children:"npm install --save react-ymd-date-select"})}),n(y,{children:n(C,{children:"yarn add react-ymd-date-select"})})]}),n(Q,{children:n(A,{})})]}),n(X,{children:n(_,{children:n(K,{href:"https://github.com/whitphx/react-ymd-date-select",isExternal:!0,children:"See on GitHub"})})})]})}const ee=i.div`
+`;function Z(){return l(Y,{children:[l(W,{children:[n(q,{children:"react-ymd-date-select"}),n(N,{children:"Hooks and components for Y-M-D dropdowns with React"})]}),l(G,{children:[l(J,{children:[n(y,{children:n(C,{children:"npm install --save react-ymd-date-select"})}),n(y,{children:n(C,{children:"yarn add react-ymd-date-select"})})]}),n(Q,{children:n(A,{})})]}),n(X,{children:n(_,{children:n(K,{href:"https://github.com/whitphx/react-ymd-date-select",isExternal:!0,children:"See on GitHub"})})})]})}const ee=i.div`
   margin: 32px auto;
   max-width: 960px;
   padding: 0 16px;
