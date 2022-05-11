@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Add
+
+- `defaultYear`, `-Month`, and `-Day` options can accept `"now"`, #62.
+
 ## [0.0.5] - 2022-05-11
 
 ### Add

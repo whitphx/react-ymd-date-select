@@ -1,10 +1,16 @@
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { beforeEach, afterEach, describe, expect, it, vi } from "vitest";
 import { renderHook, act } from "@testing-library/react";
 
 import { useDateSelect } from "./use-date-select";
 
 describe("useDateSelect", () => {
+  beforeEach(() => {
+    vi.useFakeTimers();
+  });
+
   afterEach(() => {
+    vi.useRealTimers();
+
     vi.restoreAllMocks();
   });
 
@@ -103,5 +109,75 @@ describe("useDateSelect", () => {
     expect(result.current.yearValue).toEqual("2022");
     expect(result.current.monthValue).toEqual("2");
     expect(result.current.dayValue).toEqual("31");
+  });
+
+  describe("with defaultYear, -Month, and -Day options", () => {
+    it("sets the default values of year, month, and day", () => {
+      const value = "";
+      const onChange = vi.fn();
+      const { result } = renderHook(() =>
+        useDateSelect(value, onChange, {
+          defaultYear: 1897,
+          defaultMonth: 2,
+          defaultDay: 1,
+        })
+      );
+      expect(result.current.yearValue).toEqual("1897");
+      expect(result.current.monthValue).toEqual("2");
+      expect(result.current.dayValue).toEqual("1");
+    });
+  });
+
+  it(`accepts "now" and sets the today as the default value`, () => {
+    const mockedCurrentDate = new Date(1867, 0, 2);
+    vi.setSystemTime(mockedCurrentDate);
+
+    const value = "";
+    const onChange = vi.fn();
+    const { result } = renderHook(() =>
+      useDateSelect(value, onChange, {
+        defaultYear: "now",
+        defaultMonth: "now",
+        defaultDay: "now",
+      })
+    );
+    expect(result.current.yearValue).toEqual("1867");
+    expect(result.current.monthValue).toEqual("1");
+    expect(result.current.dayValue).toEqual("2");
+  });
+
+  it(`ignores string inputs other than "now"`, () => {
+    const value = "";
+    const onChange = vi.fn();
+    const { result } = renderHook(() =>
+      useDateSelect(value, onChange, {
+        /* eslint-disable @typescript-eslint/ban-ts-comment */
+        // @ts-ignore
+        defaultYear: "foo",
+        // @ts-ignore
+        defaultMonth: "foo",
+        // @ts-ignore
+        defaultDay: "foo",
+        /* eslint-enable @typescript-eslint/ban-ts-comment */
+      })
+    );
+    expect(result.current.yearValue).toEqual("");
+    expect(result.current.monthValue).toEqual("");
+    expect(result.current.dayValue).toEqual("");
+  });
+
+  it("ignores the defaults when value is initially given", () => {
+    const value = "2022-01-02";
+    const onChange = vi.fn();
+    const { result } = renderHook(() =>
+      useDateSelect(value, onChange, {
+        defaultYear: 1892,
+        defaultMonth: 9,
+        defaultDay: 10,
+      })
+    );
+    expect(result.current.yearValue).toEqual("2022");
+    expect(result.current.monthValue).toEqual("1");
+    expect(result.current.dayValue).toEqual("2");
   });
 });
