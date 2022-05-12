@@ -15,7 +15,7 @@ const HeroContainer = styled.div`
   width: 100%;
 
   @media (max-width: 640px) {
-    height: 200px;
+    height: 240px;
   }
 `;
 
@@ -65,7 +65,7 @@ const FooterContainer = styled.div`
   position: absolute;
   width: 100%;
   left: 0;
-  bottom: 0;
+  top: 0;
 `;
 
 const Footer = styled.div`
@@ -75,9 +75,29 @@ const Footer = styled.div`
 `;
 
 const GitHubLink = styled(Link)`
-  display: inline-block;
+  display: inline-flex;
   margin-top: 8px;
   color: #eee;
+  align-items: center;
+`;
+
+// The logo SVG is from https://github.com/simple-icons/simple-icons
+const GitHubLogo = styled.span`
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  mask: url(https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/github.svg)
+    no-repeat center;
+  background: #eee;
+  margin-right: 8px;
+`;
+
+const GitHubLinkText = styled.span`
+  padding-top: 2px;
+
+  @media (max-width: 640px) {
+    display: none;
+  }
 `;
 
 const EyeCatchDateSelectContainer = styled.div`
@@ -115,7 +135,8 @@ function Hero() {
             href="https://github.com/whitphx/react-ymd-date-select"
             isExternal
           >
-            See on GitHub
+            <GitHubLogo />
+            <GitHubLinkText>See on GitHub</GitHubLinkText>
           </GitHubLink>
         </Footer>
       </FooterContainer>
