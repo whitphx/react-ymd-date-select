@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { range } from "./range";
 import { compileDateString, parseDateString } from "./date-string";
-import { Option, Options } from "./types";
+import { Options } from "./types";
+import { useUtils } from "./LocalizationProvider/useUtils";
 
 const DEFAULT_MIN_YEAR = 1960;
 const DEFAULT_MAX_YEAR = new Date().getFullYear();
@@ -12,17 +13,6 @@ function parseSelectValue(value: string): number {
 function convertToSelectValue(value: number): string {
   return value.toString();
 }
-
-function compileOption(value: string): Option {
-  return { value, label: value }; // TODO: Be customizable for localization
-}
-
-const monthOptions: Options = range(1, 12).map((i) =>
-  compileOption(convertToSelectValue(i))
-);
-const dayOptions: Options = range(1, 31).map((i) =>
-  compileOption(convertToSelectValue(i))
-);
 
 interface DefaultDateOptions {
   defaultYear?: number | "now";
@@ -169,18 +159,61 @@ export const useDateSelect = (
     }
   }, [setDate, value]);
 
-  const yearOptions = useMemo(() => {
+  // Generate year, month, and day arrays using the locale.
+  const utils = useUtils();
+
+  const rawYearOptions = useMemo(() => {
     const minYear = opts.minYear != null ? opts.minYear : DEFAULT_MIN_YEAR;
     const maxYear = opts.maxYear != null ? opts.maxYear : DEFAULT_MAX_YEAR;
-    const raw = range(minYear, maxYear).map((i) => {
-      const s = convertToSelectValue(i);
-      return { value: s, label: s };
+    const _yearOptions = range(minYear, maxYear).map((i) => {
+      const label = utils
+        ? utils.format(new Date(i, 0, 1), "year")
+        : i.toString();
+      return { value: convertToSelectValue(i), label };
     });
-    if (!raw.some((o) => o.value === state.yearValue)) {
-      return raw.concat(compileOption(state.yearValue));
+    return _yearOptions;
+  }, [opts.minYear, opts.maxYear, utils]);
+
+  // If the value of `state.yearValue` is not included in the year select options, add it.
+  const yearOptions = useMemo(() => {
+    if (
+      state.yearValue !== "" &&
+      !rawYearOptions.some((o) => o.value === state.yearValue)
+    ) {
+      let label: string;
+      try {
+        label = utils
+          ? utils.format(
+              new Date(parseSelectValue(state.yearValue), 0, 1),
+              "year"
+            )
+          : state.yearValue;
+      } catch {
+        label = state.yearValue;
+      }
+      return rawYearOptions.concat({ label, value: state.yearValue });
     }
-    return raw;
-  }, [opts.minYear, opts.maxYear, state.yearValue]);
+
+    return rawYearOptions;
+  }, [rawYearOptions, state.yearValue]);
+
+  const [monthOptions, dayOptions] = useMemo(() => {
+    const _monthOptions = range(1, 12).map((i) => {
+      const label = utils
+        ? utils.format(new Date(1960, i - 1, 1), "monthShort")
+        : i.toString();
+      return { value: convertToSelectValue(i), label };
+    });
+
+    const _dayOptions: Options = range(1, 31).map((i) => {
+      const label = utils
+        ? utils.format(new Date(1960, 1, i), "dayOfMonth")
+        : i.toString();
+      return { value: convertToSelectValue(i), label };
+    });
+
+    return [_monthOptions, _dayOptions];
+  }, [utils]);
 
   return {
     yearValue: state.yearValue,

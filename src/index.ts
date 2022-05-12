@@ -7,3 +7,4 @@ export {
 export * from "./use-date-select";
 export { getDateString } from "./date-string";
 export * from "./types";
+export * from "./LocalizationProvider";
