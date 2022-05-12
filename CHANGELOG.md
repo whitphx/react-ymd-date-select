@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.0.10] - 2022-05-13
+
 ### Fix
 
 - Date existence check, #76.
