@@ -34,3 +34,7 @@ With Yarn:
 ```shell
 yarn add react-ymd-date-select
 ```
+
+## API & Samples
+
+Please see [**the demo page**](https://whitphx.github.io/react-ymd-date-select/) for the guide and samples.
