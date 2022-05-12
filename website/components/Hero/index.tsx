@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Link } from "@chakra-ui/react";
 import Snippet from "./Snippet";
 import EyeCatchDateSelect from "../EyeCatchDateSelect";
 
@@ -14,7 +15,7 @@ const HeroContainer = styled.div`
   width: 100%;
 
   @media (max-width: 640px) {
-    height: 200px;
+    height: 240px;
   }
 `;
 
@@ -60,6 +61,45 @@ const SnippetContainer = styled.p`
   margin-bottom: 4px;
 `;
 
+const HeaderContainer = styled.div`
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+`;
+
+const Header = styled.div`
+  margin: 0 auto;
+  max-width: 960px;
+  text-align: right;
+`;
+
+const GitHubLink = styled(Link)`
+  display: inline-flex;
+  margin-top: 8px;
+  color: #eee;
+  align-items: center;
+`;
+
+// The logo SVG is from https://github.com/simple-icons/simple-icons
+const GitHubLogo = styled.span`
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  mask: url(https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/github.svg)
+    no-repeat center;
+  background: #eee;
+  margin-right: 8px;
+`;
+
+const GitHubLinkText = styled.span`
+  padding-top: 2px;
+
+  @media (max-width: 640px) {
+    display: none;
+  }
+`;
+
 const EyeCatchDateSelectContainer = styled.div`
   width: 100%;
   max-width: 360px;
@@ -69,6 +109,18 @@ const EyeCatchDateSelectContainer = styled.div`
 function Hero() {
   return (
     <HeroContainer>
+      <HeaderContainer>
+        <Header>
+          <GitHubLink
+            href="https://github.com/whitphx/react-ymd-date-select"
+            isExternal
+          >
+            <GitHubLogo />
+            <GitHubLinkText>See on GitHub</GitHubLinkText>
+          </GitHubLink>
+        </Header>
+      </HeaderContainer>
+
       <TitleContainer>
         <Title>react-ymd-date-select</Title>
         <Subtitle>Hooks and components for Y-M-D dropdowns with React</Subtitle>
