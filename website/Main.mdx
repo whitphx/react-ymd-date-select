@@ -41,3 +41,45 @@ import FormikSampleCode from "./samples/formik?raw";
 
 Note that you have to use `setFieldValue()` in the `onChange` prop of `<DateSelect />` instead of directly passing the `field.onChange` prop.
 It is because `<DateSelect />`'s `onChange` is called with a `string` value but not with an event and it does not match Formik's `onChange`.
+
+## Samples
+
+### Setting default value to the state
+
+import DefaultStateSampleCode from "./samples/options/default-state?raw";
+
+<CodePreview initialCode={DefaultStateSampleCode} language="tsx" />
+
+### Default values for year, month, and day
+
+import PartialDefaultValueSampleCode from "./samples/options/partial-default-value?raw";
+
+<CodePreview initialCode={PartialDefaultValueSampleCode} language="tsx" />
+
+You can set `defaultYear`, `defaultMonth`, and `defaultDay`.
+
+Note that these props only set the default selection of the dropdown UI, but does not affects the state as `onChange` is not called.
+
+### Set the current date as the default values
+
+import PartialDefaultValueNowSampleCode from "./samples/options/partial-default-value-now?raw";
+
+<CodePreview initialCode={PartialDefaultValueNowSampleCode} language="tsx" />
+
+You can set `"now"` to `defaultYear`, `defaultMonth`, and `defaultDay`.
+
+### Hide day
+
+import HideDaySampleCode from "./samples/options/hide-day?raw";
+
+<CodePreview initialCode={HideDaySampleCode} language="tsx" />
+
+`hideDay` prop to hide the day select.
+
+### Use a preset component to create a custom component
+
+import ReusedPresetComponentSampleCode from "./samples/options/reused-preset-component?raw";
+
+<CodePreview initialCode={ReusedPresetComponentSampleCode} language="tsx" />
+
+This example shows how to pass the `ref` to the preset component and how to integrate it with React Hook Form, which uses the `ref`.
