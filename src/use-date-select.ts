@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { range } from "./range";
 import { compileDateString, parseDateString } from "./date-string";
 import { Option, Options } from "./types";
+import { useUtils } from "./LocalizationProvider/useUtils";
 
 const DEFAULT_MIN_YEAR = 1960;
 const DEFAULT_MAX_YEAR = new Date().getFullYear();
@@ -17,9 +18,6 @@ function compileOption(value: string): Option {
   return { value, label: value }; // TODO: Be customizable for localization
 }
 
-const monthOptions: Options = range(1, 12).map((i) =>
-  compileOption(convertToSelectValue(i))
-);
 const dayOptions: Options = range(1, 31).map((i) =>
   compileOption(convertToSelectValue(i))
 );
@@ -169,6 +167,8 @@ export const useDateSelect = (
     }
   }, [setDate, value]);
 
+  const utils = useUtils();
+
   const yearOptions = useMemo(() => {
     const minYear = opts.minYear != null ? opts.minYear : DEFAULT_MIN_YEAR;
     const maxYear = opts.maxYear != null ? opts.maxYear : DEFAULT_MAX_YEAR;
@@ -181,6 +181,15 @@ export const useDateSelect = (
     }
     return raw;
   }, [opts.minYear, opts.maxYear, state.yearValue]);
+
+  const monthOptions: Options = useMemo(() => {
+    return range(1, 12).map((i) => {
+      const label = utils
+        ? utils.format(new Date(1960, i - 1, 1), "monthShort")
+        : convertToSelectValue(i);
+      return { value: convertToSelectValue(i), label };
+    });
+  }, [utils]);
 
   return {
     yearValue: state.yearValue,

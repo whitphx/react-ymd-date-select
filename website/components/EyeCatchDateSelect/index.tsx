@@ -1,7 +1,12 @@
 import { useState } from "react";
 import { FormControl, FormErrorMessage, Select } from "@chakra-ui/react";
 import styled from "@emotion/styled";
-import { useDateSelect, getDateString } from "react-ymd-date-select";
+import DateFnsAdapter from "@date-io/date-fns";
+import {
+  useDateSelect,
+  getDateString,
+  LocalizationProvider,
+} from "react-ymd-date-select";
 
 const dropdownIconColor = "#be5f6f";
 const errorColor = "#fcdfff";
@@ -75,4 +80,12 @@ function EyeCatchDateSelect() {
   );
 }
 
-export default EyeCatchDateSelect;
+function LocalizedEyeCatchDateSelect() {
+  return (
+    <LocalizationProvider dateAdapter={DateFnsAdapter}>
+      <EyeCatchDateSelect />
+    </LocalizationProvider>
+  );
+}
+
+export default LocalizedEyeCatchDateSelect;
