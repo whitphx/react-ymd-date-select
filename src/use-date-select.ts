@@ -3,7 +3,7 @@ import { Locale } from "date-fns";
 import formatDate from "date-fns/format";
 import { range } from "./range";
 import { compileDateString, parseDateString } from "./date-string";
-import { Option, Options } from "./types";
+import { Options } from "./types";
 
 const DEFAULT_MIN_YEAR = 1960;
 const DEFAULT_MAX_YEAR = new Date().getFullYear();
@@ -14,14 +14,6 @@ function parseSelectValue(value: string): number {
 function convertToSelectValue(value: number): string {
   return value.toString();
 }
-
-function compileOption(value: string): Option {
-  return { value, label: value }; // TODO: Be customizable for localization
-}
-
-const dayOptions: Options = range(1, 31).map((i) =>
-  compileOption(convertToSelectValue(i))
-);
 
 interface DefaultDateOptions {
   defaultYear?: number | "now";
@@ -72,6 +64,9 @@ export interface UseDateSelectOptions {
   defaultMonth?: number | "now";
   defaultDay?: number | "now";
   locale?: Locale;
+  yearFormat?: string;
+  monthFormat?: string;
+  dayFormat?: string;
 }
 export interface UseDateSelectInterface {
   yearValue: string;
@@ -169,26 +164,64 @@ export const useDateSelect = (
     }
   }, [setDate, value]);
 
-  const yearOptions = useMemo(() => {
+  // Generate year, month, and day arrays based on locale and specified formats
+  const locale = opts.locale;
+
+  const yearFormat = opts.yearFormat;
+  const rawYearOptions = useMemo(() => {
     const minYear = opts.minYear != null ? opts.minYear : DEFAULT_MIN_YEAR;
     const maxYear = opts.maxYear != null ? opts.maxYear : DEFAULT_MAX_YEAR;
-    const raw = range(minYear, maxYear).map((i) => {
-      const s = convertToSelectValue(i);
-      return { value: s, label: s };
+    return range(minYear, maxYear).map((i) => {
+      const label = yearFormat
+        ? formatDate(new Date(i, 0, 1), yearFormat, { locale })
+        : i.toString();
+      return { value: convertToSelectValue(i), label };
     });
-    if (!raw.some((o) => o.value === state.yearValue)) {
-      return raw.concat(compileOption(state.yearValue));
-    }
-    return raw;
-  }, [opts.minYear, opts.maxYear, state.yearValue]);
+  }, [opts.minYear, opts.maxYear, locale, yearFormat]);
 
-  const locale = opts.locale;
+  const monthFormat = opts.monthFormat;
   const monthOptions = useMemo(() => {
     return range(1, 12).map((i) => {
-      const label = formatDate(new Date(1960, i - 1), "MMM", { locale });
+      const label = monthFormat
+        ? formatDate(new Date(1960, i - 1), monthFormat, { locale })
+        : i.toString();
       return { label, value: convertToSelectValue(i) };
     });
-  }, [locale]);
+  }, [locale, monthFormat]);
+
+  const dayFormat = opts.dayFormat;
+  const dayOptions = useMemo(() => {
+    return range(1, 31).map((i) => {
+      const label = dayFormat
+        ? formatDate(new Date(1960, 0, i), dayFormat, { locale })
+        : i.toString();
+      return { label, value: convertToSelectValue(i) };
+    });
+  }, [locale, dayFormat]);
+
+  // If `state.yearValue` is not included in the year options, add it.
+  const yearOptions = useMemo(() => {
+    if (
+      state.yearValue !== "" &&
+      !rawYearOptions.some((o) => o.value === state.yearValue)
+    ) {
+      let label: string;
+      try {
+        label = yearFormat
+          ? formatDate(
+              new Date(parseSelectValue(state.yearValue), 0, 1),
+              yearFormat,
+              { locale }
+            )
+          : state.yearValue;
+      } catch {
+        label = state.yearValue;
+      }
+      return rawYearOptions.concat({ label, value: state.yearValue });
+    }
+
+    return rawYearOptions;
+  }, [state.yearValue, rawYearOptions]);
 
   return {
     yearValue: state.yearValue,

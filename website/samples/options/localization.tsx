@@ -41,8 +41,9 @@ function Sample() {
       <DateSelect
         value={date}
         onChange={setDate}
-        defaultMonth="now"
         locale={localeMap[locale]}
+        monthFormat="MMM"
+        defaultMonth="now"
       />
       <p>Selected date is: {date}</p>
     </div>

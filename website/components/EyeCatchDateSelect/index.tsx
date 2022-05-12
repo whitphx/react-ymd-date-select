@@ -28,7 +28,7 @@ const today = getDateString(new Date());
 function EyeCatchDateSelect() {
   const [date, setDate] = useState(today || "2022-01-01");
 
-  const dateSelect = useDateSelect(date, setDate);
+  const dateSelect = useDateSelect(date, setDate, { monthFormat: "MMM" });
 
   return (
     <FormControl isInvalid={date === ""}>
