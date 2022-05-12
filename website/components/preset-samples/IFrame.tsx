@@ -22,7 +22,7 @@ function IFrame(props: IFrameProps) {
 
     iframe.onload = () => {
       // https://stackoverflow.com/questions/9975810/make-iframe-automatically-adjust-height-according-to-the-contents-without-using
-      setHeight(iframe.contentWindow?.document.documentElement.scrollHeight);
+      setHeight(iframe.contentWindow?.document?.documentElement?.scrollHeight);
     };
   }, []);
 
@@ -32,7 +32,7 @@ function IFrame(props: IFrameProps) {
         return;
       }
       const iframe = ref.current;
-      setHeight(iframe.contentWindow?.document.documentElement.scrollHeight);
+      setHeight(iframe.contentWindow?.document?.documentElement?.scrollHeight);
     }, 200);
 
     return () => {
