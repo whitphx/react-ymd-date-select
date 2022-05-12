@@ -1,4 +1,4 @@
-var E=Object.defineProperty;var b=Object.getOwnPropertySymbols;var I=Object.prototype.hasOwnProperty,O=Object.prototype.propertyIsEnumerable;var y=(a,r,o)=>r in a?E(a,r,{enumerable:!0,configurable:!0,writable:!0,value:o}):a[r]=o,u=(a,r)=>{for(var o in r||(r={}))I.call(r,o)&&y(a,o,r[o]);if(b)for(var o of b(r))O.call(r,o)&&y(a,o,r[o]);return a};import"./modulepreload-polyfill.b7f2da20.js";import{n as l,r as m,j as t,a as c,F as V,S as g,b as P,L as R,R as M,E as z,c as U,u as L,d as n,e as d,f as Y,g as j,h as B,i as T,C as $}from"./vendor.5ce835ef.js";import"./DateSelect.441a108e.js";import{g as N,u as q}from"./use-date-select.61b1bfac.js";import{C as p}from"./index.69b76d26.js";import"./DateSelect.d9ead660.js";import"./DateSelect.a3d90621.js";const A=l.code`
+var I=Object.defineProperty;var b=Object.getOwnPropertySymbols;var E=Object.prototype.hasOwnProperty,O=Object.prototype.propertyIsEnumerable;var y=(a,r,o)=>r in a?I(a,r,{enumerable:!0,configurable:!0,writable:!0,value:o}):a[r]=o,m=(a,r)=>{for(var o in r||(r={}))E.call(r,o)&&y(a,o,r[o]);if(b)for(var o of b(r))O.call(r,o)&&y(a,o,r[o]);return a};import"./modulepreload-polyfill.b7f2da20.js";import{n as i,r as u,j as t,a as c,F as V,S as g,b as P,L as M,R,E as z,c as L,u as T,d as n,e as l,f as U,g as Y,h as j,i as B,C as $}from"./vendor.5ce835ef.js";import"./DateSelect.441a108e.js";import{g as A,u as N}from"./use-date-select.61b1bfac.js";import{C as p}from"./index.69b76d26.js";import"./DateSelect.d9ead660.js";import"./DateSelect.a3d90621.js";const q=i.code`
   display: inline-block;
   padding: 8px 16px;
   border-radius: 5px;
@@ -9,7 +9,7 @@ var E=Object.defineProperty;var b=Object.getOwnPropertySymbols;var I=Object.prot
   /* Ref: https://github.com/chakra-ui/chakra-ui/blob/b77acf36688abb696fd1ec2a7898a7de43a91e37/packages/css-reset/src/css-reset.tsx#L43 */
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 1em;
-`;function w(a){const r=m.exports.useRef(null),o=m.exports.useCallback(e=>{var h,f;if(e.detail!==2)return;const s=r.current;if(s==null)return;const i=new Range;i.setStart(s,0),i.setEnd(s,1),(h=document.getSelection())==null||h.removeAllRanges(),(f=document.getSelection())==null||f.addRange(i)},[]);return t(A,{ref:r,onClick:o,children:a.children})}const S="#be5f6f",v="#fcdfff",G=l.div`
+`;function w(a){const r=u.exports.useRef(null),o=u.exports.useCallback(e=>{var h,f;if(e.detail!==2)return;const s=r.current;if(s==null)return;const d=new Range;d.setStart(s,0),d.setEnd(s,1),(h=document.getSelection())==null||h.removeAllRanges(),(f=document.getSelection())==null||f.addRange(d)},[]);return t(q,{ref:r,onClick:o,children:a.children})}const S="#be5f6f",v="#fcdfff",W=i.div`
   display: flex;
 
   & > div {
@@ -24,7 +24,7 @@ var E=Object.defineProperty;var b=Object.getOwnPropertySymbols;var I=Object.prot
       }
     }
   }
-`,W=N(new Date);function J(){const[a,r]=m.exports.useState(W||"2022-01-01"),o=q(a,r);return c(V,{isInvalid:a==="",children:[c(G,{children:[t(g,{value:o.yearValue,onChange:o.onYearChange,bg:"whiteAlpha.900",color:S,children:o.yearOptions.map(e=>t("option",{value:e.value,children:e.label},e.value))}),t(g,{value:o.monthValue,onChange:o.onMonthChange,bg:"whiteAlpha.900",color:S,children:o.monthOptions.map(e=>t("option",{value:e.value,children:e.label},e.value))}),t(g,{value:o.dayValue,onChange:o.onDayChange,bg:"whiteAlpha.900",color:S,children:o.dayOptions.map(e=>t("option",{value:e.value,children:e.label},e.value))})]}),t(P,{color:v,children:"Invalid date"})]})}const X=l.div`
+`,G=A(new Date);function J(){const[a,r]=u.exports.useState(G||"2022-01-01"),o=N(a,r);return c(V,{isInvalid:a==="",children:[c(W,{children:[t(g,{value:o.yearValue,onChange:o.onYearChange,bg:"whiteAlpha.900",color:S,children:o.yearOptions.map(e=>t("option",{value:e.value,children:e.label},e.value))}),t(g,{value:o.monthValue,onChange:o.onMonthChange,bg:"whiteAlpha.900",color:S,children:o.monthOptions.map(e=>t("option",{value:e.value,children:e.label},e.value))}),t(g,{value:o.dayValue,onChange:o.onDayChange,bg:"whiteAlpha.900",color:S,children:o.dayOptions.map(e=>t("option",{value:e.value,children:e.label},e.value))})]}),t(P,{color:v,children:"Invalid date"})]})}const X=i.div`
   position: relative;
   margin: 0;
   display: flex;
@@ -38,9 +38,9 @@ var E=Object.defineProperty;var b=Object.getOwnPropertySymbols;var I=Object.prot
   @media (max-width: 640px) {
     height: 200px;
   }
-`,_=l.div`
+`,_=i.div`
   text-align: center;
-`,K=l.h1`
+`,K=i.h1`
   color: #efefef;
   text-transform: uppercase;
   display: block;
@@ -49,15 +49,15 @@ var E=Object.defineProperty;var b=Object.getOwnPropertySymbols;var I=Object.prot
   @media (max-width: 640px) {
     font-size: 1.5em;
   }
-`,Q=l.h2`
+`,Q=i.h2`
   color: #efefef;
   display: block;
   font-size: 1em;
-`,Z=l.div`
+`,Z=i.div`
   z-index: 10;
   text-align: center;
   color: #eee;
-`,ee=l.div`
+`,ee=i.div`
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -66,30 +66,30 @@ var E=Object.defineProperty;var b=Object.getOwnPropertySymbols;var I=Object.prot
   @media (max-width: 640px) {
     display: none;
   }
-`,D=l.p`
+`,D=i.p`
   margin-bottom: 4px;
-`,ne=l.div`
+`,ne=i.div`
   position: absolute;
   width: 100%;
   left: 0;
   bottom: 0;
-`,te=l.div`
+`,te=i.div`
   margin: 0 auto;
   max-width: 960px;
   text-align: right;
-`,ae=l(R)`
+`,ae=i(M)`
   display: inline-block;
   margin-top: 8px;
   color: #eee;
-`,oe=l.div`
+`,oe=i.div`
   width: 100%;
   max-width: 360px;
   margin: 16px auto 0;
-`;function re(){return c(X,{children:[c(_,{children:[t(K,{children:"react-ymd-date-select"}),t(Q,{children:"Hooks and components for Y-M-D dropdowns with React"})]}),c(Z,{children:[c(ee,{children:[t(D,{children:t(w,{children:"npm install --save react-ymd-date-select"})}),t(D,{children:t(w,{children:"yarn add react-ymd-date-select"})})]}),t(oe,{children:t(J,{})})]}),t(ne,{children:t(te,{children:t(ae,{href:"https://github.com/whitphx/react-ymd-date-select",isExternal:!0,children:"See on GitHub"})})})]})}const le=l.div`
+`;function re(){return c(X,{children:[c(_,{children:[t(K,{children:"react-ymd-date-select"}),t(Q,{children:"Hooks and components for Y-M-D dropdowns with React"})]}),c(Z,{children:[c(ee,{children:[t(D,{children:t(w,{children:"npm install --save react-ymd-date-select"})}),t(D,{children:t(w,{children:"yarn add react-ymd-date-select"})})]}),t(oe,{children:t(J,{})})]}),t(ne,{children:t(te,{children:t(ae,{href:"https://github.com/whitphx/react-ymd-date-select",isExternal:!0,children:"See on GitHub"})})})]})}const ie=i.div`
   margin: 32px auto;
   max-width: 960px;
   padding: 0 16px;
-`;function ie(a){const r=a.children;if(!M.isValidElement(r))return t("pre",u({},a));const{className:o}=r.props,e=o==null?void 0:o.replace(/language-/,""),s=r.props.children.trim();return e==="jsx"||e==="tsx"?t(p,{initialCode:s,language:e}):t("pre",{children:t("code",{children:r})})}const de=l.code`
+`;function le(a){const r=a.children;if(!R.isValidElement(r))return t("pre",m({},a));const{className:o}=r.props,e=o==null?void 0:o.replace(/language-/,""),s=r.props.children.trim();return e==="jsx"||e==="tsx"?t(p,{initialCode:s,language:e}):t("pre",{children:t("code",{children:r})})}const de=i.code`
   margin: 0 2px;
   padding: 1px 4px;
   border-radius: 5px;
@@ -99,22 +99,22 @@ var E=Object.defineProperty;var b=Object.getOwnPropertySymbols;var I=Object.prot
   /* Ref: https://github.com/chakra-ui/chakra-ui/blob/b77acf36688abb696fd1ec2a7898a7de43a91e37/packages/css-reset/src/css-reset.tsx#L43 */
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 1em;
-`,ce=l.h1`
+`,ce=i.h1`
   font-size: 2rem;
   margin: 1.6rem 0 0.4rem;
-`,se=l.h2`
+`,se=i.h2`
   font-size: 1.8rem;
   margin: 1.6rem 0 0.4rem;
-`,C=l.h3`
+`,C=i.h3`
   font-size: 1.6rem;
   margin: 1.6rem 0 0.4rem;
-`,pe=l.h4`
+`,pe=i.h4`
   font-size: 1.4rem;
   margin: 1.6rem 0 0.4rem;
-`;function he(a){if(a==null)return!1;try{return new URL(a).origin!==window.location.origin}catch{return!1}}function ue(a){const r=he(a.href);return c(R,{href:a.href,isExternal:r,children:[a.children,r&&t(z,{mx:"2px"})]})}const me={pre:ie,code:a=>t(de,u({},a)),h1:a=>t(ce,u({},a)),h2:a=>t(se,u({},a)),h3:a=>t(C,u({},a)),h4:a=>t(pe,u({},a)),a:ue},fe=l.iframe`
+`;function he(a){if(a==null)return!1;try{return new URL(a).origin!==window.location.origin}catch{return!1}}function me(a){const r=he(a.href);return c(M,{href:a.href,isExternal:r,children:[a.children,r&&t(z,{mx:"2px"})]})}const ue={pre:le,code:a=>t(de,m({},a)),h1:a=>t(ce,m({},a)),h2:a=>t(se,m({},a)),h3:a=>t(C,m({},a)),h4:a=>t(pe,m({},a)),a:me},fe=i.iframe`
   display: block;
   width: 100%;
-`;function x(a){const[r,o]=m.exports.useState(),e=m.exports.useRef(null),s=m.exports.useCallback(i=>{e.current=i,i!=null&&(i.onload=()=>{var h;o((h=i.contentWindow)==null?void 0:h.document.documentElement.scrollHeight)})},[]);return m.exports.useEffect(()=>{const i=setInterval(()=>{var f;if(e.current==null)return;const h=e.current;o((f=h.contentWindow)==null?void 0:f.document.documentElement.scrollHeight)},200);return()=>{clearInterval(i)}},[]),t(fe,{ref:s,src:a.src,frameBorder:"0",height:r})}var ge=`import { useState } from "react";
+`;function x(a){const[r,o]=u.exports.useState(),e=u.exports.useRef(null),s=u.exports.useCallback(d=>{e.current=d,d!=null&&(d.onload=()=>{var h;o((h=d.contentWindow)==null?void 0:h.document.documentElement.scrollHeight)})},[]);return u.exports.useEffect(()=>{const d=setInterval(()=>{var f;if(e.current==null)return;const h=e.current;o((f=h.contentWindow)==null?void 0:f.document.documentElement.scrollHeight)},200);return()=>{clearInterval(d)}},[]),t(fe,{ref:s,src:a.src,frameBorder:"0",height:r})}var ge=`import { useState } from "react";
 import { ChakraProvider } from "@chakra-ui/react";
 import { DateSelect } from "react-ymd-date-select/presets/chakra-ui";
 
@@ -145,16 +145,16 @@ function Sample() {
 }
 
 export default Sample;
-`;const ve=l.div`
+`;const ve=i.div`
   display: flex;
   flex-direction: column;
   box-shadow: 0 0 2px 0 lightsteelblue;
   width: 100%;
   overflow: hidden;
-`,Ce=l.div`
+`,Ce=i.div`
   overflow: auto;
   max-height: 300px;
-`,xe=l(U)`
+`,xe=i(L)`
   font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace;
   font-size: 14px;
   white-space: pre;
@@ -168,18 +168,18 @@ export default Sample;
     outline: none;
     white-space: pre !important;
   }
-`,be=l.div`
+`,be=i.div`
   position: relative;
   display: flex;
   overflow: hidden;
   min-height: 180px;
-`;l.div`
+`;i.div`
   margin: auto;
   white-space: pre-wrap;
   max-width: 100%;
   max-height: 100%;
   overflow: auto;
-`;l.div`
+`;i.div`
   background: #fcc;
   position: absolute;
   top: 0;
@@ -189,20 +189,20 @@ export default Sample;
   padding: 10px;
   color: #f00;
   white-space: pre-wrap;
-`;const k=l.button`
+`;const k=i.button`
   background: #ddd;
   border: #aaa 1px solid;
   font-weight: 500;
   font-size: 1rem;
   padding: 0.4rem;
-`;function F({code:a,language:r,children:o}){const[e,{on:s,off:i}]=L();return c(ve,{children:[t(be,{children:o}),!e&&t(k,{onClick:s,children:"Show code"}),e&&t(Ce,{children:t(xe,{value:a,language:r,readOnly:!0})}),e&&t(k,{onClick:i,children:"Hide code"})]})}const ye=l.div`
+`;function F({code:a,language:r,children:o}){const[e,{on:s,off:d}]=T();return c(ve,{children:[t(be,{children:o}),!e&&t(k,{onClick:s,children:"Show code"}),e&&t(Ce,{children:t(xe,{value:a,language:r,readOnly:!0})}),e&&t(k,{onClick:d,children:"Hide code"})]})}const ye=i.div`
   display: flex;
   width: 100%;
 
   @media (max-width: 640px) {
     flex-direction: column;
   }
-`,H=l.div`
+`,H=i.div`
   flex-grow: 1;
   flex-basis: 80px;
   width: 50%;
@@ -350,7 +350,7 @@ function Sample() {
 }
 
 export default Sample;
-`,Re=`import { useState } from "react";
+`,Me=`import { useState } from "react";
 import { DateSelect } from "react-ymd-date-select/presets/vanilla";
 
 function Sample() {
@@ -365,7 +365,7 @@ function Sample() {
 }
 
 export default Sample;
-`,Me=`import { useState } from "react";
+`,Re=`import { useState } from "react";
 import { DateSelect } from "react-ymd-date-select/presets/vanilla";
 
 function Sample() {
@@ -380,7 +380,7 @@ function Sample() {
 }
 
 export default Sample;
-`,Ee=`import { useState } from "react";
+`,Ie=`import { useState } from "react";
 import { DateSelect } from "react-ymd-date-select/presets/vanilla";
 
 function Sample() {
@@ -395,7 +395,7 @@ function Sample() {
 }
 
 export default Sample;
-`,Ie=`import { useState } from "react";
+`,Ee=`import { useState } from "react";
 import { DateSelect } from "react-ymd-date-select/presets/vanilla";
 
 function Sample() {
@@ -470,46 +470,50 @@ function Sample() {
 }
 
 export default Sample;
-`;function Ve(a={}){const{wrapper:r}=a.components||{};return r?n(r,Object.assign({},a,{children:n(o,{})})):o();function o(){const e=Object.assign({h2:"h2",p:"p",code:"code",a:"a",h3:"h3"},a.components);return d(Y,{children:[n(e.h2,{children:"Presets"}),`
-`,d(e.p,{children:["It provides ready-to-use ",n(e.code,{children:"<DateSelect />"})," component for each UI library, exported from ",n(e.code,{children:"react-ymd-date-select/presets/*"}),"."]}),`
-`,d(e.p,{children:[n(e.code,{children:"react-ymd-date-select/presets/vanilla"})," is a bare HTML version without styling."]}),`
+`;function Ve(a={}){const{wrapper:r}=a.components||{};return r?n(r,Object.assign({},a,{children:n(o,{})})):o();function o(){const e=Object.assign({h2:"h2",p:"p",code:"code",a:"a",h3:"h3"},a.components);return l(U,{children:[n(e.h2,{children:"Presets"}),`
+`,l(e.p,{children:["It provides ready-to-use ",n(e.code,{children:"<DateSelect />"})," component for each UI library, exported from ",n(e.code,{children:"react-ymd-date-select/presets/*"}),"."]}),`
+`,l(e.p,{children:[n(e.code,{children:"react-ymd-date-select/presets/vanilla"})," is a bare HTML version without styling."]}),`
 `,n(we,{}),`
-`,d(e.p,{children:[n(e.code,{children:"react-ymd-date-select/presets/(chakra-ui|mui)"})," is also available for ",n(e.a,{href:"https://chakra-ui.com/",children:"Chakra UI"})," and ",n(e.a,{href:"https://mui.com/",children:"Material UI"}),"."]}),`
+`,l(e.p,{children:[n(e.code,{children:"react-ymd-date-select/presets/(chakra-ui|mui)"})," is also available for ",n(e.a,{href:"https://chakra-ui.com/",children:"Chakra UI"})," and ",n(e.a,{href:"https://mui.com/",children:"Material UI"}),"."]}),`
 `,n(De,{}),`
 `,n(e.h2,{children:"Hook for custom components"}),`
-`,d(e.p,{children:["This library also provides ",n(e.code,{children:"useDateSelect"})," hook so that you can create original customized components."]}),`
+`,l(e.p,{children:["This library also provides ",n(e.code,{children:"useDateSelect"})," hook so that you can create original customized components."]}),`
 `,`
 `,n(p,{initialCode:ke,language:"tsx"}),`
 `,n(e.h2,{children:"With form libraries"}),`
 `,n(e.h3,{children:"React Hook Form"}),`
 `,`
 `,n(p,{initialCode:Fe,language:"tsx"}),`
-`,d(e.p,{children:[`For the details about the usage with React Hook Form,
+`,l(e.p,{children:[`For the details about the usage with React Hook Form,
 see `,n(e.a,{href:"https://react-hook-form.com/advanced-usage#ControlledmixedwithUncontrolledComponents",children:'the "Controlled mixed with Uncontrolled Components" section'}),` in the official document.
 Since the date selector is a controlled component, we need to use the `,n(e.code,{children:"<Controller />"})," provided from React Hook Form as the example above."]}),`
 `,n(e.h3,{children:"Formik"}),`
 `,`
 `,n(p,{initialCode:He,language:"tsx"}),`
-`,d(e.p,{children:["Note that you have to use ",n(e.code,{children:"setFieldValue()"})," in the ",n(e.code,{children:"onChange"})," prop of ",n(e.code,{children:"<DateSelect />"})," instead of directly passing the ",n(e.code,{children:"field.onChange"}),` prop.
+`,l(e.p,{children:["Note that you have to use ",n(e.code,{children:"setFieldValue()"})," in the ",n(e.code,{children:"onChange"})," prop of ",n(e.code,{children:"<DateSelect />"})," instead of directly passing the ",n(e.code,{children:"field.onChange"}),` prop.
 It is because `,n(e.code,{children:"<DateSelect />"}),"'s ",n(e.code,{children:"onChange"})," is called with a ",n(e.code,{children:"string"})," value but not with an event and it does not match Formik's ",n(e.code,{children:"onChange"}),"."]}),`
+`,n(e.h2,{children:"The date string format"}),`
+`,l(e.p,{children:["The ",n(e.code,{children:"value"})," prop and the argument of ",n(e.code,{children:"onChange()"})," are string formatted in ",n(e.code,{children:"yyyy-MM-DD"}),`,
+which is ISO8601 format, and the same as `,l(e.a,{href:"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date#value",children:["the value of the native ",n(e.code,{children:'<input type="date" />'})]}),`.
+It's also `,n(e.a,{href:"https://tc39.es/ecma262/#sec-date-time-string-format",children:"the JavaScript standard date string format"}),"."]}),`
 `,n(e.h2,{children:"Samples"}),`
 `,n(e.h3,{children:"Setting default value to the state"}),`
 `,`
-`,n(p,{initialCode:Re,language:"tsx"}),`
+`,n(p,{initialCode:Me,language:"tsx"}),`
 `,n(e.h3,{children:"Default values for year, month, and day"}),`
 `,`
-`,n(p,{initialCode:Me,language:"tsx"}),`
-`,d(e.p,{children:["You can set ",n(e.code,{children:"defaultYear"}),", ",n(e.code,{children:"defaultMonth"}),", and ",n(e.code,{children:"defaultDay"}),"."]}),`
-`,d(e.p,{children:["Note that these props only set the default selection of the dropdown UI, but does not affects the state as ",n(e.code,{children:"onChange"})," is not called."]}),`
+`,n(p,{initialCode:Re,language:"tsx"}),`
+`,l(e.p,{children:["You can set ",n(e.code,{children:"defaultYear"}),", ",n(e.code,{children:"defaultMonth"}),", and ",n(e.code,{children:"defaultDay"}),"."]}),`
+`,l(e.p,{children:["Note that these props only set the default selection of the dropdown UI, but does not affects the state as ",n(e.code,{children:"onChange"})," is not called."]}),`
 `,n(e.h3,{children:"Set the current date as the default values"}),`
 `,`
-`,n(p,{initialCode:Ee,language:"tsx"}),`
-`,d(e.p,{children:["You can set ",n(e.code,{children:'"now"'})," to ",n(e.code,{children:"defaultYear"}),", ",n(e.code,{children:"defaultMonth"}),", and ",n(e.code,{children:"defaultDay"}),"."]}),`
+`,n(p,{initialCode:Ie,language:"tsx"}),`
+`,l(e.p,{children:["You can set ",n(e.code,{children:'"now"'})," to ",n(e.code,{children:"defaultYear"}),", ",n(e.code,{children:"defaultMonth"}),", and ",n(e.code,{children:"defaultDay"}),"."]}),`
 `,n(e.h3,{children:"Hide day"}),`
 `,`
-`,n(p,{initialCode:Ie,language:"tsx"}),`
-`,d(e.p,{children:[n(e.code,{children:"hideDay"})," prop to hide the day select."]}),`
-`,n(e.h3,{children:"Use a preset component to create a custom component"}),`
+`,n(p,{initialCode:Ee,language:"tsx"}),`
+`,l(e.p,{children:[n(e.code,{children:"hideDay"})," prop to hide the day select."]}),`
+`,n(e.h3,{children:"A custom component wrapping the preset component"}),`
 `,`
 `,n(p,{initialCode:Oe,language:"tsx"}),`
-`,d(e.p,{children:["This example shows how to pass the ",n(e.code,{children:"ref"})," to the preset component and how to integrate it with React Hook Form, which uses the ",n(e.code,{children:"ref"}),"."]})]})}}function Pe(){return c(j,{children:[t(re,{}),t(le,{children:t(Ve,{components:me})})]})}const ze=B({styles:{global:{"*, *::before, &::after":{borderColor:null,wordWrap:null},html:{lineHeight:1.5},body:{position:"relative",minHeight:"100%",fontFeatureSettings:"kern"},"*, *::before, *::after":{boxSizing:"border-box"},"body, blockquote, dl, dd, h1, h2, h3, h4, h5, h6, hr, figure, p, pre":{margin:0}}}}),Ue=document.getElementById("root"),Le=T(Ue);Le.render(t(M.StrictMode,{children:t($,{resetCSS:!1,theme:ze,children:t(Pe,{})})}));
+`,l(e.p,{children:["This example shows how to pass the ",n(e.code,{children:"ref"})," to the preset component and how to integrate it with React Hook Form, which uses the ",n(e.code,{children:"ref"}),"."]})]})}}function Pe(){return c(Y,{children:[t(re,{}),t(ie,{children:t(Ve,{components:ue})})]})}const ze=j({styles:{global:{"*, *::before, &::after":{borderColor:null,wordWrap:null},html:{lineHeight:1.5},body:{position:"relative",minHeight:"100%",fontFeatureSettings:"kern"},"*, *::before, *::after":{boxSizing:"border-box"},"body, blockquote, dl, dd, h1, h2, h3, h4, h5, h6, hr, figure, p, pre":{margin:0}}}}),Le=document.getElementById("root"),Te=B(Le);Te.render(t(R.StrictMode,{children:t($,{resetCSS:!1,theme:ze,children:t(Pe,{})})}));
