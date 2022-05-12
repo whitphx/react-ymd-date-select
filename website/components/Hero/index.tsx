@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Link } from "@chakra-ui/react";
 import Snippet from "./Snippet";
 import EyeCatchDateSelect from "../EyeCatchDateSelect";
 
@@ -60,6 +61,25 @@ const SnippetContainer = styled.p`
   margin-bottom: 4px;
 `;
 
+const FooterContainer = styled.div`
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+`;
+
+const Footer = styled.div`
+  margin: 0 auto;
+  max-width: 960px;
+  text-align: right;
+`;
+
+const GitHubLink = styled(Link)`
+  display: inline-block;
+  margin-top: 8px;
+  color: #eee;
+`;
+
 const EyeCatchDateSelectContainer = styled.div`
   width: 100%;
   max-width: 360px;
@@ -88,6 +108,17 @@ function Hero() {
           <EyeCatchDateSelect />
         </EyeCatchDateSelectContainer>
       </BodyContainer>
+
+      <FooterContainer>
+        <Footer>
+          <GitHubLink
+            href="https://github.com/whitphx/react-ymd-date-select"
+            isExternal
+          >
+            See on GitHub
+          </GitHubLink>
+        </Footer>
+      </FooterContainer>
     </HeroContainer>
   );
 }
