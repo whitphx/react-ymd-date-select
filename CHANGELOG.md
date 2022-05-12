@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.0.8] - 2022-05-12
+
+No package update.
+Just improved the release flow.
+
 ## [0.0.7] - 2022-05-12
 
 ### Fix
