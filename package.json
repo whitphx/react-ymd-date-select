@@ -1,6 +1,6 @@
 {
   "name": "react-ymd-date-select",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Helper hooks and components for Y-M-D dropdowns with React",
   "keywords": [
     "date",
