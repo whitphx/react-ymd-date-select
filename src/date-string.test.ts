@@ -12,9 +12,12 @@ describe("compileDateString()", () => {
     number,
     ReturnType<typeof compileDateString>
   ][] = [
-    [1, 1, 1, "0001-01-01"],
     [1900, 10, 10, "1900-10-10"],
     [2022, 10, 10, "2022-10-10"],
+    [1, 1, 1, null], // Spec for date-fns/isExists
+    [99, 1, 1, null], // Spec for date-fns/isExists
+    [999, 1, 1, "0999-01-01"],
+    [1000, 1, 1, "1000-01-01"],
     [2000, 2, 29, "2000-02-29"], // Leap day
     [2000, -1, 1, null], // Invalid month
     [2000, 0, 1, null], // Invalid month
