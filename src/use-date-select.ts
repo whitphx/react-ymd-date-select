@@ -18,10 +18,6 @@ function compileOption(value: string): Option {
   return { value, label: value }; // TODO: Be customizable for localization
 }
 
-const dayOptions: Options = range(1, 31).map((i) =>
-  compileOption(convertToSelectValue(i))
-);
-
 interface DefaultDateOptions {
   defaultYear?: number | "now";
   defaultMonth?: number | "now";
@@ -182,13 +178,22 @@ export const useDateSelect = (
     return raw;
   }, [opts.minYear, opts.maxYear, state.yearValue]);
 
-  const monthOptions: Options = useMemo(() => {
-    return range(1, 12).map((i) => {
+  const [monthOptions, dayOptions] = useMemo(() => {
+    const monthOptions = range(1, 12).map((i) => {
       const label = utils
         ? utils.format(new Date(1960, i - 1, 1), "monthShort")
-        : convertToSelectValue(i);
+        : i.toString();
       return { value: convertToSelectValue(i), label };
     });
+
+    const dayOptions: Options = range(1, 31).map((i) => {
+      const label = utils
+        ? utils.format(new Date(1960, 1, i), "dayOfMonth")
+        : i.toString();
+      return { value: convertToSelectValue(i), label };
+    });
+
+    return [monthOptions, dayOptions];
   }, [utils]);
 
   return {
