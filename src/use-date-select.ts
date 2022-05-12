@@ -1,4 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Locale } from "date-fns";
+import formatDate from "date-fns/format";
 import { range } from "./range";
 import { compileDateString, parseDateString } from "./date-string";
 import { Option, Options } from "./types";
@@ -17,9 +19,6 @@ function compileOption(value: string): Option {
   return { value, label: value }; // TODO: Be customizable for localization
 }
 
-const monthOptions: Options = range(1, 12).map((i) =>
-  compileOption(convertToSelectValue(i))
-);
 const dayOptions: Options = range(1, 31).map((i) =>
   compileOption(convertToSelectValue(i))
 );
@@ -72,6 +71,7 @@ export interface UseDateSelectOptions {
   defaultYear?: number | "now";
   defaultMonth?: number | "now";
   defaultDay?: number | "now";
+  locale?: Locale;
 }
 export interface UseDateSelectInterface {
   yearValue: string;
@@ -181,6 +181,14 @@ export const useDateSelect = (
     }
     return raw;
   }, [opts.minYear, opts.maxYear, state.yearValue]);
+
+  const locale = opts.locale;
+  const monthOptions = useMemo(() => {
+    return range(1, 12).map((i) => {
+      const label = formatDate(new Date(1960, i - 1), "MMM", { locale });
+      return { label, value: convertToSelectValue(i) };
+    });
+  }, [locale]);
 
   return {
     yearValue: state.yearValue,
