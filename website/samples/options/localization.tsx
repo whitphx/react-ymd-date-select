@@ -10,8 +10,6 @@ import { DateSelect } from "react-ymd-date-select/presets/vanilla";
 import DateAdapter from "react-ymd-date-select/adapters/date-fns";
 // import DateAdapter from "react-ymd-date-select/adapters/dayjs";
 // import DateAdapter from "react-ymd-date-select/adapters/luxon";
-// import DateAdapter from "react-ymd-date-select/adapters/date-fns-jalali";
-// import DateAdapter from "react-ymd-date-select/adapters/jalaali";
 
 const localeMap = {
   en: enLocale,
