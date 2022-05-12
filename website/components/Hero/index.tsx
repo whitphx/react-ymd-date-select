@@ -61,14 +61,14 @@ const SnippetContainer = styled.p`
   margin-bottom: 4px;
 `;
 
-const FooterContainer = styled.div`
+const HeaderContainer = styled.div`
   position: absolute;
   width: 100%;
   left: 0;
   top: 0;
 `;
 
-const Footer = styled.div`
+const Header = styled.div`
   margin: 0 auto;
   max-width: 960px;
   text-align: right;
@@ -109,6 +109,18 @@ const EyeCatchDateSelectContainer = styled.div`
 function Hero() {
   return (
     <HeroContainer>
+      <HeaderContainer>
+        <Header>
+          <GitHubLink
+            href="https://github.com/whitphx/react-ymd-date-select"
+            isExternal
+          >
+            <GitHubLogo />
+            <GitHubLinkText>See on GitHub</GitHubLinkText>
+          </GitHubLink>
+        </Header>
+      </HeaderContainer>
+
       <TitleContainer>
         <Title>react-ymd-date-select</Title>
         <Subtitle>Hooks and components for Y-M-D dropdowns with React</Subtitle>
@@ -128,18 +140,6 @@ function Hero() {
           <EyeCatchDateSelect />
         </EyeCatchDateSelectContainer>
       </BodyContainer>
-
-      <FooterContainer>
-        <Footer>
-          <GitHubLink
-            href="https://github.com/whitphx/react-ymd-date-select"
-            isExternal
-          >
-            <GitHubLogo />
-            <GitHubLinkText>See on GitHub</GitHubLinkText>
-          </GitHubLink>
-        </Footer>
-      </FooterContainer>
     </HeroContainer>
   );
 }
