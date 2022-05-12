@@ -42,6 +42,12 @@ import FormikSampleCode from "./samples/formik?raw";
 Note that you have to use `setFieldValue()` in the `onChange` prop of `<DateSelect />` instead of directly passing the `field.onChange` prop.
 It is because `<DateSelect />`'s `onChange` is called with a `string` value but not with an event and it does not match Formik's `onChange`.
 
+## The date string format
+
+The `value` prop and the argument of `onChange()` are string formatted in `yyyy-MM-DD`,
+which is ISO8601 format, and the same as [the value of the native `<input type="date" />`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date#value).
+It's also [the JavaScript standard date string format](https://tc39.es/ecma262/#sec-date-time-string-format).
+
 ## Samples
 
 ### Setting default value to the state
@@ -76,7 +82,7 @@ import HideDaySampleCode from "./samples/options/hide-day?raw";
 
 `hideDay` prop to hide the day select.
 
-### Use a preset component to create a custom component
+### A custom component wrapping the preset component
 
 import ReusedPresetComponentSampleCode from "./samples/options/reused-preset-component?raw";
 
