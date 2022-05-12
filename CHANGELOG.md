@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Add
+
+- `yearFormat`, `monthFormat`, `dayFormat`, and `locale` props, #74.
+
 ## [0.0.8] - 2022-05-12
 
 No package update.
