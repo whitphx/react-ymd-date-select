@@ -88,6 +88,15 @@ import LocalizationSampleCode from "./samples/options/localization?raw";
 
 <CodePreview initialCode={LocalizationSampleCode} language="tsx" />
 
+You can set the locale through `<LocalizationProvider />` wrapping the component.
+
+It accesses the date library you are using to use locale functionality through the "adapter" object which is, in the example above, `react-ymd-date-select/adapters/date-fns` for [`date-fns`](https://date-fns.org/).
+Please select an appropriate adapter for your project.
+
+With this design, this library can reuse the already installed date functions and can save the final bundle size.
+
+Note that the date library such as `date-fns` is NOT installed along with `react-ymd-date-select`, so you have to install it separately.
+
 ### A custom component wrapping the preset component
 
 import ReusedPresetComponentSampleCode from "./samples/options/reused-preset-component?raw";
