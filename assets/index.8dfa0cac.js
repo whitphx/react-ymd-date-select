@@ -684,7 +684,7 @@ See `,i(e.a,{href:"https://date-fns.org/v2.28.0/docs/format",children:["the docu
 `,n(e.h3,{children:"Hide day"}),`
 `,`
 `,n(s,{initialCode:je,language:"tsx"}),`
-`,i(e.p,{children:[n(e.code,{children:"hideDay"})," prop to hide the day select."]}),`
+`,i(e.p,{children:["Set ",n(e.code,{children:"hideDay"})," prop as true to hide the day select."]}),`
 `,n(e.h3,{children:"A custom component wrapping the preset component"}),`
 `,`
 `,n(s,{initialCode:Pe,language:"tsx"}),`
