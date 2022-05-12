@@ -97,7 +97,7 @@ function Hero() {
       <BodyContainer>
         <SnippetBlockContainer>
           <SnippetContainer>
-            <Snippet>npm install --save react-ymd-date-select</Snippet>
+            <Snippet>npm install react-ymd-date-select</Snippet>
           </SnippetContainer>
           <SnippetContainer>
             <Snippet>yarn add react-ymd-date-select</Snippet>

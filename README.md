@@ -26,7 +26,7 @@ This library manages these things.
 With npm:
 
 ```shell
-npm install --save react-ymd-date-select
+npm install react-ymd-date-select
 ```
 
 With Yarn:
