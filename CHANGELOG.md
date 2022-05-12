@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.0.7] - 2022-05-12
+
 ### Fix
 
 - `defaultYear`, `-Month`, and `-Day` prop types on the preset components, #66.
