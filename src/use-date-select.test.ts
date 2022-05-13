@@ -180,4 +180,125 @@ describe("useDateSelect", () => {
     expect(result.current.monthValue).toEqual("1");
     expect(result.current.dayValue).toEqual("2");
   });
+
+  describe("firstYear and lastYear options", () => {
+    it("generates years from 2000 to the current year if neither specified", () => {
+      const mockedCurrentDate = new Date(2003, 0, 2);
+      vi.setSystemTime(mockedCurrentDate);
+
+      const value = "";
+      const onChange = vi.fn();
+      const { result } = renderHook(() => useDateSelect(value, onChange));
+      expect(result.current.yearOptions).toEqual([
+        expect.objectContaining({ value: "2000" }),
+        expect.objectContaining({ value: "2001" }),
+        expect.objectContaining({ value: "2002" }),
+        expect.objectContaining({ value: "2003" }),
+      ]);
+    });
+
+    it("works when both specified and first < last", () => {
+      const value = "";
+      const onChange = vi.fn();
+      const { result } = renderHook(() =>
+        useDateSelect(value, onChange, {
+          firstYear: 2000,
+          lastYear: 2002,
+        })
+      );
+      expect(result.current.yearOptions).toEqual([
+        expect.objectContaining({ value: "2000" }),
+        expect.objectContaining({ value: "2001" }),
+        expect.objectContaining({ value: "2002" }),
+      ]);
+    });
+
+    it("works when both specified and first > last", () => {
+      const value = "";
+      const onChange = vi.fn();
+      const { result } = renderHook(() =>
+        useDateSelect(value, onChange, {
+          lastYear: 2000,
+          firstYear: 2002,
+        })
+      );
+      expect(result.current.yearOptions).toEqual([
+        expect.objectContaining({ value: "2002" }),
+        expect.objectContaining({ value: "2001" }),
+        expect.objectContaining({ value: "2000" }),
+      ]);
+    });
+
+    it("works with only the first is specified and first < now", () => {
+      const mockedCurrentDate = new Date(2002, 0, 2);
+      vi.setSystemTime(mockedCurrentDate);
+
+      const value = "";
+      const onChange = vi.fn();
+      const { result } = renderHook(() =>
+        useDateSelect(value, onChange, {
+          firstYear: 2000,
+        })
+      );
+      expect(result.current.yearOptions).toEqual([
+        expect.objectContaining({ value: "2000" }),
+        expect.objectContaining({ value: "2001" }),
+        expect.objectContaining({ value: "2002" }),
+      ]);
+    });
+
+    it("works with only the first is specified and now < first", () => {
+      const mockedCurrentDate = new Date(2000, 0, 2);
+      vi.setSystemTime(mockedCurrentDate);
+
+      const value = "";
+      const onChange = vi.fn();
+      const { result } = renderHook(() =>
+        useDateSelect(value, onChange, {
+          firstYear: 2002,
+        })
+      );
+      expect(result.current.yearOptions).toEqual([
+        expect.objectContaining({ value: "2002" }),
+        expect.objectContaining({ value: "2001" }),
+        expect.objectContaining({ value: "2000" }),
+      ]);
+    });
+
+    it("works with only the last is specified and last <  the default first (2000)", () => {
+      const mockedCurrentDate = new Date(2002, 0, 2);
+      vi.setSystemTime(mockedCurrentDate);
+
+      const value = "";
+      const onChange = vi.fn();
+      const { result } = renderHook(() =>
+        useDateSelect(value, onChange, {
+          lastYear: 1998,
+        })
+      );
+      expect(result.current.yearOptions).toEqual([
+        expect.objectContaining({ value: "2000" }),
+        expect.objectContaining({ value: "1999" }),
+        expect.objectContaining({ value: "1998" }),
+      ]);
+    });
+
+    it("works with only the last is specified and the default first (2000) < last", () => {
+      const mockedCurrentDate = new Date(2002, 0, 2);
+      vi.setSystemTime(mockedCurrentDate);
+
+      const value = "";
+      const onChange = vi.fn();
+      const { result } = renderHook(() =>
+        useDateSelect(value, onChange, {
+          lastYear: 2002,
+        })
+      );
+      expect(result.current.yearOptions).toEqual([
+        expect.objectContaining({ value: "2000" }),
+        expect.objectContaining({ value: "2001" }),
+        expect.objectContaining({ value: "2002" }),
+      ]);
+    });
+  });
 });
