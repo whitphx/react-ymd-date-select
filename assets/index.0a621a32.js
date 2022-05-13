@@ -1,4 +1,4 @@
-var Y=Object.defineProperty;var D=Object.getOwnPropertySymbols;var E=Object.prototype.hasOwnProperty,O=Object.prototype.propertyIsEnumerable;var w=(a,r,o)=>r in a?Y(a,r,{enumerable:!0,configurable:!0,writable:!0,value:o}):a[r]=o,u=(a,r)=>{for(var o in r||(r={}))E.call(r,o)&&w(a,o,r[o]);if(D)for(var o of D(r))O.call(r,o)&&w(a,o,r[o]);return a};import"./modulepreload-polyfill.b7f2da20.js";import{n as l,r as f,j as t,a as d,F as V,S,b as j,L as I,R,E as z,c as P,u as T,d as n,e as i,f as U,g as B,h as A,i as $,C as G}from"./vendor.bb11239e.js";import"./DateSelect.6ca21455.js";import{g as N,u as q}from"./use-date-select.b6e49b91.js";import{C as s}from"./index.f326d9ab.js";import"./DateSelect.0c9988ff.js";import"./DateSelect.9834434a.js";const W=l.code`
+var Y=Object.defineProperty;var D=Object.getOwnPropertySymbols;var E=Object.prototype.hasOwnProperty,O=Object.prototype.propertyIsEnumerable;var w=(a,r,o)=>r in a?Y(a,r,{enumerable:!0,configurable:!0,writable:!0,value:o}):a[r]=o,u=(a,r)=>{for(var o in r||(r={}))E.call(r,o)&&w(a,o,r[o]);if(D)for(var o of D(r))O.call(r,o)&&w(a,o,r[o]);return a};import"./modulepreload-polyfill.b7f2da20.js";import{n as l,r as f,j as t,a as d,F as V,S as y,b as j,L as I,R,E as z,c as P,u as T,d as n,e as i,f as U,g as B,h as A,i as $,C as G}from"./vendor.bb11239e.js";import"./DateSelect.6ca21455.js";import{g as N,u as q}from"./use-date-select.b6e49b91.js";import{C as s}from"./index.f326d9ab.js";import"./DateSelect.0c9988ff.js";import"./DateSelect.9834434a.js";const W=l.code`
   display: inline-block;
   padding: 8px 16px;
   border-radius: 5px;
@@ -9,7 +9,7 @@ var Y=Object.defineProperty;var D=Object.getOwnPropertySymbols;var E=Object.prot
   /* Ref: https://github.com/chakra-ui/chakra-ui/blob/b77acf36688abb696fd1ec2a7898a7de43a91e37/packages/css-reset/src/css-reset.tsx#L43 */
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 1em;
-`;function F(a){const r=f.exports.useRef(null),o=f.exports.useCallback(e=>{var h,p;if(e.detail!==2)return;const m=r.current;if(m==null)return;const c=new Range;c.setStart(m,0),c.setEnd(m,1),(h=document.getSelection())==null||h.removeAllRanges(),(p=document.getSelection())==null||p.addRange(c)},[]);return t(W,{ref:r,onClick:o,children:a.children})}const y="#be5f6f",v="#fcdfff",J=l.div`
+`;function F(a){const r=f.exports.useRef(null),o=f.exports.useCallback(e=>{var h,p;if(e.detail!==2)return;const m=r.current;if(m==null)return;const c=new Range;c.setStart(m,0),c.setEnd(m,1),(h=document.getSelection())==null||h.removeAllRanges(),(p=document.getSelection())==null||p.addRange(c)},[]);return t(W,{ref:r,onClick:o,children:a.children})}const S="#be5f6f",v="#fcdfff",J=l.div`
   display: flex;
 
   & > div {
@@ -24,7 +24,7 @@ var Y=Object.defineProperty;var D=Object.getOwnPropertySymbols;var E=Object.prot
       }
     }
   }
-`,K=N(new Date);function X(){const[a,r]=f.exports.useState(K||"2022-01-01"),o=q(a,r,{monthFormat:"MMM"});return d(V,{isInvalid:a==="",children:[d(J,{children:[t(S,{value:o.yearValue,onChange:o.onYearChange,bg:"whiteAlpha.900",color:y,children:o.yearOptions.map(e=>t("option",{value:e.value,children:e.label},e.value))}),t(S,{value:o.monthValue,onChange:o.onMonthChange,bg:"whiteAlpha.900",color:y,children:o.monthOptions.map(e=>t("option",{value:e.value,children:e.label},e.value))}),t(S,{value:o.dayValue,onChange:o.onDayChange,bg:"whiteAlpha.900",color:y,children:o.dayOptions.map(e=>t("option",{value:e.value,children:e.label},e.value))})]}),t(j,{color:v,children:"Invalid date"})]})}const _=l.div`
+`,K=N(new Date);function X(){const[a,r]=f.exports.useState(K||"2022-01-01"),o=q(a,r,{monthFormat:"MMM"});return d(V,{isInvalid:a==="",children:[d(J,{children:[t(y,{value:o.yearValue,onChange:o.onYearChange,bg:"whiteAlpha.900",color:S,children:o.yearOptions.map(e=>t("option",{value:e.value,children:e.label},e.value))}),t(y,{value:o.monthValue,onChange:o.onMonthChange,bg:"whiteAlpha.900",color:S,children:o.monthOptions.map(e=>t("option",{value:e.value,children:e.label},e.value))}),t(y,{value:o.dayValue,onChange:o.onDayChange,bg:"whiteAlpha.900",color:S,children:o.dayOptions.map(e=>t("option",{value:e.value,children:e.label},e.value))})]}),t(j,{color:v,children:"Invalid date"})]})}const _=l.div`
   position: relative;
   margin: 0;
   display: flex;
@@ -126,7 +126,7 @@ var Y=Object.defineProperty;var D=Object.getOwnPropertySymbols;var E=Object.prot
 `,fe=l.h4`
   font-size: 1.4rem;
   margin: 1.6rem 0 0.4rem;
-`;function ge(a){if(a==null)return!1;try{return new URL(a).origin!==window.location.origin}catch{return!1}}function Se(a){const r=ge(a.href);return d(I,{href:a.href,isExternal:r,children:[a.children,r&&t(z,{mx:"2px"})]})}const ye={pre:me,code:a=>t(pe,u({},a)),h1:a=>t(he,u({},a)),h2:a=>t(ue,u({},a)),h3:a=>t(C,u({},a)),h4:a=>t(fe,u({},a)),a:Se},ve=l.iframe`
+`;function ge(a){if(a==null)return!1;try{return new URL(a).origin!==window.location.origin}catch{return!1}}function ye(a){const r=ge(a.href);return d(I,{href:a.href,isExternal:r,children:[a.children,r&&t(z,{mx:"2px"})]})}const Se={pre:me,code:a=>t(pe,u({},a)),h1:a=>t(he,u({},a)),h2:a=>t(ue,u({},a)),h3:a=>t(C,u({},a)),h4:a=>t(fe,u({},a)),a:ye},ve=l.iframe`
   display: block;
   width: 100%;
 `;function x(a){const[r,o]=f.exports.useState(),e=f.exports.useRef(null),m=f.exports.useCallback(c=>{e.current=c,c!=null&&(c.onload=()=>{var h,p,g;o((g=(p=(h=c.contentWindow)==null?void 0:h.document)==null?void 0:p.documentElement)==null?void 0:g.scrollHeight)})},[]);return f.exports.useEffect(()=>{const c=setInterval(()=>{var p,g,b;if(e.current==null)return;const h=e.current;o((b=(g=(p=h.contentWindow)==null?void 0:p.document)==null?void 0:g.documentElement)==null?void 0:b.scrollHeight)},200);return()=>{clearInterval(c)}},[]),t(ve,{ref:m,src:a.src,frameBorder:"0",height:r})}var Ce=`import { useState } from "react";
@@ -368,51 +368,6 @@ export default Sample;
 `,Ye=`import { useState } from "react";
 import { DateSelect } from "react-ymd-date-select/presets/vanilla";
 
-function Sample() {
-  const [date, setDate] = useState<string>("2022-01-02");
-
-  return (
-    <div>
-      <DateSelect value={date} onChange={setDate} />
-      <p>Selected date is: {date}</p>
-    </div>
-  );
-}
-
-export default Sample;
-`,Ee=`import { useState } from "react";
-import { DateSelect } from "react-ymd-date-select/presets/vanilla";
-
-function Sample() {
-  const [date, setDate] = useState<string>("");
-
-  return (
-    <div>
-      <DateSelect value={date} onChange={setDate} defaultYear={2000} />
-      <p>Selected date is: {date}</p>
-    </div>
-  );
-}
-
-export default Sample;
-`,Oe=`import { useState } from "react";
-import { DateSelect } from "react-ymd-date-select/presets/vanilla";
-
-function Sample() {
-  const [date, setDate] = useState<string>("");
-
-  return (
-    <div>
-      <DateSelect value={date} onChange={setDate} defaultYear="now" />
-      <p>Selected date is: {date}</p>
-    </div>
-  );
-}
-
-export default Sample;
-`,Ve=`import { useState } from "react";
-import { DateSelect } from "react-ymd-date-select/presets/vanilla";
-
 const yearFormats = ["y", "yo", "yy", "yyy", "yyyy", "yyyyy"] as const;
 const monthFormats = [
   "M",
@@ -435,9 +390,9 @@ type MonthFormat = typeof monthFormats[number];
 type DayFormat = typeof dayFormats[number];
 
 function Sample() {
-  const [yearFormat, setYearFormat] = useState<YearFormat>("y");
-  const [monthFormat, setMonthFormat] = useState<MonthFormat>("M");
-  const [dayFormat, setDayFormat] = useState<DayFormat>("d");
+  const [yearFormat, setYearFormat] = useState<YearFormat>("yy");
+  const [monthFormat, setMonthFormat] = useState<MonthFormat>("MMMM");
+  const [dayFormat, setDayFormat] = useState<DayFormat>("do");
 
   const [date, setDate] = useState<string>("");
 
@@ -503,7 +458,7 @@ function Sample() {
 }
 
 export default Sample;
-`,je=`import { useState } from "react";
+`,Ee=`import { useState } from "react";
 import { DateSelect } from "react-ymd-date-select/presets/vanilla";
 import frLocale from "date-fns/locale/fr";
 import ruLocale from "date-fns/locale/ru";
@@ -550,6 +505,51 @@ function Sample() {
         monthFormat="MMM"
         defaultMonth="now"
       />
+      <p>Selected date is: {date}</p>
+    </div>
+  );
+}
+
+export default Sample;
+`,Oe=`import { useState } from "react";
+import { DateSelect } from "react-ymd-date-select/presets/vanilla";
+
+function Sample() {
+  const [date, setDate] = useState<string>("2022-01-02");
+
+  return (
+    <div>
+      <DateSelect value={date} onChange={setDate} />
+      <p>Selected date is: {date}</p>
+    </div>
+  );
+}
+
+export default Sample;
+`,Ve=`import { useState } from "react";
+import { DateSelect } from "react-ymd-date-select/presets/vanilla";
+
+function Sample() {
+  const [date, setDate] = useState<string>("");
+
+  return (
+    <div>
+      <DateSelect value={date} onChange={setDate} defaultYear={2000} />
+      <p>Selected date is: {date}</p>
+    </div>
+  );
+}
+
+export default Sample;
+`,je=`import { useState } from "react";
+import { DateSelect } from "react-ymd-date-select/presets/vanilla";
+
+function Sample() {
+  const [date, setDate] = useState<string>("");
+
+  return (
+    <div>
+      <DateSelect value={date} onChange={setDate} defaultYear="now" />
       <p>Selected date is: {date}</p>
     </div>
   );
@@ -678,29 +678,29 @@ It is because `,n(e.code,{children:"<DateSelect />"}),"'s ",n(e.code,{children:"
 which is ISO8601 format, and the same as `,i(e.a,{href:"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date#value",children:["the value of the native ",n(e.code,{children:'<input type="date" />'})]}),`.
 It's also `,n(e.a,{href:"https://tc39.es/ecma262/#sec-date-time-string-format",children:"the JavaScript standard date string format"}),"."]}),`
 `,n(e.h2,{children:"Samples"}),`
-`,n(e.h3,{children:"Setting default value to the state"}),`
-`,`
-`,n(s,{initialCode:Ye,language:"tsx"}),`
-`,n(e.h3,{children:"Default values for year, month, and day"}),`
-`,`
-`,n(s,{initialCode:Ee,language:"tsx"}),`
-`,i(e.p,{children:["You can set ",n(e.code,{children:"defaultYear"}),", ",n(e.code,{children:"defaultMonth"}),", and ",n(e.code,{children:"defaultDay"}),"."]}),`
-`,i(e.p,{children:["Note that these props only set the default selection of the dropdown UI, but does not affects the state as ",n(e.code,{children:"onChange"})," is not called."]}),`
-`,n(e.h3,{children:"Set the current date as the default values"}),`
-`,`
-`,n(s,{initialCode:Oe,language:"tsx"}),`
-`,i(e.p,{children:["You can set ",n(e.code,{children:'"now"'})," to ",n(e.code,{children:"defaultYear"}),", ",n(e.code,{children:"defaultMonth"}),", and ",n(e.code,{children:"defaultDay"}),"."]}),`
 `,n(e.h3,{children:"Format"}),`
 `,`
-`,n(s,{initialCode:Ve,language:"tsx"}),`
+`,n(s,{initialCode:Ye,language:"tsx"}),`
 `,i(e.p,{children:["You can control the format through ",n(e.code,{children:"yearFormat"}),", ",n(e.code,{children:"monthFormat"}),", and ",n(e.code,{children:"dayFormat"})," props."]}),`
 `,i(e.p,{children:["As ",n(e.code,{children:"date-fns/format"}),` is internally used to format the date string, so you can set its formatting options.
 See `,i(e.a,{href:"https://date-fns.org/v2.28.0/docs/format",children:["the document of ",n(e.code,{children:"date-fns/format"})]})," about the available options."]}),`
 `,n(e.h3,{children:"Localization"}),`
 `,`
-`,n(s,{initialCode:je,language:"tsx"}),`
+`,n(s,{initialCode:Ee,language:"tsx"}),`
 `,i(e.p,{children:["You can use the ",n(e.code,{children:"locale"})," prop to control the locale used at formatting."]}),`
 `,i(e.p,{children:["As ",n(e.code,{children:"date-fns/format"})," is internally used to format the date string, its locale object can be passed."]}),`
+`,n(e.h3,{children:"Setting default value to the state"}),`
+`,`
+`,n(s,{initialCode:Oe,language:"tsx"}),`
+`,n(e.h3,{children:"Default values for year, month, and day"}),`
+`,`
+`,n(s,{initialCode:Ve,language:"tsx"}),`
+`,i(e.p,{children:["You can set ",n(e.code,{children:"defaultYear"}),", ",n(e.code,{children:"defaultMonth"}),", and ",n(e.code,{children:"defaultDay"}),"."]}),`
+`,i(e.p,{children:["Note that these props only set the default selection of the dropdown UI, but does not affects the state as ",n(e.code,{children:"onChange"})," is not called."]}),`
+`,n(e.h3,{children:"Set the current date as the default values"}),`
+`,`
+`,n(s,{initialCode:je,language:"tsx"}),`
+`,i(e.p,{children:["You can set ",n(e.code,{children:'"now"'})," to ",n(e.code,{children:"defaultYear"}),", ",n(e.code,{children:"defaultMonth"}),", and ",n(e.code,{children:"defaultDay"}),"."]}),`
 `,n(e.h3,{children:"Year range"}),`
 `,`
 `,n(s,{initialCode:ze,language:"tsx"}),`
@@ -714,4 +714,4 @@ If you create a custom component using the hook and want to hide the day selecto
 `,n(e.h3,{children:"A custom component wrapping the preset component"}),`
 `,`
 `,n(s,{initialCode:Te,language:"tsx"}),`
-`,i(e.p,{children:["This example shows how to pass the ",n(e.code,{children:"ref"})," to the preset component and how to integrate it with React Hook Form, which uses the ",n(e.code,{children:"ref"}),"."]})]})}}function Be(){return d(B,{children:[t(ce,{}),t(se,{children:t(Ue,{components:ye})})]})}const Ae=A({styles:{global:{"*, *::before, &::after":{borderColor:null,wordWrap:null},html:{lineHeight:1.5},body:{position:"relative",minHeight:"100%",fontFeatureSettings:"kern"},"*, *::before, *::after":{boxSizing:"border-box"},"body, blockquote, dl, dd, h1, h2, h3, h4, h5, h6, hr, figure, p, pre":{margin:0}}}}),$e=document.getElementById("root"),Ge=$($e);Ge.render(t(R.StrictMode,{children:t(G,{resetCSS:!1,theme:Ae,children:t(Be,{})})}));
+`,i(e.p,{children:["This example shows how to pass the ",n(e.code,{children:"ref"})," to the preset component and how to integrate it with React Hook Form, which uses the ",n(e.code,{children:"ref"}),"."]})]})}}function Be(){return d(B,{children:[t(ce,{}),t(se,{children:t(Ue,{components:Se})})]})}const Ae=A({styles:{global:{"*, *::before, &::after":{borderColor:null,wordWrap:null},html:{lineHeight:1.5},body:{position:"relative",minHeight:"100%",fontFeatureSettings:"kern"},"*, *::before, *::after":{boxSizing:"border-box"},"body, blockquote, dl, dd, h1, h2, h3, h4, h5, h6, hr, figure, p, pre":{margin:0}}}}),$e=document.getElementById("root"),Ge=$($e);Ge.render(t(R.StrictMode,{children:t(G,{resetCSS:!1,theme:Ae,children:t(Be,{})})}));
