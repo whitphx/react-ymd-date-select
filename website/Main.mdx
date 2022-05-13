@@ -50,6 +50,27 @@ It's also [the JavaScript standard date string format](https://tc39.es/ecma262/#
 
 ## Samples
 
+### Format
+
+import FormatSampleCode from "./samples/options/format?raw";
+
+<CodePreview initialCode={FormatSampleCode} language="tsx" />
+
+You can control the format through `yearFormat`, `monthFormat`, and `dayFormat` props.
+
+As `date-fns/format` is internally used to format the date string, so you can set its formatting options.
+See [the document of `date-fns/format`](https://date-fns.org/v2.28.0/docs/format) about the available options.
+
+### Localization
+
+import LocalizationSampleCode from "./samples/options/localization?raw";
+
+<CodePreview initialCode={LocalizationSampleCode} language="tsx" />
+
+You can use the `locale` prop to control the locale used at formatting.
+
+As `date-fns/format` is internally used to format the date string, its locale object can be passed.
+
 ### Setting default value to the state
 
 import DefaultStateSampleCode from "./samples/options/default-state?raw";
@@ -73,27 +94,6 @@ import PartialDefaultValueNowSampleCode from "./samples/options/partial-default-
 <CodePreview initialCode={PartialDefaultValueNowSampleCode} language="tsx" />
 
 You can set `"now"` to `defaultYear`, `defaultMonth`, and `defaultDay`.
-
-### Format
-
-import FormatSampleCode from "./samples/options/format?raw";
-
-<CodePreview initialCode={FormatSampleCode} language="tsx" />
-
-You can control the format through `yearFormat`, `monthFormat`, and `dayFormat` props.
-
-As `date-fns/format` is internally used to format the date string, so you can set its formatting options.
-See [the document of `date-fns/format`](https://date-fns.org/v2.28.0/docs/format) about the available options.
-
-### Localization
-
-import LocalizationSampleCode from "./samples/options/localization?raw";
-
-<CodePreview initialCode={LocalizationSampleCode} language="tsx" />
-
-You can use the `locale` prop to control the locale used at formatting.
-
-As `date-fns/format` is internally used to format the date string, its locale object can be passed.
 
 ### Year range
 
