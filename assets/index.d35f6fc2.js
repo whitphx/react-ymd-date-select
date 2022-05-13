@@ -1,4 +1,4 @@
-var E=Object.defineProperty;var F=Object.getOwnPropertySymbols;var O=Object.prototype.hasOwnProperty,Y=Object.prototype.propertyIsEnumerable;var D=(a,r,o)=>r in a?E(a,r,{enumerable:!0,configurable:!0,writable:!0,value:o}):a[r]=o,u=(a,r)=>{for(var o in r||(r={}))O.call(r,o)&&D(a,o,r[o]);if(F)for(var o of F(r))Y.call(r,o)&&D(a,o,r[o]);return a};import"./modulepreload-polyfill.b7f2da20.js";import{n as l,r as f,j as t,a as d,F as V,S as y,b as z,L as I,R,E as j,c as P,u as T,d as n,e as i,f as U,g as B,h as A,i as $,C as G}from"./vendor.bb11239e.js";import"./DateSelect.c96bd86b.js";import{g as N,u as q}from"./use-date-select.392af991.js";import{C as s}from"./index.c72104b6.js";import"./DateSelect.feb6bcf6.js";import"./DateSelect.d39a8478.js";const W=l.code`
+var Y=Object.defineProperty;var D=Object.getOwnPropertySymbols;var E=Object.prototype.hasOwnProperty,O=Object.prototype.propertyIsEnumerable;var F=(a,r,o)=>r in a?Y(a,r,{enumerable:!0,configurable:!0,writable:!0,value:o}):a[r]=o,u=(a,r)=>{for(var o in r||(r={}))E.call(r,o)&&F(a,o,r[o]);if(D)for(var o of D(r))O.call(r,o)&&F(a,o,r[o]);return a};import"./modulepreload-polyfill.b7f2da20.js";import{n as l,r as f,j as t,a as d,F as V,S,b as z,L as R,R as I,E as j,c as P,u as U,d as n,e as i,f as T,g as B,h as A,i as $,C as G}from"./vendor.bb11239e.js";import"./DateSelect.6ca21455.js";import{g as N,u as q}from"./use-date-select.b6e49b91.js";import{C as s}from"./index.f326d9ab.js";import"./DateSelect.0c9988ff.js";import"./DateSelect.9834434a.js";const W=l.code`
   display: inline-block;
   padding: 8px 16px;
   border-radius: 5px;
@@ -9,7 +9,7 @@ var E=Object.defineProperty;var F=Object.getOwnPropertySymbols;var O=Object.prot
   /* Ref: https://github.com/chakra-ui/chakra-ui/blob/b77acf36688abb696fd1ec2a7898a7de43a91e37/packages/css-reset/src/css-reset.tsx#L43 */
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 1em;
-`;function w(a){const r=f.exports.useRef(null),o=f.exports.useCallback(e=>{var h,p;if(e.detail!==2)return;const m=r.current;if(m==null)return;const c=new Range;c.setStart(m,0),c.setEnd(m,1),(h=document.getSelection())==null||h.removeAllRanges(),(p=document.getSelection())==null||p.addRange(c)},[]);return t(W,{ref:r,onClick:o,children:a.children})}const S="#be5f6f",v="#fcdfff",J=l.div`
+`;function w(a){const r=f.exports.useRef(null),o=f.exports.useCallback(e=>{var h,p;if(e.detail!==2)return;const m=r.current;if(m==null)return;const c=new Range;c.setStart(m,0),c.setEnd(m,1),(h=document.getSelection())==null||h.removeAllRanges(),(p=document.getSelection())==null||p.addRange(c)},[]);return t(W,{ref:r,onClick:o,children:a.children})}const y="#be5f6f",v="#fcdfff",J=l.div`
   display: flex;
 
   & > div {
@@ -24,7 +24,7 @@ var E=Object.defineProperty;var F=Object.getOwnPropertySymbols;var O=Object.prot
       }
     }
   }
-`,K=N(new Date);function X(){const[a,r]=f.exports.useState(K||"2022-01-01"),o=q(a,r,{monthFormat:"MMM"});return d(V,{isInvalid:a==="",children:[d(J,{children:[t(y,{value:o.yearValue,onChange:o.onYearChange,bg:"whiteAlpha.900",color:S,children:o.yearOptions.map(e=>t("option",{value:e.value,children:e.label},e.value))}),t(y,{value:o.monthValue,onChange:o.onMonthChange,bg:"whiteAlpha.900",color:S,children:o.monthOptions.map(e=>t("option",{value:e.value,children:e.label},e.value))}),t(y,{value:o.dayValue,onChange:o.onDayChange,bg:"whiteAlpha.900",color:S,children:o.dayOptions.map(e=>t("option",{value:e.value,children:e.label},e.value))})]}),t(z,{color:v,children:"Invalid date"})]})}const _=l.div`
+`,K=N(new Date);function X(){const[a,r]=f.exports.useState(K||"2022-01-01"),o=q(a,r,{monthFormat:"MMM"});return d(V,{isInvalid:a==="",children:[d(J,{children:[t(S,{value:o.yearValue,onChange:o.onYearChange,bg:"whiteAlpha.900",color:y,children:o.yearOptions.map(e=>t("option",{value:e.value,children:e.label},e.value))}),t(S,{value:o.monthValue,onChange:o.onMonthChange,bg:"whiteAlpha.900",color:y,children:o.monthOptions.map(e=>t("option",{value:e.value,children:e.label},e.value))}),t(S,{value:o.dayValue,onChange:o.onDayChange,bg:"whiteAlpha.900",color:y,children:o.dayOptions.map(e=>t("option",{value:e.value,children:e.label},e.value))})]}),t(z,{color:v,children:"Invalid date"})]})}const _=l.div`
   position: relative;
   margin: 0;
   display: flex;
@@ -77,7 +77,7 @@ var E=Object.defineProperty;var F=Object.getOwnPropertySymbols;var O=Object.prot
   margin: 0 auto;
   max-width: 960px;
   text-align: right;
-`,re=l(I)`
+`,re=l(R)`
   display: inline-flex;
   margin-top: 8px;
   color: #eee;
@@ -104,7 +104,7 @@ var E=Object.defineProperty;var F=Object.getOwnPropertySymbols;var O=Object.prot
   margin: 32px auto;
   max-width: 960px;
   padding: 0 16px;
-`;function me(a){const r=a.children;if(!R.isValidElement(r))return t("pre",u({},a));const{className:o}=r.props,e=o==null?void 0:o.replace(/language-/,""),m=r.props.children.trim();return e==="jsx"||e==="tsx"?t(s,{initialCode:m,language:e}):t("pre",{children:t("code",{children:r})})}const pe=l.code`
+`;function me(a){const r=a.children;if(!I.isValidElement(r))return t("pre",u({},a));const{className:o}=r.props,e=o==null?void 0:o.replace(/language-/,""),m=r.props.children.trim();return e==="jsx"||e==="tsx"?t(s,{initialCode:m,language:e}):t("pre",{children:t("code",{children:r})})}const pe=l.code`
   margin: 0 2px;
   padding: 1px 4px;
   border-radius: 5px;
@@ -120,16 +120,16 @@ var E=Object.defineProperty;var F=Object.getOwnPropertySymbols;var O=Object.prot
 `,ue=l.h2`
   font-size: 1.8rem;
   margin: 1.6rem 0 0.4rem;
-`,b=l.h3`
+`,C=l.h3`
   font-size: 1.6rem;
   margin: 1.6rem 0 0.4rem;
 `,fe=l.h4`
   font-size: 1.4rem;
   margin: 1.6rem 0 0.4rem;
-`;function ge(a){if(a==null)return!1;try{return new URL(a).origin!==window.location.origin}catch{return!1}}function ye(a){const r=ge(a.href);return d(I,{href:a.href,isExternal:r,children:[a.children,r&&t(j,{mx:"2px"})]})}const Se={pre:me,code:a=>t(pe,u({},a)),h1:a=>t(he,u({},a)),h2:a=>t(ue,u({},a)),h3:a=>t(b,u({},a)),h4:a=>t(fe,u({},a)),a:ye},ve=l.iframe`
+`;function ge(a){if(a==null)return!1;try{return new URL(a).origin!==window.location.origin}catch{return!1}}function Se(a){const r=ge(a.href);return d(R,{href:a.href,isExternal:r,children:[a.children,r&&t(j,{mx:"2px"})]})}const ye={pre:me,code:a=>t(pe,u({},a)),h1:a=>t(he,u({},a)),h2:a=>t(ue,u({},a)),h3:a=>t(C,u({},a)),h4:a=>t(fe,u({},a)),a:Se},ve=l.iframe`
   display: block;
   width: 100%;
-`;function x(a){const[r,o]=f.exports.useState(),e=f.exports.useRef(null),m=f.exports.useCallback(c=>{e.current=c,c!=null&&(c.onload=()=>{var h,p,g;o((g=(p=(h=c.contentWindow)==null?void 0:h.document)==null?void 0:p.documentElement)==null?void 0:g.scrollHeight)})},[]);return f.exports.useEffect(()=>{const c=setInterval(()=>{var p,g,C;if(e.current==null)return;const h=e.current;o((C=(g=(p=h.contentWindow)==null?void 0:p.document)==null?void 0:g.documentElement)==null?void 0:C.scrollHeight)},200);return()=>{clearInterval(c)}},[]),t(ve,{ref:m,src:a.src,frameBorder:"0",height:r})}var be=`import { useState } from "react";
+`;function x(a){const[r,o]=f.exports.useState(),e=f.exports.useRef(null),m=f.exports.useCallback(c=>{e.current=c,c!=null&&(c.onload=()=>{var h,p,g;o((g=(p=(h=c.contentWindow)==null?void 0:h.document)==null?void 0:p.documentElement)==null?void 0:g.scrollHeight)})},[]);return f.exports.useEffect(()=>{const c=setInterval(()=>{var p,g,b;if(e.current==null)return;const h=e.current;o((b=(g=(p=h.contentWindow)==null?void 0:p.document)==null?void 0:g.documentElement)==null?void 0:b.scrollHeight)},200);return()=>{clearInterval(c)}},[]),t(ve,{ref:m,src:a.src,frameBorder:"0",height:r})}var Ce=`import { useState } from "react";
 import { ChakraProvider } from "@chakra-ui/react";
 import { DateSelect } from "react-ymd-date-select/presets/chakra-ui";
 
@@ -160,16 +160,16 @@ function Sample() {
 }
 
 export default Sample;
-`;const Ce=l.div`
+`;const be=l.div`
   display: flex;
   flex-direction: column;
   box-shadow: 0 0 2px 0 lightsteelblue;
   width: 100%;
   overflow: hidden;
-`,Fe=l.div`
+`,De=l.div`
   overflow: auto;
   max-height: 300px;
-`,De=l(P)`
+`,Fe=l(P)`
   font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace;
   font-size: 14px;
   white-space: pre;
@@ -210,7 +210,7 @@ export default Sample;
   font-weight: 500;
   font-size: 1rem;
   padding: 0.4rem;
-`;function L({code:a,language:r,children:o}){const[e,{on:m,off:c}]=T();return d(Ce,{children:[t(we,{children:o}),!e&&t(M,{onClick:m,children:"Show code"}),e&&t(Fe,{children:t(De,{value:a,language:r,readOnly:!0})}),e&&t(M,{onClick:c,children:"Hide code"})]})}const ke=l.div`
+`;function L({code:a,language:r,children:o}){const[e,{on:m,off:c}]=U();return d(be,{children:[t(we,{children:o}),!e&&t(M,{onClick:m,children:"Show code"}),e&&t(De,{children:t(Fe,{value:a,language:r,readOnly:!0})}),e&&t(M,{onClick:c,children:"Hide code"})]})}const ke=l.div`
   display: flex;
   width: 100%;
 
@@ -225,7 +225,7 @@ export default Sample;
   @media (max-width: 640px) {
     width: 100%;
   }
-`;function Me(){return t(x,{src:"./website/components/preset-samples/samples/vanilla/index.html"})}function Le(){return d(ke,{children:[d(H,{children:[t(b,{children:"Chakra UI"}),t(L,{code:be,language:"tsx",children:t(x,{src:"./website/components/preset-samples/samples/chakra-ui/index.html"})})]}),d(H,{children:[t(b,{children:"Material UI"}),t(L,{code:xe,language:"tsx",children:t(x,{src:"./website/components/preset-samples/samples/mui/index.html"})})]})]})}var He=`import { useState } from "react";
+`;function Me(){return t(x,{src:"./website/components/preset-samples/samples/vanilla/index.html"})}function Le(){return d(ke,{children:[d(H,{children:[t(C,{children:"Chakra UI"}),t(L,{code:Ce,language:"tsx",children:t(x,{src:"./website/components/preset-samples/samples/chakra-ui/index.html"})})]}),d(H,{children:[t(C,{children:"Material UI"}),t(L,{code:xe,language:"tsx",children:t(x,{src:"./website/components/preset-samples/samples/mui/index.html"})})]})]})}var He=`import { useState } from "react";
 import { useDateSelect } from "react-ymd-date-select";
 
 interface CustomDateSelectProps {
@@ -294,7 +294,7 @@ function Sample() {
 }
 
 export default Sample;
-`,Ie=`import { useForm, Controller } from "react-hook-form";
+`,Re=`import { useForm, Controller } from "react-hook-form";
 import { DateSelect } from "react-ymd-date-select/presets/vanilla";
 
 type FormData = {
@@ -330,7 +330,7 @@ function Sample() {
 }
 
 export default Sample;
-`,Re=`import { Formik, Form, Field, FieldProps } from "formik";
+`,Ie=`import { Formik, Form, Field, FieldProps } from "formik";
 import { DateSelect } from "react-ymd-date-select/presets/vanilla";
 
 interface Values {
@@ -365,7 +365,7 @@ function Sample() {
 }
 
 export default Sample;
-`,Ee=`import { useState } from "react";
+`,Ye=`import { useState } from "react";
 import { DateSelect } from "react-ymd-date-select/presets/vanilla";
 
 function Sample() {
@@ -380,7 +380,7 @@ function Sample() {
 }
 
 export default Sample;
-`,Oe=`import { useState } from "react";
+`,Ee=`import { useState } from "react";
 import { DateSelect } from "react-ymd-date-select/presets/vanilla";
 
 function Sample() {
@@ -395,7 +395,7 @@ function Sample() {
 }
 
 export default Sample;
-`,Ye=`import { useState } from "react";
+`,Oe=`import { useState } from "react";
 import { DateSelect } from "react-ymd-date-select/presets/vanilla";
 
 function Sample() {
@@ -564,6 +564,26 @@ function Sample() {
 
   return (
     <div>
+      <DateSelect
+        value={date}
+        onChange={setDate}
+        firstYear={2045}
+        lastYear={2000}
+      />
+      <p>Selected date is: {date}</p>
+    </div>
+  );
+}
+
+export default Sample;
+`,Pe=`import { useState } from "react";
+import { DateSelect } from "react-ymd-date-select/presets/vanilla";
+
+function Sample() {
+  const [date, setDate] = useState<string>("");
+
+  return (
+    <div>
       <DateSelect value={date} onChange={setDate} hideDay />
       <p>Selected date is: {date}</p>
     </div>
@@ -571,7 +591,7 @@ function Sample() {
 }
 
 export default Sample;
-`,Pe=`import React from "react";
+`,Ue=`import React from "react";
 import { useForm, Controller } from "react-hook-form";
 import { DateSelect, ChildComponentProps } from "react-ymd-date-select";
 import { DateDropdownGroup } from "react-ymd-date-select/presets/vanilla";
@@ -631,7 +651,7 @@ function Sample() {
 }
 
 export default Sample;
-`;function Te(a={}){const{wrapper:r}=a.components||{};return r?n(r,Object.assign({},a,{children:n(o,{})})):o();function o(){const e=Object.assign({h2:"h2",p:"p",code:"code",a:"a",h3:"h3"},a.components);return i(U,{children:[n(e.h2,{children:"Presets"}),`
+`;function Te(a={}){const{wrapper:r}=a.components||{};return r?n(r,Object.assign({},a,{children:n(o,{})})):o();function o(){const e=Object.assign({h2:"h2",p:"p",code:"code",a:"a",h3:"h3"},a.components);return i(T,{children:[n(e.h2,{children:"Presets"}),`
 `,i(e.p,{children:["It provides ready-to-use ",n(e.code,{children:"<DateSelect />"})," component for each UI library, exported from ",n(e.code,{children:"react-ymd-date-select/presets/*"}),"."]}),`
 `,i(e.p,{children:[n(e.code,{children:"react-ymd-date-select/presets/vanilla"})," is a bare HTML version without styling."]}),`
 `,n(Me,{}),`
@@ -644,13 +664,13 @@ export default Sample;
 `,n(e.h2,{children:"With form libraries"}),`
 `,n(e.h3,{children:"React Hook Form"}),`
 `,`
-`,n(s,{initialCode:Ie,language:"tsx"}),`
+`,n(s,{initialCode:Re,language:"tsx"}),`
 `,i(e.p,{children:[`For the details about the usage with React Hook Form,
 see `,n(e.a,{href:"https://react-hook-form.com/advanced-usage#ControlledmixedwithUncontrolledComponents",children:'the "Controlled mixed with Uncontrolled Components" section'}),` in the official document.
 Since the date selector is a controlled component, we need to use the `,n(e.code,{children:"<Controller />"})," provided from React Hook Form as the example above."]}),`
 `,n(e.h3,{children:"Formik"}),`
 `,`
-`,n(s,{initialCode:Re,language:"tsx"}),`
+`,n(s,{initialCode:Ie,language:"tsx"}),`
 `,i(e.p,{children:["Note that you have to use ",n(e.code,{children:"setFieldValue()"})," in the ",n(e.code,{children:"onChange"})," prop of ",n(e.code,{children:"<DateSelect />"})," instead of directly passing the ",n(e.code,{children:"field.onChange"}),` prop.
 It is because `,n(e.code,{children:"<DateSelect />"}),"'s ",n(e.code,{children:"onChange"})," is called with a ",n(e.code,{children:"string"})," value but not with an event and it does not match Formik's ",n(e.code,{children:"onChange"}),"."]}),`
 `,n(e.h2,{children:"The date string format"}),`
@@ -660,15 +680,15 @@ It's also `,n(e.a,{href:"https://tc39.es/ecma262/#sec-date-time-string-format",c
 `,n(e.h2,{children:"Samples"}),`
 `,n(e.h3,{children:"Setting default value to the state"}),`
 `,`
-`,n(s,{initialCode:Ee,language:"tsx"}),`
+`,n(s,{initialCode:Ye,language:"tsx"}),`
 `,n(e.h3,{children:"Default values for year, month, and day"}),`
 `,`
-`,n(s,{initialCode:Oe,language:"tsx"}),`
+`,n(s,{initialCode:Ee,language:"tsx"}),`
 `,i(e.p,{children:["You can set ",n(e.code,{children:"defaultYear"}),", ",n(e.code,{children:"defaultMonth"}),", and ",n(e.code,{children:"defaultDay"}),"."]}),`
 `,i(e.p,{children:["Note that these props only set the default selection of the dropdown UI, but does not affects the state as ",n(e.code,{children:"onChange"})," is not called."]}),`
 `,n(e.h3,{children:"Set the current date as the default values"}),`
 `,`
-`,n(s,{initialCode:Ye,language:"tsx"}),`
+`,n(s,{initialCode:Oe,language:"tsx"}),`
 `,i(e.p,{children:["You can set ",n(e.code,{children:'"now"'})," to ",n(e.code,{children:"defaultYear"}),", ",n(e.code,{children:"defaultMonth"}),", and ",n(e.code,{children:"defaultDay"}),"."]}),`
 `,n(e.h3,{children:"Format"}),`
 `,`
@@ -681,11 +701,15 @@ See `,i(e.a,{href:"https://date-fns.org/v2.28.0/docs/format",children:["the docu
 `,n(s,{initialCode:ze,language:"tsx"}),`
 `,i(e.p,{children:["You can use the ",n(e.code,{children:"locale"})," prop to control the locale used at formatting."]}),`
 `,i(e.p,{children:["As ",n(e.code,{children:"date-fns/format"})," is internally used to format the date string, its locale object can be passed."]}),`
-`,n(e.h3,{children:"Hide day"}),`
+`,n(e.h3,{children:"Year range"}),`
 `,`
 `,n(s,{initialCode:je,language:"tsx"}),`
+`,i(e.p,{children:["Use ",n(e.code,{children:"firstYear"})," and ",n(e.code,{children:"lastYear"})," props to set the year range."]}),`
+`,n(e.h3,{children:"Hide day"}),`
+`,`
+`,n(s,{initialCode:Pe,language:"tsx"}),`
 `,i(e.p,{children:["Set ",n(e.code,{children:"hideDay"})," prop as true to hide the day select."]}),`
 `,n(e.h3,{children:"A custom component wrapping the preset component"}),`
 `,`
-`,n(s,{initialCode:Pe,language:"tsx"}),`
-`,i(e.p,{children:["This example shows how to pass the ",n(e.code,{children:"ref"})," to the preset component and how to integrate it with React Hook Form, which uses the ",n(e.code,{children:"ref"}),"."]})]})}}function Ue(){return d(B,{children:[t(ce,{}),t(se,{children:t(Te,{components:Se})})]})}const Be=A({styles:{global:{"*, *::before, &::after":{borderColor:null,wordWrap:null},html:{lineHeight:1.5},body:{position:"relative",minHeight:"100%",fontFeatureSettings:"kern"},"*, *::before, *::after":{boxSizing:"border-box"},"body, blockquote, dl, dd, h1, h2, h3, h4, h5, h6, hr, figure, p, pre":{margin:0}}}}),Ae=document.getElementById("root"),$e=$(Ae);$e.render(t(R.StrictMode,{children:t(G,{resetCSS:!1,theme:Be,children:t(Ue,{})})}));
+`,n(s,{initialCode:Ue,language:"tsx"}),`
+`,i(e.p,{children:["This example shows how to pass the ",n(e.code,{children:"ref"})," to the preset component and how to integrate it with React Hook Form, which uses the ",n(e.code,{children:"ref"}),"."]})]})}}function Be(){return d(B,{children:[t(ce,{}),t(se,{children:t(Te,{components:ye})})]})}const Ae=A({styles:{global:{"*, *::before, &::after":{borderColor:null,wordWrap:null},html:{lineHeight:1.5},body:{position:"relative",minHeight:"100%",fontFeatureSettings:"kern"},"*, *::before, *::after":{boxSizing:"border-box"},"body, blockquote, dl, dd, h1, h2, h3, h4, h5, h6, hr, figure, p, pre":{margin:0}}}}),$e=document.getElementById("root"),Ge=$($e);Ge.render(t(I.StrictMode,{children:t(G,{resetCSS:!1,theme:Ae,children:t(Be,{})})}));
