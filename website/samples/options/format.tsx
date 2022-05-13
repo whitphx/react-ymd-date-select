@@ -23,9 +23,9 @@ type MonthFormat = typeof monthFormats[number];
 type DayFormat = typeof dayFormats[number];
 
 function Sample() {
-  const [yearFormat, setYearFormat] = useState<YearFormat>("y");
-  const [monthFormat, setMonthFormat] = useState<MonthFormat>("M");
-  const [dayFormat, setDayFormat] = useState<DayFormat>("d");
+  const [yearFormat, setYearFormat] = useState<YearFormat>("yy");
+  const [monthFormat, setMonthFormat] = useState<MonthFormat>("MMMM");
+  const [dayFormat, setDayFormat] = useState<DayFormat>("do");
 
   const [date, setDate] = useState<string>("");
 
