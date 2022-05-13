@@ -109,7 +109,10 @@ import HideDaySampleCode from "./samples/options/hide-day?raw";
 
 <CodePreview initialCode={HideDaySampleCode} language="tsx" />
 
-Set `hideDay` prop as true to hide the day select.
+Set `hideDay` prop as true to hide the day selector.
+
+This is a "component-level" prop provided with the preset components, but not with the `useDateSelect()` hook.
+If you create a custom component using the hook and want to hide the day selector, just remove it from your component and set `defaultDay` option on the hook as the value you want.
 
 ### A custom component wrapping the preset component
 
