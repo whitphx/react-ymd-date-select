@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.0.11] - 2022-05-13
+
+### Fix
+
+- Rename `minYear` and `maxYear` to `firstYear` and `lastYear`, #78.
+- Set the default value of `firstYear` as 2000, #78.
+
 ## [0.0.10] - 2022-05-13
 
 ### Fix
