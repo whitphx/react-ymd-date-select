@@ -5,8 +5,7 @@ import { range } from "./range";
 import { compileDateString, parseDateString } from "./date-string";
 import { Options } from "./types";
 
-const DEFAULT_MIN_YEAR = 1960;
-const DEFAULT_MAX_YEAR = new Date().getFullYear();
+const DEFAULT_FIRST_YEAR = 2000;
 
 function parseSelectValue(value: string): number {
   return parseInt(value);
@@ -58,8 +57,8 @@ interface DateSelectState {
 }
 
 export interface UseDateSelectOptions {
-  minYear?: number;
-  maxYear?: number;
+  firstYear?: number;
+  lastYear?: number;
   defaultYear?: number | "now";
   defaultMonth?: number | "now";
   defaultDay?: number | "now";
@@ -169,15 +168,17 @@ export const useDateSelect = (
 
   const yearFormat = opts.yearFormat;
   const rawYearOptions = useMemo(() => {
-    const minYear = opts.minYear != null ? opts.minYear : DEFAULT_MIN_YEAR;
-    const maxYear = opts.maxYear != null ? opts.maxYear : DEFAULT_MAX_YEAR;
-    return range(minYear, maxYear).map((i) => {
+    const firstYear =
+      opts.firstYear != null ? opts.firstYear : DEFAULT_FIRST_YEAR;
+    const lastYear =
+      opts.lastYear != null ? opts.lastYear : new Date().getFullYear();
+    return range(firstYear, lastYear).map((i) => {
       const label = yearFormat
         ? formatDate(new Date(i, 0, 1), yearFormat, { locale })
         : i.toString();
       return { value: convertToSelectValue(i), label };
     });
-  }, [opts.minYear, opts.maxYear, locale, yearFormat]);
+  }, [opts.firstYear, opts.lastYear, locale, yearFormat]);
 
   const monthFormat = opts.monthFormat;
   const monthOptions = useMemo(() => {
