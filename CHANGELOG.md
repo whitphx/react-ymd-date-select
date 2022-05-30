@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.1.0] - 2022-05-30
+
+- Bump minor version.
+
 ## [0.0.12] - 2022-05-23
 
 - Fix `repository.url` field in `package.json`, #80.
