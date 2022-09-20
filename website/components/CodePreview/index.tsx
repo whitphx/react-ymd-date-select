@@ -81,7 +81,15 @@ function CodePreview({ language, ...liveRunnerProps }: CodePreviewProps) {
   return (
     <Container>
       <EditorContainer>
-        <Editor value={code} language={language} onChange={onChange} />
+        <Editor
+          value={code}
+          language={language}
+          onChange={onChange}
+          insertSpaces={true}
+          ignoreTabKey={false}
+          padding={0}
+          tabSize={2}
+        />
       </EditorContainer>
       <PreviewContainer>
         <Preview>{element}</Preview>
