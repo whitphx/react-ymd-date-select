@@ -84,7 +84,15 @@ function CollapseCodeBlock({
       {!isOpen && <Button onClick={open}>Show code</Button>}
       {isOpen && (
         <EditorContainer>
-          <Editor value={code} language={language} readOnly />
+          <Editor
+            value={code}
+            language={language}
+            readOnly
+            insertSpaces={true}
+            ignoreTabKey={false}
+            padding={0}
+            tabSize={2}
+          />
         </EditorContainer>
       )}
       {isOpen && <Button onClick={close}>Hide code</Button>}
