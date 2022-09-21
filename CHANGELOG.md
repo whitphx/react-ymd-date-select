@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.2.0] - 2022-09-22
+
+- React 18 support, #83. Thanks to @rike422.
+
 ## [0.1.0] - 2022-05-30
 
 - Bump minor version.
