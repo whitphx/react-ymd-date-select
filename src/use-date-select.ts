@@ -68,6 +68,7 @@ export interface UseDateSelectOptions {
   dayFormat?: string;
 }
 export interface UseDateSelectInterface {
+  setDayCount: React.Dispatch<React.SetStateAction<number>>;
   yearValue: string;
   monthValue: string;
   dayValue: string;
@@ -190,15 +191,18 @@ export const useDateSelect = (
     });
   }, [locale, monthFormat]);
 
+  const [dayCount, setDayCount] = useState(31);
+
   const dayFormat = opts.dayFormat;
+
   const dayOptions = useMemo(() => {
-    return range(1, 31).map((i) => {
+    return range(1, dayCount).map((i) => {
       const label = dayFormat
         ? formatDate(new Date(1960, 0, i), dayFormat, { locale })
         : i.toString();
       return { label, value: convertToSelectValue(i) };
     });
-  }, [locale, dayFormat]);
+  }, [locale, dayFormat, dayCount]);
 
   // If `state.yearValue` is not included in the year options, add it.
   const yearOptions = useMemo(() => {
@@ -225,6 +229,7 @@ export const useDateSelect = (
   }, [state.yearValue, rawYearOptions]);
 
   return {
+    setDayCount,
     yearValue: state.yearValue,
     monthValue: state.monthValue,
     dayValue: state.dayValue,
