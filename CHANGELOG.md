@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.2.0] - 2022-12-29
+
 ### Fix
 
 - Fix the bug on the non-ESM module support, #86.
