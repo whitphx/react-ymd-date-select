@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Fix
+
+- Fix the bug on the non-ESM module support, #86.
+
 ## [0.2.0] - 2022-09-22
 
 - React 18 support, #83. Thanks to @rike422.
